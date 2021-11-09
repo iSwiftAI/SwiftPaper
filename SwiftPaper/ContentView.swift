@@ -1,16 +1,21 @@
 //
 //  ContentView.swift
-//  SwiftPaper
+//  Shared
 //
-//  Created by 吕丁阳 on 2021/11/9.
+//  Created by 吕丁阳 on 2021/10/2.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("showWelcome") var showWelcome: Bool = true
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        CCFList()
+            .navigationViewStyle(.stack)
+            .sheet(isPresented: $showWelcome, onDismiss: {}) {
+                WelcomeView()
+            }
     }
 }
 
