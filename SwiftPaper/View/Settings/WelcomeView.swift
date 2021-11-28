@@ -16,6 +16,7 @@ struct WelcomeView: View {
                 Image("welcome")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 400, maxHeight: 400)
                     .padding()
                 Text("SwiftPaper")
                     .font(.system(.largeTitle, design: .rounded))

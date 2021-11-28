@@ -15,6 +15,8 @@
 		B6EB11662753BFA400FF09CE /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B6EB11652753BFA400FF09CE /* BetterSafariView */; };
 		B6EB11682753D14600FF09CE /* DeadLineConfs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB11672753D14600FF09CE /* DeadLineConfs.swift */; };
 		B6EB116A2753D38B00FF09CE /* AllDeadLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB11692753D38B00FF09CE /* AllDeadLines.swift */; };
+		B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB116C2753D8AB00FF09CE /* AppTabNavigation.swift */; };
+		B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB116D2753D8AB00FF09CE /* AppSidebarNavigation.swift */; };
 		B6EED01F273A96E10077832F /* SwiftPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED01E273A96E10077832F /* SwiftPaperApp.swift */; };
 		B6EED021273A96E10077832F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED020273A96E10077832F /* ContentView.swift */; };
 		B6EED026273A96E30077832F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EED025273A96E30077832F /* Preview Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		B6EB11622753B47900FF09CE /* DeadLineTimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineTimeLine.swift; sourceTree = "<group>"; };
 		B6EB11672753D14600FF09CE /* DeadLineConfs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineConfs.swift; sourceTree = "<group>"; };
 		B6EB11692753D38B00FF09CE /* AllDeadLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDeadLines.swift; sourceTree = "<group>"; };
+		B6EB116C2753D8AB00FF09CE /* AppTabNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		B6EB116D2753D8AB00FF09CE /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
 		B6EED01B273A96E10077832F /* SwiftPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EED01E273A96E10077832F /* SwiftPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPaperApp.swift; sourceTree = "<group>"; };
 		B6EED020273A96E10077832F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B6EB116B2753D89400FF09CE /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B6EED020273A96E10077832F /* ContentView.swift */,
+				B6EB116D2753D8AB00FF09CE /* AppSidebarNavigation.swift */,
+				B6EB116C2753D8AB00FF09CE /* AppTabNavigation.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		B6EED012273A96E10077832F = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B6EED01E273A96E10077832F /* SwiftPaperApp.swift */,
-				B6EED020273A96E10077832F /* ContentView.swift */,
+				B6EB116B2753D89400FF09CE /* Navigation */,
 				B6EED02C273A96FF0077832F /* Model */,
 				B6EED036273A97190077832F /* ViewModel */,
 				B6EED03B273A97190077832F /* View */,
@@ -303,6 +317,8 @@
 				B6EED051273A97190077832F /* CCFStore.swift in Sources */,
 				B6EED05B273A97190077832F /* CCFDetailView.swift in Sources */,
 				B6EED055273A97190077832F /* SettingsView.swift in Sources */,
+				B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */,
+				B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */,
 				B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */,
 				B6EB116127539B8500FF09CE /* LoadAndDecode.swift in Sources */,
 				B6EB114B27537AD600FF09CE /* DeadLineStore.swift in Sources */,

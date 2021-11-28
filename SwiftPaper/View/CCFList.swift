@@ -16,44 +16,32 @@ struct CCFList: View {
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
     
-    @State var showSettingsView = false
-    
     var body: some View {
         
-        NavigationView {
-            Group {
-                if ccfStore.loading {
-                    ProgressView()
+        Group {
+            if ccfStore.loading {
+                ProgressView()
+            } else {
+                if filterResult.isEmpty {
+                    EmptyCCFView()
                 } else {
-                    if filterResult.isEmpty {
-                        EmptyCCFView()
-                    } else {
-                        List(filterResult) { model in
-                            NavigationLink(destination: CCFDetailView(model: model)) {
-                                CCFRow(model: model)
-                            }
+                    List(filterResult) { model in
+                        NavigationLink(destination: CCFDetailView(model: model)) {
+                            CCFRow(model: model)
                         }
                     }
                 }
             }
-            .background(NavigationLink(destination: SettingsView(), isActive: $showSettingsView) { EmptyView() })
-            .navigationTitle(Text("SwiftPaper"))
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-            .disableAutocorrection(true)
-            .toolbar(content: toolbarItems)
-            .refreshable { await self.ccfStore.fetch() }
         }
+        .navigationTitle(Text("SwiftPaper"))
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+        .disableAutocorrection(true)
+        .toolbar(content: toolbarItems)
+        .refreshable { await self.ccfStore.fetch() }
     }
     
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            Button {
-                self.showSettingsView = true
-            } label: {
-                Label("设置", systemImage: "gear")
-            }
-        }
         ToolbarItem(placement: .navigationBarTrailing) {
             HStack {
                 Button {
