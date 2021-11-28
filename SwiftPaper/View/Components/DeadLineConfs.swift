@@ -6,15 +6,46 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct DeadLineConfs: View {
+    @State var conf: DeadLine.Conf
+    @State var url: URL?
+    
+    @State var header: String?
+    
+    var abbreviation = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Section {
+            TextinForm(Title: "会议名称", Content: "\(abbreviation)\(conf.year)")
+            TextinForm(Title: "会议时间", Content: conf.date)
+            TextinForm(Title: "会议地点", Content: conf.place)
+            NavigationLink(destination: DeadLineTimeLine(timeLines: conf.timeline)) {
+                TextinForm(Title: "截稿时间", Content: conf.timeline[0].deadline)
+            }
+            Button(action: {
+                self.url = conf.link
+            }) {
+                Label("访问会议网站", systemImage: "safari")
+            }
+        } header: {
+            Text(header ?? "")
+        }
+        .safariView(item: $url) { url in
+            SafariView(
+                url: url,
+                configuration: SafariView.Configuration(
+                    entersReaderIfAvailable: false,
+                    barCollapsingEnabled: true
+                )
+            )
+        }
     }
 }
 
 struct DeadLineConfs_Previews: PreviewProvider {
     static var previews: some View {
-        DeadLineConfs()
+        DeadLineConfs(conf: DeadLineStore.placeholderCCF[0].confs[0])
     }
 }

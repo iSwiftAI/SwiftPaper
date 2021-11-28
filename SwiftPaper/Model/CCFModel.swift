@@ -20,6 +20,9 @@ struct CCFModel: Identifiable {
     
     // other atrributes
     var url: URL { URL(string: site)! }
+    
+    // DeadLine
+    var deadLine: DeadLine?
 }
 extension CCFModel: Codable {
     enum CodingKeys: String, CodingKey {
@@ -34,4 +37,3 @@ extension CCFModel: Codable {
 
     }
 }
-//Field    Rank    Abbreviation    FullName    Press    Site

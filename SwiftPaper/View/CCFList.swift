@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CCFList: View {
-    @StateObject var ccfStore = CCFStore()
+    @EnvironmentObject var ccfStore: CCFStore
+    @EnvironmentObject var deadlineStore: DeadLineStore
     
-    //    @State var ccfModels: [CCFModel]
     @State var searchText: String = ""
     
     @State var conferenceOrJournal: Int = 0
@@ -36,60 +36,60 @@ struct CCFList: View {
                     }
                 }
             }
-            .background(
-                NavigationLink(destination: SettingsView(), isActive: $showSettingsView) {
-                    EmptyView()
-                }
-            )
+            .background(NavigationLink(destination: SettingsView(), isActive: $showSettingsView) { EmptyView() })
             .navigationTitle(Text("SwiftPaper"))
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        self.showSettingsView = true
-                    } label: {
-                        Label("设置", systemImage: "gear")
+            .disableAutocorrection(true)
+            .toolbar(content: toolbarItems)
+            .refreshable { await self.ccfStore.fetch() }
+        }
+    }
+    
+    
+    @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                self.showSettingsView = true
+            } label: {
+                Label("设置", systemImage: "gear")
+            }
+        }
+        ToolbarItem(placement: .navigationBarTrailing) {
+            HStack {
+                Button {
+                    Task {
+                        await self.ccfStore.fetch()
                     }
+                } label: {
+                    Label("刷新", systemImage: "arrow.clockwise")
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        self.ccfStore.fetchLatestModelsfromWeb()
+                Menu {
+                    Picker(selection: $conferenceOrJournal) {
+                        Text("显示会议与期刊").tag(0)
+                        Text("仅显示会议").tag(1)
+                        Text("仅显示期刊").tag(2)
                     } label: {
-                        Label("刷新", systemImage: "arrow.clockwise")
+                        Text("显示期刊或会议")
                     }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Menu {
-                        Picker(selection: $conferenceOrJournal) {
-                            Text("显示会议与期刊").tag(0)
-                            Text("仅显示会议").tag(1)
-                            Text("仅显示期刊").tag(2)
-                        } label: {
-                            Text("显示期刊或会议")
-                        }
-                        Picker(selection: $englishOrChinese) {
-                            Text("显示国内外").tag(0)
-                            Text("仅显示国际").tag(1)
-                            Text("仅显示中文").tag(2)
-                        } label: {
-                            Text("显示国内或国外")
-                        }
+                    Picker(selection: $englishOrChinese) {
+                        Text("显示国内外").tag(0)
+                        Text("仅显示国际").tag(1)
+                        Text("仅显示中文").tag(2)
                     } label: {
-                        Label("筛选", systemImage: "line.3.horizontal.decrease.circle")
+                        Text("显示国内或国外")
                     }
-                }
-                ToolbarItem(placement: .bottomBar) {
                     Button(action: {
                         self.englishOrChinese = 0
                         self.conferenceOrJournal = 0
                     }, label: {
-                        Text("清除筛选条件")
+                        Text("恢复默认筛选条件")
                     })
+                } label: {
+                    Label("筛选", systemImage: "line.3.horizontal.decrease.circle")
                 }
             }
         }
     }
-    
     
     var searchResult: [CCFModel] {
         if searchText.isEmpty {
@@ -146,6 +146,8 @@ struct CCFList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CCFList()
+                .environmentObject(CCFStore())
+                .environmentObject(DeadLineStore())
         }
     }
 }

@@ -10,12 +10,21 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("showWelcome") var showWelcome: Bool = true
     
+    @StateObject var ccfStore = CCFStore()
+    @StateObject var deadLineStore = DeadLineStore()
+    
     var body: some View {
         CCFList()
             .navigationViewStyle(.stack)
             .sheet(isPresented: $showWelcome, onDismiss: {}) {
                 WelcomeView()
             }
+            .task {
+                await self.ccfStore.fetch()
+                await self.deadLineStore.fetch()
+            }
+            .environmentObject(ccfStore)
+            .environmentObject(deadLineStore)
     }
 }
 

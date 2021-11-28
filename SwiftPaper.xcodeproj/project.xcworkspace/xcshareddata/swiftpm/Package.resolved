@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BetterSafariView",
+        "repositoryURL": "https://github.com/stleamist/BetterSafariView",
+        "state": {
+          "branch": null,
+          "revision": "be7248720af18c57c7a1348b20f6212379b28c6b",
+          "version": "2.4.0"
+        }
+      },
+      {
+        "package": "Down",
+        "repositoryURL": "https://github.com/iwasrobbed/Down",
+        "state": {
+          "branch": null,
+          "revision": "f34b166be1f1db4aa8f573067e901d72f2a6be57",
+          "version": "0.11.0"
+        }
+      },
+      {
+        "package": "Parma",
+        "repositoryURL": "https://github.com/dasautoooo/Parma",
+        "state": {
+          "branch": null,
+          "revision": "3c8b431fd5ad3cf675c60d0aa89f011cbcbb036c",
+          "version": "0.3.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -7,14 +7,23 @@
 
 import SwiftUI
 
-struct AllDeadlines: View {
+struct AllDeadLines: View {
+    @State var confs: [DeadLine.Conf]
+    var abbreviation = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(confs, id: \.self) { conf in
+            DeadLineConfs(conf: conf, abbreviation: abbreviation)
+        }
+        .onAppear {
+            self.confs = confs.sorted {$0.year > $1.year}
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(Text("历届会议"))
     }
 }
 
-struct AllDeadlines_Previews: PreviewProvider {
+struct AllDeadLines_Previews: PreviewProvider {
     static var previews: some View {
-        AllDeadlines()
+        AllDeadLines(confs: DeadLineStore.placeholderCCF[0].confs)
     }
 }
