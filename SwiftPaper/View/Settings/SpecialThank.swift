@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SafariServices
+import BetterSafariView
 
 struct SpecialThank: View {
     @State private var presentingSafariView = false
