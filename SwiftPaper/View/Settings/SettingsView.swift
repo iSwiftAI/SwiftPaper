@@ -29,6 +29,7 @@ struct SettingsView: View {
     var body: some View {
         
         Form {
+            // App Icon
             Section {
                 HStack {
                     Spacer()
@@ -38,12 +39,13 @@ struct SettingsView: View {
                             .IconImageStyle(width: 90)
                         Text(appName)
                             .font(.system(size: 30, weight: .bold, design: .rounded))
-                        Text("\(version) (\(build)) made with ❤️ by LDY").foregroundColor(.secondary)
                     }
                     Spacer()
                 }
                 .listRowBackground(Color.clear)
             }
+            
+            // Report & share
             Section {
                 Button(action: { self.isShowingMailView.toggle() }, label: {
                     Label(title: { Text("反馈问题").foregroundColor(.primary) }) {
@@ -75,9 +77,10 @@ struct SettingsView: View {
                 }
                 .popover(isPresented: $showPopover, content: {
                     ActivityViewController(activityItems: [AppURL])
-                    //                            .modifier(CustomizedThemeModeModifier())
                 })
             }
+            
+            // About
             Section {
                 Button(action: { self.showWelcome = true }, label: {
                     Label(title: { Text("查看介绍页面").foregroundColor(.primary) }) {
@@ -101,6 +104,8 @@ struct SettingsView: View {
                     }
                 }
             }
+            
+            // Privacy % acknowledgements
             Section {
                 NavigationLink(destination: PrivacyView()) {
                     Label(title: { Text("隐私政策") }) {
@@ -116,6 +121,15 @@ struct SettingsView: View {
                     
                 }
             }
+            
+            // Build number
+            Section {
+                HStack {
+                    Spacer()
+                    Text("\(version) (\(build)) made with ❤️ by LDY").foregroundColor(.secondary).font(.subheadline)
+                    Spacer()
+                }.listRowBackground(Color.clear)
+            }
         }
         .navigationTitle(Text("设置"))
     }
@@ -126,40 +140,3 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
-
-func getHPrimaryIconName() -> String? {
-    guard let infoPlist = Bundle.main.infoDictionary else { return nil }
-    guard let bundleIcons = infoPlist["CFBundleIcons"] as? NSDictionary else { return nil }
-    guard let bundlePrimaryIcon = bundleIcons["CFBundlePrimaryIcon"] as? NSDictionary else { return nil }
-    guard let bundleIconFiles = bundlePrimaryIcon["CFBundleIconFiles"] as? NSArray else { return nil }
-    guard let appIcon = bundleIconFiles.lastObject as? String else { return nil }
-    return appIcon
-}
-
-extension Bundle {
-    
-    public var appVersionShort: String {
-        if let result = infoDictionary?["CFBundleShortVersionString"] as? String {
-            return result
-        } else {
-            return "⚠️"
-        }
-    }
-    public var appVersionLong: String {
-        if let result = infoDictionary?["CFBundleVersion"] as? String {
-            return result
-        } else {
-            return "⚠️"
-        }
-    }
-    public var appName: String {
-        if let result = infoDictionary?["CFBundleName"] as? String {
-            return result
-        } else {
-            return "⚠️"
-        }
-    }
-}
-
-
-
