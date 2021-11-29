@@ -37,7 +37,9 @@ struct DeadLine: Identifiable {
     let dblp: String
     let confs: [Conf]
     
-    var id = UUID()
+    var id: String {
+        return title + description
+    }
 }
 
 extension DeadLine: Codable {

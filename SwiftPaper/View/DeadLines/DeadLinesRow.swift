@@ -39,16 +39,14 @@ struct DeadLinesRow: View {
                 }
             }
         }
-        .onAppear() {
-            Task {
-                self.futureDate = self.deadLine.confs.last!.timeline.last!.deadline.localdate(timeZone: self.deadLine.confs.last!.timezone)
-                self.countDown = countDownString(from: self.futureDate, until: Date())
-            }
+        .task {
+            self.futureDate = self.deadLine.confs.last!.timeline.last!.deadline.localdate(timeZone: self.deadLine.confs.last!.timezone)
+            self.countDown = countDownString(from: self.futureDate, until: Date())
         }
         .onReceive(timer) { time in
             self.countDown = countDownString(from: self.futureDate, until: Date())
         }
-    }
+}
 }
 
 struct DeadLinesRow_Previews: PreviewProvider {

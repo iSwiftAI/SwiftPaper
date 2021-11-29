@@ -22,6 +22,7 @@ struct DeadLinesList: View {
                     EmptyCCFView()
                 } else {
                     List(filterResult) { deadLine in
+//                    List(deadlineStore.deadLines) { deadLine in
                         NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
                             DeadLinesRow(deadLine: deadLine)
                         }

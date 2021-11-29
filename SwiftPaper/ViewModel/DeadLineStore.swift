@@ -17,6 +17,7 @@ class DeadLineStore: ObservableObject {
     
     
     func fetch(force: Bool = false) async {
+        print(Date())
         if deadLines.isEmpty {
             self.loading = true
         }
@@ -26,6 +27,7 @@ class DeadLineStore: ObservableObject {
             print(error)
         }
         self.loading = false
+        print(Date())
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

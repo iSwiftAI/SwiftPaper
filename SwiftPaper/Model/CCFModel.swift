@@ -8,7 +8,6 @@
 import Foundation
 
 struct CCFModel: Identifiable {
-    var id = UUID()
     var region: String
     var form: String
     var field: String
@@ -23,6 +22,9 @@ struct CCFModel: Identifiable {
     
     // DeadLine
     var deadLine: DeadLine?
+    var id: String {
+        return fullName + abbreviation
+    }
 }
 extension CCFModel: Codable {
     enum CodingKeys: String, CodingKey {
