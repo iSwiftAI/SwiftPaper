@@ -32,6 +32,7 @@ struct AppTabNavigation: View {
                 Label("设置", systemImage: "gear")
             }
         }
+        // 这个 stack 导致返回列表的时候选中状态卡顿
         .navigationViewStyle(.stack)
     }
 }

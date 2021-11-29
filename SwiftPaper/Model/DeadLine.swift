@@ -40,7 +40,3 @@ struct DeadLine: Codable {
 
 
 
-struct Types: Codable {
-    let name: String
-    let sub: String
-}

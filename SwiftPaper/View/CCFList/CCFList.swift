@@ -32,11 +32,11 @@ struct CCFList: View {
                 }
             }
         }
-        .navigationTitle(Text("SwiftPaper"))
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+        .refreshable { await self.ccfStore.fetch() }
         .disableAutocorrection(true)
         .toolbar(content: toolbarItems)
-        .refreshable { await self.ccfStore.fetch() }
+        .navigationTitle(Text("SwiftPaper"))
     }
     
     
