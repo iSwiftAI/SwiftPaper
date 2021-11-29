@@ -12,7 +12,7 @@ struct DeadLinesRow: View {
     
     @State var countDown = ""
     @State var futureDate: Date = Date()
-    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         HStack {
@@ -33,15 +33,17 @@ struct DeadLinesRow: View {
                     HStack {
                         Image(systemName: "calendar.badge.clock").renderingMode(.original)
                         Text(countDown).bold()
+                            .foregroundStyle(LinearGradientColors[deadLine.rank]!)
                     }
                     .font(.system(.title3, design: .rounded))
-                    .foregroundColor(.accentColor)
                 }
             }
         }
         .onAppear() {
-            self.futureDate = self.deadLine.confs.last!.timeline.last!.deadline.localdate(timeZone: self.deadLine.confs.last!.timezone)
-            self.countDown = countDownString(from: self.futureDate, until: Date())
+            Task {
+                self.futureDate = self.deadLine.confs.last!.timeline.last!.deadline.localdate(timeZone: self.deadLine.confs.last!.timezone)
+                self.countDown = countDownString(from: self.futureDate, until: Date())
+            }
         }
         .onReceive(timer) { time in
             self.countDown = countDownString(from: self.futureDate, until: Date())

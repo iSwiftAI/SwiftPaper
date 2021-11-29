@@ -48,3 +48,11 @@ struct RankView_Previews: PreviewProvider {
         RankView(rank: "C")
     }
 }
+let LinearGradientColors: [String: LinearGradient] = [
+    "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
+                        startPoint:  .leading, endPoint:  .trailing),
+    "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
+                        startPoint:  .leading, endPoint:  .trailing),
+    "C": LinearGradient(gradient: .init(colors: [.indigo, .pink]),
+                        startPoint:  .leading, endPoint:  .trailing)
+]
