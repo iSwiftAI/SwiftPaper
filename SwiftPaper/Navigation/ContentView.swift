@@ -29,7 +29,6 @@ struct ContentView: View {
                 AppSidebarNavigation()
             #endif
         }
-//        .navigationViewStyle(.stack)
         .sheet(isPresented: $showWelcome, onDismiss: {}) {
             WelcomeView()
         }

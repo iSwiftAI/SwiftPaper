@@ -28,7 +28,7 @@ struct AppSidebarNavigation: View {
                 }
                 
                 NavigationLink(tag: NavigationItem.deadlines, selection: $selection) {
-                    EmptyView()
+                    DeadLinesList()
                 } label: {
                     Label("会议征稿信息", systemImage: "newspaper")
                 }

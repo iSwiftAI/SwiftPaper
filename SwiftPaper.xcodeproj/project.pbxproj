@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9486275472B200D09E6F /* DeadLinesList.swift */; };
+		B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9488275472C800D09E6F /* DeadLinesRow.swift */; };
 		B6EB114927537A7300FF09CE /* DeadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB114827537A7300FF09CE /* DeadLine.swift */; };
 		B6EB114B27537AD600FF09CE /* DeadLineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB114A27537AD600FF09CE /* DeadLineStore.swift */; };
 		B6EB114D27537B7800FF09CE /* all.json in Resources */ = {isa = PBXBuildFile; fileRef = B6EB114C27537B7800FF09CE /* all.json */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6CA9486275472B200D09E6F /* DeadLinesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesList.swift; sourceTree = "<group>"; };
+		B6CA9488275472C800D09E6F /* DeadLinesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesRow.swift; sourceTree = "<group>"; };
 		B6EB114827537A7300FF09CE /* DeadLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLine.swift; sourceTree = "<group>"; };
 		B6EB114A27537AD600FF09CE /* DeadLineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineStore.swift; sourceTree = "<group>"; };
 		B6EB114C27537B7800FF09CE /* all.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = all.json; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		B6CA948327546FDF00D09E6F /* DeadLines */ = {
 			isa = PBXGroup;
 			children = (
+				B6CA9486275472B200D09E6F /* DeadLinesList.swift */,
+				B6CA9488275472C800D09E6F /* DeadLinesRow.swift */,
 			);
 			path = DeadLines;
 			sourceTree = "<group>";
@@ -119,6 +125,15 @@
 				B6EB11692753D38B00FF09CE /* AllDeadLines.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B6CA94852754722A00D09E6F /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				B6EB116027539B8500FF09CE /* LoadAndDecode.swift */,
+				B6EED046273A97190077832F /* RateApp.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 		B6EB115E27537DDD00FF09CE /* Settings */ = {
@@ -143,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				B6EED020273A96E10077832F /* ContentView.swift */,
-				B6EB116D2753D8AB00FF09CE /* AppSidebarNavigation.swift */,
 				B6EB116C2753D8AB00FF09CE /* AppTabNavigation.swift */,
+				B6EB116D2753D8AB00FF09CE /* AppSidebarNavigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 				B6EED02C273A96FF0077832F /* Model */,
 				B6EED036273A97190077832F /* ViewModel */,
 				B6EED03B273A97190077832F /* View */,
+				B6CA94852754722A00D09E6F /* Functions */,
 				B6EED044273A97190077832F /* Extension */,
 				B6EED038273A97190077832F /* Resources */,
 				B6EED024273A96E30077832F /* Preview Content */,
@@ -202,7 +218,6 @@
 			children = (
 				B6EED037273A97190077832F /* CCFStore.swift */,
 				B6EB114A27537AD600FF09CE /* DeadLineStore.swift */,
-				B6EB116027539B8500FF09CE /* LoadAndDecode.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				B6EED045273A97190077832F /* SendEmailToMe.swift */,
-				B6EED046273A97190077832F /* RateApp.swift */,
 				B6EED047273A97190077832F /* SwiftUIImage+IconStyle.swift */,
 				B6EED048273A97190077832F /* ShareSheet.swift */,
 			);
@@ -324,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */,
 				B6EED057273A97190077832F /* RankView.swift in Sources */,
 				B6EED056273A97190077832F /* PrivacyView.swift in Sources */,
 				B6EED059273A97190077832F /* WelcomeView.swift in Sources */,
@@ -345,6 +360,7 @@
 				B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */,
 				B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */,
 				B6EB116127539B8500FF09CE /* LoadAndDecode.swift in Sources */,
+				B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */,
 				B6EB114B27537AD600FF09CE /* DeadLineStore.swift in Sources */,
 				B6EED021273A96E10077832F /* ContentView.swift in Sources */,
 				B6EED01F273A96E10077832F /* SwiftPaperApp.swift in Sources */,
@@ -491,7 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -520,7 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;

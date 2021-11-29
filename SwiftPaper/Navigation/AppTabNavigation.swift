@@ -18,7 +18,7 @@ struct AppTabNavigation: View {
             }
             
             NavigationView {
-                EmptyView()
+                DeadLinesList()
             }
             .tabItem {
                 Label("会议征稿信息", systemImage: "newspaper")
@@ -31,6 +31,7 @@ struct AppTabNavigation: View {
                 Label("设置", systemImage: "gear")
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
