@@ -8,13 +8,61 @@
 import SwiftUI
 
 struct DeadLinesRow: View {
+    @State var deadLine: DeadLine
+    
+    @State var countDown = ""
+    @State var futureDate: Date = Date()
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    
     var body: some View {
-        Text("Hello, World!")
+        HStack {
+            RankView(rank: deadLine.rank)
+            VStack(alignment: .leading) {
+                Text(deadLine.title + " \(deadLine.confs.last!.year)")
+                    .font(.system(.title, design: .rounded))
+                    .bold()
+                Spacer()
+                Text(deadLine.description)
+                    .lineLimit(2)
+                VStack(alignment: .leading) {
+                    Text(deadLine.sub)
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
+                if self.futureDate > Date() {
+                    HStack {
+                        Image(systemName: "calendar.badge.clock").renderingMode(.original)
+                        Text(countDown).bold()
+                    }
+                    .font(.system(.title3, design: .rounded))
+                    .foregroundColor(.accentColor)
+                }
+            }
+        }
+        .onAppear() {
+            self.futureDate = self.deadLine.confs.last!.timeline.last!.deadline.localdate(timeZone: self.deadLine.confs.last!.timezone)
+            self.countDown = countDownString(from: self.futureDate, until: Date())
+        }
+        .onReceive(timer) { time in
+            self.countDown = countDownString(from: self.futureDate, until: Date())
+        }
     }
 }
 
 struct DeadLinesRow_Previews: PreviewProvider {
     static var previews: some View {
-        DeadLinesRow()
+        List {
+            DeadLinesRow(deadLine: DeadLineStore.placeholderCCF[0])
+        }
     }
+}
+
+func countDownString(from date: Date, until nowDate: Date) -> String {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.day, .hour, .minute, .second] ,from: nowDate, to: date)
+    return String(format: "%dd:%02dh:%02d:%02ds",
+                  components.day ?? 00,
+                  components.hour ?? 00,
+                  components.minute ?? 00,
+                  components.second ?? 00)
 }

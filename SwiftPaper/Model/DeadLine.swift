@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DeadLine: Codable {
+struct DeadLine: Identifiable {
     struct Conf: Codable, Hashable {
         struct Timeline: Codable, Hashable {
             let abstractDeadline: String?
@@ -36,6 +36,19 @@ struct DeadLine: Codable {
     let rank: String
     let dblp: String
     let confs: [Conf]
+    
+    var id = UUID()
+}
+
+extension DeadLine: Codable {
+    enum CodingKeys: String, CodingKey {
+        case confs = "confs"
+        case dblp = "dblp"
+        case rank = "rank"
+        case title = "title"
+        case description = "description"
+        case sub = "sub"
+    }
 }
 
 

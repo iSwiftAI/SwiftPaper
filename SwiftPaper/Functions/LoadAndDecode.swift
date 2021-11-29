@@ -7,8 +7,13 @@
 import Foundation
 
 
-func loadjsonfromWeb<T: Decodable>(from url: URL) async throws -> [T] {
-    let (data, _) = try await URLSession.shared.data(from: url)
+func loadjsonfromWeb<T: Decodable>(from url: URL, force: Bool = false) async throws -> [T] {
+    var session = URLSession.shared
+    if force {
+        let configuration = URLSessionConfiguration.ephemeral
+        session = URLSession(configuration: configuration)
+    }
+    let (data, _) = try await session.data(from: url)
     let decoder = JSONDecoder()
     return try decoder.decode([T].self, from: data)
 }

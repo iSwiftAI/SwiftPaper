@@ -17,17 +17,27 @@ class CCFStore: ObservableObject {
     @Published var loading: Bool = true
     
     
-    func fetch() async {
+    func fetch(force: Bool = false) async {
         if ccfModels.isEmpty {
             self.loading = true
             do {
-                self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!)
+                self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
             } catch {
                 print(error)
             }
             self.loading = false
         }
         
+    }
+    
+    func getCCFModel(deadLine: DeadLine) -> CCFModel? {
+        for ccfModel in ccfModels {
+            if ccfModel.abbreviation == deadLine.title {
+                return ccfModel
+            }
+        }
+        print(deadLine.title)
+        return nil
     }
     
     

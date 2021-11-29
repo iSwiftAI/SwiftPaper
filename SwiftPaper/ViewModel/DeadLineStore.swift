@@ -16,12 +16,12 @@ class DeadLineStore: ObservableObject {
     @Published var loading: Bool = true
     
     
-    func fetch() async {
+    func fetch(force: Bool = false) async {
         if deadLines.isEmpty {
             self.loading = true
         }
         do {
-            self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!)
+            self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
         } catch {
             print(error)
         }

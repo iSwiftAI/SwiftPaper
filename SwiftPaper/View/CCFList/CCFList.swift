@@ -32,8 +32,7 @@ struct CCFList: View {
                 }
             }
         }
-//        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-        .refreshable { await self.ccfStore.fetch() }
+        .refreshable { await self.ccfStore.fetch(force: true) }
         .disableAutocorrection(true)
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("SwiftPaper"))
@@ -45,7 +44,7 @@ struct CCFList: View {
             HStack {
                 Button {
                     Task {
-                        await self.ccfStore.fetch()
+                        await self.ccfStore.fetch(force: true)
                     }
                 } label: {
                     Label("刷新", systemImage: "arrow.clockwise")

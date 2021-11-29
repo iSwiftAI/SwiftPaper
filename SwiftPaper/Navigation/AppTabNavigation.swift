@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct AppTabNavigation: View {
-    @State var searchText: String = ""
+    @State var searchCCFModel: String = ""
+    @State var searchDeadLine: String = ""
     
     var body: some View {
         TabView {
             NavigationView {
-                CCFList(searchText: $searchText)
+                CCFList(searchText: $searchCCFModel)
             }
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+            .disableAutocorrection(true)
             .tabItem {
                 Label("推荐列表", systemImage: "list.bullet")
             }
             
             NavigationView {
-                DeadLinesList()
+                DeadLinesList(searchText: $searchDeadLine)
             }
+            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+            .disableAutocorrection(true)
             .tabItem {
                 Label("会议征稿信息", systemImage: "newspaper")
             }

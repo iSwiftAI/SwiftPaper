@@ -61,7 +61,9 @@ struct CCFDetailView: View {
             }
             .task {
 //                await self.deadlineStore.fetch()
-                self.deadline = deadlineStore.getDeadLine(ccfModel: self.model)
+                if self.deadline == nil {
+                    self.deadline = deadlineStore.getDeadLine(ccfModel: self.model)
+                }
             }
             
             if (self.deadline != nil) {
@@ -103,5 +105,6 @@ struct TextinForm: View {
             Spacer()
             Text(Content).foregroundColor(.secondary)
         }
+        .multilineTextAlignment(.trailing)
     }
 }

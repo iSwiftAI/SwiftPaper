@@ -16,11 +16,11 @@ struct DeadLineTimeLine: View {
             ForEach(timeLines, id: \.self) { timeLine in
                 Section {
                     if (timeLine.abstractDeadline != nil) {
-                        TextinForm(Title: "摘要截止时间", Content: timeLine.abstractDeadline!.localTime(timeZone: timeZone))
+                        TextinForm(Title: "摘要截止时间", Content: timeLine.abstractDeadline!.localTimeString(timeZone: timeZone))
                     }
-                    TextinForm(Title: "正文截止时间", Content: timeLine.deadline.localTime(timeZone: timeZone))
+                    TextinForm(Title: "正文截止时间", Content: timeLine.deadline.localTimeString(timeZone: timeZone))
                     if (timeLine.comment != nil) {
-                        TextinForm(Title: "备注", Content: timeLine.comment!.localTime(timeZone: timeZone))
+                        TextinForm(Title: "备注", Content: timeLine.comment!.localTimeString(timeZone: timeZone))
                     }
                 }
             }
