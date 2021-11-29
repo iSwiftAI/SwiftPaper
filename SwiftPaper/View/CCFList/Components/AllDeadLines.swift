@@ -10,6 +10,7 @@ import SwiftUI
 struct AllDeadLines: View {
     @State var confs: [DeadLine.Conf]
     var abbreviation = ""
+    
     var body: some View {
         List(confs, id: \.self) { conf in
             DeadLineConfs(conf: conf, abbreviation: abbreviation)

@@ -9,10 +9,9 @@ import SwiftUI
 import BetterSafariView
 
 struct CCFDetailView: View {
-    @State private var presentingSafariView = false
-    @State private var presentingSafariView2 = false
-    @State var model: CCFModel
     @EnvironmentObject var deadlineStore: DeadLineStore
+    
+    @State var model: CCFModel
     
     @State var deadline: DeadLine?
     @State var url: URL? = nil
@@ -39,6 +38,7 @@ struct CCFDetailView: View {
                 }
             }
             .listRowBackground(Color.clear)
+            
             Section {
                 TextinForm(Title: "国际/中文", Content: model.region)
                 TextinForm(Title: "领域", Content: model.field)
@@ -63,8 +63,10 @@ struct CCFDetailView: View {
 //                await self.deadlineStore.fetch()
                 self.deadline = deadlineStore.getDeadLine(ccfModel: self.model)
             }
+            
             if (self.deadline != nil) {
                 DeadLineConfs(conf: deadline!.confs.last!, header: "会议征稿信息", abbreviation: self.model.abbreviation)
+                
                 NavigationLink(destination: AllDeadLines(confs: deadline!.confs, abbreviation: self.model.abbreviation)) {
                     Text("历届会议信息")
                 }

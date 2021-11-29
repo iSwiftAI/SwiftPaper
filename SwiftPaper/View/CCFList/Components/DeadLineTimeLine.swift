@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DeadLineTimeLine: View {
     var timeLines: [DeadLine.Conf.Timeline]
+    
     var body: some View {
         List {
             ForEach(timeLines, id: \.self) { timeLine in

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmptyCCFView: View {
+    
     var body: some View {
         VStack {
             Image("empty")

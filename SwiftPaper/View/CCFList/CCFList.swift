@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CCFList: View {
     @EnvironmentObject var ccfStore: CCFStore
-    @EnvironmentObject var deadlineStore: DeadLineStore
     
     @State var searchText: String = ""
     
@@ -135,7 +134,6 @@ struct CCFList_Previews: PreviewProvider {
         NavigationView {
             CCFList()
                 .environmentObject(CCFStore())
-                .environmentObject(DeadLineStore())
         }
     }
 }

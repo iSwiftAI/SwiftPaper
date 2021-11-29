@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CCFRow: View {
     @State var model: CCFModel
+    
     var body: some View {
         HStack {
             VStack {
