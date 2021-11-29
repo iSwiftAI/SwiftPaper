@@ -65,7 +65,7 @@ struct CCFDetailView: View {
             }
             
             if (self.deadline != nil) {
-                DeadLineConfs(conf: deadline!.confs.last!, header: "会议征稿信息", abbreviation: self.model.abbreviation)
+                DeadLineConfs(conf: deadline!.confs.last!, header: "会议征稿信息", abbreviation: self.model.abbreviation, timeZone: deadline!.confs.last!.timezone)
                 
                 NavigationLink(destination: AllDeadLines(confs: deadline!.confs, abbreviation: self.model.abbreviation)) {
                     Text("历届会议信息")

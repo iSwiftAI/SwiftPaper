@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct AppTabNavigation: View {
+    @State var searchText: String = ""
     
     var body: some View {
         TabView {
             NavigationView {
-                CCFList()
+                CCFList(searchText: $searchText)
             }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
             .tabItem {
                 Label("推荐列表", systemImage: "list.bullet")
             }
@@ -33,7 +35,7 @@ struct AppTabNavigation: View {
             }
         }
         // 这个 stack 导致返回列表的时候选中状态卡顿
-        .navigationViewStyle(.stack)
+//        .navigationViewStyle(.stack)
     }
 }
 

@@ -9,17 +9,18 @@ import SwiftUI
 
 struct DeadLineTimeLine: View {
     var timeLines: [DeadLine.Conf.Timeline]
+    var timeZone = "UTC"
     
     var body: some View {
         List {
             ForEach(timeLines, id: \.self) { timeLine in
                 Section {
                     if (timeLine.abstractDeadline != nil) {
-                        TextinForm(Title: "摘要截止时间", Content: timeLine.abstractDeadline!)
+                        TextinForm(Title: "摘要截止时间", Content: timeLine.abstractDeadline!.localTime(timeZone: timeZone))
                     }
-                    TextinForm(Title: "正文截止时间", Content: timeLine.deadline)
+                    TextinForm(Title: "正文截止时间", Content: timeLine.deadline.localTime(timeZone: timeZone))
                     if (timeLine.comment != nil) {
-                        TextinForm(Title: "备注", Content: timeLine.comment!)
+                        TextinForm(Title: "备注", Content: timeLine.comment!.localTime(timeZone: timeZone))
                     }
                 }
             }

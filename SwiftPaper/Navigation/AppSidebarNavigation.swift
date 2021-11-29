@@ -15,14 +15,16 @@ struct AppSidebarNavigation: View {
         case deadlines
         case settings
     }
-
+    @State var searchText: String = ""
+    
     @State private var selection: NavigationItem? = .ccflist
     
     var body: some View {
         NavigationView {
             List {
                 NavigationLink(tag: NavigationItem.ccflist, selection: $selection) {
-                    CCFList()
+                    CCFList(searchText: $searchText)
+                        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
                 } label: {
                     Label("推荐列表", systemImage: "list.bullet")
                 }

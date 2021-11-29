@@ -10,7 +10,7 @@ import SwiftUI
 struct CCFList: View {
     @EnvironmentObject var ccfStore: CCFStore
     
-    @State var searchText: String = ""
+    @Binding var searchText: String
     
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
@@ -32,7 +32,7 @@ struct CCFList: View {
                 }
             }
         }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+//        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
         .refreshable { await self.ccfStore.fetch() }
         .disableAutocorrection(true)
         .toolbar(content: toolbarItems)
@@ -132,7 +132,7 @@ struct CCFList: View {
 struct CCFList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CCFList()
+            CCFList(searchText: .constant(""))
                 .environmentObject(CCFStore())
         }
     }

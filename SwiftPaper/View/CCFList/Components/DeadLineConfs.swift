@@ -15,14 +15,15 @@ struct DeadLineConfs: View {
     @State var header: String?
     
     var abbreviation = ""
+    var timeZone = "UTC"
     
     var body: some View {
         Section {
             TextinForm(Title: "会议名称", Content: "\(abbreviation)\(conf.year)")
             TextinForm(Title: "会议时间", Content: conf.date)
             TextinForm(Title: "会议地点", Content: conf.place)
-            NavigationLink(destination: DeadLineTimeLine(timeLines: conf.timeline)) {
-                TextinForm(Title: "截稿时间", Content: conf.timeline[0].deadline)
+            NavigationLink(destination: DeadLineTimeLine(timeLines: conf.timeline, timeZone: timeZone)) {
+                TextinForm(Title: "截稿时间", Content: conf.timeline[0].deadline.localTime(timeZone: timeZone))
             }
             Button(action: {
                 self.url = conf.link
