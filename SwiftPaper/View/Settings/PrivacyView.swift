@@ -7,14 +7,16 @@
 
 import SwiftUI
 import Parma
+import SwiftyMarkdown
 
 struct PrivacyView: View {
     let filepath = Bundle.main.url(forResource: "Privacy", withExtension: "md")
     var body: some View {
-        ScrollView {
-            Parma(try! String(contentsOf: filepath!))
-                .padding(.horizontal)
-        }
+//        ScrollView {
+//            Parma(try! String(contentsOf: filepath!))
+        UIKTextView(text: .constant(SwiftyMarkdown(url: filepath!)!.attributedString()))
+//                .padding(.horizontal)
+//        }
         .navigationTitle(Text("Privacy"))
         
     }
@@ -23,5 +25,18 @@ struct PrivacyView: View {
 struct PrivacyView_Previews: PreviewProvider {
     static var previews: some View {
         PrivacyView()
+    }
+}
+
+struct UIKTextView: UIViewRepresentable {
+    @Binding var text: NSAttributedString
+
+    func makeUIView(context: Context) -> UITextView {
+        UITextView()
+    }
+
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.attributedText = text
+        uiView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

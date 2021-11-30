@@ -97,7 +97,7 @@ struct SettingsView: View {
                             .foregroundColor(Color.indigo)
                     }
                 }
-                Link(destination: URL(string: "https://flyswiftai.com/swiftpaper/")!) {
+                Link(destination: URL(string: "https://swiftpaper.top")!) {
                     Label(title: { Text("APP 网站").foregroundColor(.primary) }) {
                         Image(systemName: "safari")
                             .foregroundColor(Color.blue)
