@@ -23,11 +23,11 @@ struct CCFRow: View {
                     Text(model.abbreviation)
                         .font(.system(.title, design: .rounded))
                         .bold()
-                    Spacer()
+//                        .padding([.bottom], 2)
                 }
                 Text(model.fullName)
                     .lineLimit(2)
-                Spacer()
+//                Spacer()
                 VStack(alignment: .leading) {
                     Text(model.press)
                     Text(model.field)

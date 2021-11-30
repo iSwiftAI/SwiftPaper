@@ -22,7 +22,6 @@ struct DeadLinesList: View {
                     EmptyCCFView()
                 } else {
                     List(filterResult) { deadLine in
-//                    List(deadlineStore.deadLines) { deadLine in
                         NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
                             DeadLinesRow(deadLine: deadLine)
                         }
@@ -57,17 +56,7 @@ struct DeadLinesList: View {
         }
     }
     var filterResult: [DeadLine] {
-        
-        return searchResult.sorted {
-            let date1 = $0.confs.last!.timeline.last!.deadline.localdate(timeZone: $0.confs.last!.timezone)
-            let date2 = $1.confs.last!.timeline.last!.deadline.localdate(timeZone: $1.confs.last!.timezone)
-            let nowDate = Date()
-            if date1 > nowDate && date2 <= nowDate { return true }
-            else if date2 > nowDate && date1 <= nowDate { return false }
-            else if date1 <= nowDate && date2 <= nowDate { return false }
-            else if date1 > nowDate && date2 > nowDate && date1 < date2 { return true }
-            else { return false }
-        }
+        return searchResult
     }
     private func searchFilter() -> [DeadLine] {
         let filterResult = deadlineStore.deadLines.filter { deadLine in

@@ -17,17 +17,16 @@ class DeadLineStore: ObservableObject {
     
     
     func fetch(force: Bool = false) async {
-        print(Date())
         if deadLines.isEmpty {
             self.loading = true
         }
         do {
             self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
+            sort()
         } catch {
             print(error)
         }
         self.loading = false
-        print(Date())
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {
@@ -37,6 +36,25 @@ class DeadLineStore: ObservableObject {
             }
         }
         return nil
+    }
+    
+    func sort() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss.SSSS"
+        print(formatter.string(from: Date()))
+        let nowDate = Date()
+        var times = 0
+        self.deadLines = deadLines.sorted {
+            times += 1
+//            print("times: \(times), \(formatter.string(from: Date()))")
+            let date1 = $0.latestConf.nearestDeadLineDate
+            let date2 = $1.latestConf.nearestDeadLineDate
+            if date1 > nowDate && date2 <= nowDate { return true }
+            else if date1 > nowDate && date2 > nowDate && date1 < date2 { return true }
+            else if date1 <= nowDate && date2 <= nowDate && date1 > date2 { return true }
+            else { return false }
+        }
+        print(formatter.string(from: Date()))
     }
     
     static var placeholderCCF: [DeadLine] {

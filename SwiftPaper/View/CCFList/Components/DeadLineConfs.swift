@@ -23,7 +23,7 @@ struct DeadLineConfs: View {
             TextinForm(Title: "会议时间", Content: conf.date)
             TextinForm(Title: "会议地点", Content: conf.place)
             NavigationLink(destination: DeadLineTimeLine(timeLines: conf.timeline, timeZone: timeZone)) {
-                TextinForm(Title: "截稿时间", Content: conf.timeline[0].deadline.localTimeString(timeZone: timeZone))
+                TextinForm(Title: "截稿时间", Content: conf.nearestDeadLine.deadline.localTimeString(timeZone: timeZone))
             }
             Button(action: {
                 self.url = conf.link
