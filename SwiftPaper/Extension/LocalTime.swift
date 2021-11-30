@@ -17,7 +17,7 @@ extension String {
             let timezone = dateFormatter.timeZone.localizedName(for: .standard, locale: .current)
             return dateFormatter.string(from: date) + "\n" + timezone!
         }
-        return "暂无时间"
+        return "无"
     }
     
     func localdate(timeZone: String) -> Date {

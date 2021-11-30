@@ -47,7 +47,7 @@ struct CCFDetailView: View {
                 Button(action: {
                     self.url = URL(string: model.site)!
                 }) {
-                    Label("访问 DBLP 链接", systemImage: "safari")
+                    Label("访问 dblp 链接", systemImage: "safari")
                 }
                 .safariView(item: $url) { url in
                     SafariView(
