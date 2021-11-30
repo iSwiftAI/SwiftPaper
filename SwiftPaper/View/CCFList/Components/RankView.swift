@@ -12,21 +12,12 @@ struct RankView: View {
     @State var width: Double = 70
     @State var height: Double = 70
     
-    let colors: [String: LinearGradient] = [
-        "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
-                            startPoint:  .leading, endPoint:  .trailing),
-        "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
-                            startPoint:  .leading, endPoint:  .trailing),
-        "C": LinearGradient(gradient: .init(colors: [.indigo, .pink]),
-                            startPoint:  .leading, endPoint:  .trailing)
-    ]
-    
     let cornerRadiusRate: CGFloat = 0.2237
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(self.colors[rank]!)
+                .fill(LinearGradientColors[rank]!)
                 .frame(width: width, height: width)
                 .clipShape(RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous))
                 .overlay(
@@ -48,6 +39,7 @@ struct RankView_Previews: PreviewProvider {
         RankView(rank: "C")
     }
 }
+
 let LinearGradientColors: [String: LinearGradient] = [
     "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
                         startPoint:  .leading, endPoint:  .trailing),

@@ -18,10 +18,10 @@ struct SpecialThank: View {
         List {
             Section {
                 ThankSafariLink(target: "BetterSafariView", urlString: "https://github.com/stleamist/BetterSafariView")
-                ThankSafariLink(target: "Parma", urlString: "https://github.com/dasautoooo/Parma")
+                ThankSafariLink(target: "SwiftyMarkdown", urlString: "https://github.com/SimonFairbairn/SwiftyMarkdown")
                 ThankSafariLink(target: "ccf-deadlines", urlString: "https://github.com/ccfddl/ccf-deadlines")
             } header: {
-                Text("开源软件库")
+                Text("开源库")
             } footer: {
                 Text("更新时间: \(updateTime)")
             }

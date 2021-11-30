@@ -31,7 +31,7 @@ struct DeadLinesList: View {
         }
         .refreshable { await self.deadlineStore.fetch(force: true) }
         .toolbar(content: toolbarItems)
-        .navigationTitle(Text("Deadlines"))
+        .navigationTitle(Text("Call For Papers"))
     }
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {

@@ -6,17 +6,12 @@
 //
 
 import SwiftUI
-import Parma
 import SwiftyMarkdown
 
 struct PrivacyView: View {
     let filepath = Bundle.main.url(forResource: "Privacy", withExtension: "md")
     var body: some View {
-//        ScrollView {
-//            Parma(try! String(contentsOf: filepath!))
         UIKTextView(text: .constant(SwiftyMarkdown(url: filepath!)!.attributedString()))
-//                .padding(.horizontal)
-//        }
         .navigationTitle(Text("Privacy"))
         
     }

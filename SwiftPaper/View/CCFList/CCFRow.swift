@@ -28,9 +28,9 @@ struct CCFRow: View {
                 Text(model.fullName)
                     .lineLimit(2)
 //                Spacer()
-                VStack(alignment: .leading) {
+                Group {
                     Text(model.press)
-                    Text(model.field)
+                    Text(model.field).lineLimit(2)
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)

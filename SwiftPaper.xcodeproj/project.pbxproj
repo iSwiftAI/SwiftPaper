@@ -44,7 +44,6 @@
 		B6EED05E273A971A0077832F /* SwiftUIImage+IconStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED047273A97190077832F /* SwiftUIImage+IconStyle.swift */; };
 		B6EED05F273A971A0077832F /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED048273A97190077832F /* ShareSheet.swift */; };
 		B6EED063273A97370077832F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EED062273A97370077832F /* Assets.xcassets */; };
-		B6EED06F273A97C10077832F /* Parma in Frameworks */ = {isa = PBXBuildFile; productRef = B6EED06E273A97C10077832F /* Parma */; };
 		B6EED070273A981C0077832F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6EED072273A981C0077832F /* Localizable.strings */; };
 		B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED074273A9BE10077832F /* EmptyCCFView.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EED06F273A97C10077832F /* Parma in Frameworks */,
 				B6EB11662753BFA400FF09CE /* BetterSafariView in Frameworks */,
 				B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */,
 			);
@@ -286,7 +284,6 @@
 			);
 			name = SwiftPaper;
 			packageProductDependencies = (
-				B6EED06E273A97C10077832F /* Parma */,
 				B6EB11652753BFA400FF09CE /* BetterSafariView */,
 				B60462B527563CB80021DFA4 /* SwiftyMarkdown */,
 			);
@@ -320,7 +317,6 @@
 			);
 			mainGroup = B6EED012273A96E10077832F;
 			packageReferences = (
-				B6EED06D273A97C10077832F /* XCRemoteSwiftPackageReference "Parma" */,
 				B6EB11642753BFA400FF09CE /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 				B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 			);
@@ -527,7 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 85;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -541,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -556,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 85;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -570,7 +566,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -619,14 +615,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		B6EED06D273A97C10077832F /* XCRemoteSwiftPackageReference "Parma" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dasautoooo/Parma";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -639,11 +627,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B6EB11642753BFA400FF09CE /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
-		};
-		B6EED06E273A97C10077832F /* Parma */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B6EED06D273A97C10077832F /* XCRemoteSwiftPackageReference "Parma" */;
-			productName = Parma;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
