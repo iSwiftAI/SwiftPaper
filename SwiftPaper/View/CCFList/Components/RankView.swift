@@ -40,11 +40,25 @@ struct RankView_Previews: PreviewProvider {
     }
 }
 
-let LinearGradientColors: [String: LinearGradient] = [
-    "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
-                        startPoint:  .leading, endPoint:  .trailing),
-    "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
-                        startPoint:  .leading, endPoint:  .trailing),
-    "C": LinearGradient(gradient: .init(colors: [.indigo, .pink]),
-                        startPoint:  .leading, endPoint:  .trailing)
-]
+
+var LinearGradientColors: [String: LinearGradient] {
+    if #available(iOS 15.0, *) {
+        return [
+            "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
+                                startPoint:  .leading, endPoint:  .trailing),
+            "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
+                                startPoint:  .leading, endPoint:  .trailing),
+            "C": LinearGradient(gradient: .init(colors: [.indigo, .pink]),
+                                startPoint:  .leading, endPoint:  .trailing)
+        ]
+    } else {
+        return [
+            "A": LinearGradient(gradient: .init(colors: [.yellow, .red]),
+                                startPoint:  .leading, endPoint:  .trailing),
+            "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
+                                startPoint:  .leading, endPoint:  .trailing),
+            "C": LinearGradient(gradient: .init(colors: [.purple, .pink]),
+                                startPoint:  .leading, endPoint:  .trailing)
+        ]
+    }
+}

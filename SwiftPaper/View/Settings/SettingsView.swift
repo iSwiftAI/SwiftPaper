@@ -93,8 +93,13 @@ struct SettingsView: View {
                     }
                 Link(destination: URL(string: "https://github.com/NiallLDY")!) {
                     Label(title: { Text("关于作者").foregroundColor(.primary) }) {
-                        Image(systemName: "person")
-                            .foregroundColor(Color.indigo)
+                        if #available(iOS 15.0, *) {
+                            Image(systemName: "person")
+                                .foregroundColor(Color.indigo)
+                        } else {
+                            Image(systemName: "person")
+                                .foregroundColor(Color.purple)
+                        }
                     }
                 }
                 Link(destination: URL(string: "https://swiftpaper.top")!) {

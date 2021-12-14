@@ -32,6 +32,7 @@ struct UIKTextView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.attributedText = text
+        uiView.isEditable = false
         uiView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

@@ -17,7 +17,7 @@ struct CCFDetailView: View {
     @State var url: URL? = nil
     
     var body: some View {
-        List {
+        Form {
             Section {
                 HStack {
                     Spacer()
@@ -59,7 +59,7 @@ struct CCFDetailView: View {
                     )
                 }
             }
-            .task {
+            .onAppear() { // .task
 //                await self.deadlineStore.fetch()
                 if self.deadline == nil {
                     self.deadline = deadlineStore.getDeadLine(ccfModel: self.model)

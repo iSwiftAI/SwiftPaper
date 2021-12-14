@@ -14,24 +14,44 @@ struct DeadLinesList: View {
     @Binding var searchText: String
     
     var body: some View {
-        Group {
-            if deadlineStore.loading {
-                ProgressView()
-            } else {
-                if filterResult.isEmpty {
-                    EmptyCCFView()
+        if #available(iOS 15.0, *) {
+            Group {
+                if deadlineStore.loading {
+                    ProgressView()
                 } else {
-                    List(filterResult) { deadLine in
-                        NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
-                            DeadLinesRow(deadLine: deadLine)
+                    if filterResult.isEmpty {
+                        EmptyCCFView()
+                    } else {
+                        List(filterResult) { deadLine in
+                            NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
+                                DeadLinesRow(deadLine: deadLine)
+                            }
                         }
                     }
                 }
             }
+            .refreshable { await self.deadlineStore.fetch(force: true) }
+            .toolbar(content: toolbarItems)
+            .navigationTitle(Text("Call For Papers"))
+        } else {
+            Group {
+                if deadlineStore.loading {
+                    ProgressView()
+                } else {
+                    if filterResult.isEmpty {
+                        EmptyCCFView()
+                    } else {
+                        List(filterResult) { deadLine in
+                            NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
+                                DeadLinesRow(deadLine: deadLine)
+                            }
+                        }
+                    }
+                }
+            }
+            .toolbar(content: toolbarItems)
+            .navigationTitle(Text("Call For Papers"))
         }
-        .refreshable { await self.deadlineStore.fetch(force: true) }
-        .toolbar(content: toolbarItems)
-        .navigationTitle(Text("Call For Papers"))
     }
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {

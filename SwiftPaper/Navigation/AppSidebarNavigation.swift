@@ -24,17 +24,31 @@ struct AppSidebarNavigation: View {
         NavigationView {
             List {
                 NavigationLink(tag: NavigationItem.ccflist, selection: $selection) {
-                    CCFList(searchText: $searchCCFModel)
-                        .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                        .disableAutocorrection(true)
+                    if #available(iOS 15.0, *) {
+                        CCFList(searchText: $searchCCFModel)
+                            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                            .disableAutocorrection(true)
+                    } else {
+                        CCFList(searchText: $searchCCFModel)
+//                            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                            .navigationBarSearch($searchCCFModel, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
+                            .disableAutocorrection(true)
+                    }
                 } label: {
                     Label("推荐列表", systemImage: "list.bullet")
                 }
                 
                 NavigationLink(tag: NavigationItem.deadlines, selection: $selection) {
-                    DeadLinesList(searchText: $searchDeadLine)
-                        .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                        .disableAutocorrection(true)
+                    if #available(iOS 15.0, *) {
+                        DeadLinesList(searchText: $searchDeadLine)
+                            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                            .disableAutocorrection(true)
+                    } else {
+                        DeadLinesList(searchText: $searchDeadLine)
+//                            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                            .navigationBarSearch($searchDeadLine, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
+                            .disableAutocorrection(true)
+                    }
                 } label: {
                     Label("会议征稿信息", systemImage: "newspaper")
                 }

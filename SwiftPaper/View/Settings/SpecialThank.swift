@@ -32,11 +32,13 @@ struct SpecialThank: View {
                 Text("其他")
             }
         }
-        .task {
-            do {
-                updateTime = try await loadUpdateTime(from: URL(string: "https://niallapi.top/app/ccf/update.log")!, force: true)
-            } catch {
-                print(error)
+        .onAppear() { //.task
+            Task {
+                do {
+                    updateTime = try await loadUpdateTime(from: URL(string: "https://niallapi.top/app/ccf/update.log")!, force: true)
+                } catch {
+                    print(error)
+                }
             }
         }
         .background(Text(url).opacity(0)) // 不知道为啥，不然下面66行会崩溃，解包url为空。神奇

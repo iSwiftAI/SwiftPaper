@@ -33,13 +33,17 @@ struct DeadLinesRow: View {
                 Spacer(minLength: 5)
                 HStack {
                     Image(systemName: "calendar.badge.clock").renderingMode(.original)
-                    Text(countDown).bold()
-                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                    if #available(iOS 15.0, *) {
+                        Text(countDown).bold()
+                            .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                    } else {
+                        Text(countDown).bold()
+                    }
                 }
                 .font(.system(.title3, design: .rounded))
             }
         }
-        .task {
+        .onAppear() { //.task
             self.futureDate = self.deadLine.latestConf.nearestDeadLineDate
             if futureDate < Date() {
                 self.timer.upstream.connect().cancel()

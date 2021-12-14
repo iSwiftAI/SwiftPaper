@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
+		B640583A2768579700970740 /* SwiftlySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64058392768579700970740 /* SwiftlySearch.swift */; };
+		B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B676F7A427688B9800347E34 /* BetterSafariView */; };
 		B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9486275472B200D09E6F /* DeadLinesList.swift */; };
 		B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9488275472C800D09E6F /* DeadLinesRow.swift */; };
 		B6CA948B27547F7E00D09E6F /* BuildNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA948A27547F7E00D09E6F /* BuildNumber.swift */; };
@@ -19,7 +21,6 @@
 		B6EB114D27537B7800FF09CE /* all.json in Resources */ = {isa = PBXBuildFile; fileRef = B6EB114C27537B7800FF09CE /* all.json */; };
 		B6EB116127539B8500FF09CE /* LoadAndDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB116027539B8500FF09CE /* LoadAndDecode.swift */; };
 		B6EB11632753B47900FF09CE /* DeadLineTimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB11622753B47900FF09CE /* DeadLineTimeLine.swift */; };
-		B6EB11662753BFA400FF09CE /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B6EB11652753BFA400FF09CE /* BetterSafariView */; };
 		B6EB11682753D14600FF09CE /* DeadLineConfs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB11672753D14600FF09CE /* DeadLineConfs.swift */; };
 		B6EB116A2753D38B00FF09CE /* AllDeadLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB11692753D38B00FF09CE /* AllDeadLines.swift */; };
 		B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB116C2753D8AB00FF09CE /* AppTabNavigation.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
+		B64058392768579700970740 /* SwiftlySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftlySearch.swift; sourceTree = "<group>"; };
 		B6CA9486275472B200D09E6F /* DeadLinesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesList.swift; sourceTree = "<group>"; };
 		B6CA9488275472C800D09E6F /* DeadLinesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesRow.swift; sourceTree = "<group>"; };
 		B6CA948A27547F7E00D09E6F /* BuildNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildNumber.swift; sourceTree = "<group>"; };
@@ -95,8 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EB11662753BFA400FF09CE /* BetterSafariView in Frameworks */,
 				B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */,
+				B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +264,7 @@
 				B6EED047273A97190077832F /* SwiftUIImage+IconStyle.swift */,
 				B6EED048273A97190077832F /* ShareSheet.swift */,
 				B6CA948A27547F7E00D09E6F /* BuildNumber.swift */,
+				B64058392768579700970740 /* SwiftlySearch.swift */,
 				B6CA949C2754B99C00D09E6F /* LocalTime.swift */,
 			);
 			path = Extension;
@@ -284,8 +287,8 @@
 			);
 			name = SwiftPaper;
 			packageProductDependencies = (
-				B6EB11652753BFA400FF09CE /* BetterSafariView */,
 				B60462B527563CB80021DFA4 /* SwiftyMarkdown */,
+				B676F7A427688B9800347E34 /* BetterSafariView */,
 			);
 			productName = SwiftPaper;
 			productReference = B6EED01B273A96E10077832F /* SwiftPaper.app */;
@@ -317,8 +320,8 @@
 			);
 			mainGroup = B6EED012273A96E10077832F;
 			packageReferences = (
-				B6EB11642753BFA400FF09CE /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 				B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
+				B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 			);
 			productRefGroup = B6EED01C273A96E10077832F /* Products */;
 			projectDirPath = "";
@@ -372,6 +375,7 @@
 				B6EED055273A97190077832F /* SettingsView.swift in Sources */,
 				B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */,
 				B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */,
+				B640583A2768579700970740 /* SwiftlySearch.swift in Sources */,
 				B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */,
 				B6EB116127539B8500FF09CE /* LoadAndDecode.swift in Sources */,
 				B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */,
@@ -451,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -522,8 +526,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -537,9 +542,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -551,8 +557,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -566,9 +573,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,12 +615,12 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		B6EB11642753BFA400FF09CE /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+		B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stleamist/BetterSafariView";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -623,9 +631,9 @@
 			package = B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
 			productName = SwiftyMarkdown;
 		};
-		B6EB11652753BFA400FF09CE /* BetterSafariView */ = {
+		B676F7A427688B9800347E34 /* BetterSafariView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B6EB11642753BFA400FF09CE /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			package = B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
 		};
 /* End XCSwiftPackageProductDependency section */

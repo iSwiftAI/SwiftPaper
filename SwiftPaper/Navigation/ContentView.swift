@@ -32,9 +32,11 @@ struct ContentView: View {
         .sheet(isPresented: $showWelcome, onDismiss: {}) {
             WelcomeView()
         }
-        .task {
-            await self.ccfStore.fetch()
-            await self.deadLineStore.fetch()
+        .onAppear {
+            Task {
+                await self.ccfStore.fetch()
+                await self.deadLineStore.fetch()
+            }
         }
         .environmentObject(ccfStore)
         .environmentObject(deadLineStore)

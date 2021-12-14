@@ -12,7 +12,7 @@ struct DeadLineTimeLine: View {
     var timeZone = "UTC"
     
     var body: some View {
-        List {
+        Form {
             ForEach(timeLines, id: \.self) { timeLine in
                 Section {
                     if (timeLine.abstractDeadline != nil) {
@@ -59,7 +59,7 @@ struct TextinFormTap: View {
                 }
         }
         .multilineTextAlignment(.trailing)
-        .task {
+        .onAppear() { //.task
             self.content = time.localTimeString(timeZone: timeZone)
         }
     }
