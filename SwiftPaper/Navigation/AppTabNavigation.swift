@@ -25,8 +25,7 @@ struct AppTabNavigation: View {
             } else {
                 NavigationView {
                     CCFList(searchText: $searchCCFModel)
-                        .navigationBarSearch($searchCCFModel, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
-        //                .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                        .navigationBarSearch($searchCCFModel, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
                         .disableAutocorrection(true)
                 }
                 
@@ -47,8 +46,7 @@ struct AppTabNavigation: View {
             } else {
                 NavigationView {
                     DeadLinesList(searchText: $searchDeadLine)
-                        .navigationBarSearch($searchDeadLine, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
-        //                .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                        .navigationBarSearch($searchDeadLine, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
                         .disableAutocorrection(true)
                 }
                 
@@ -64,8 +62,6 @@ struct AppTabNavigation: View {
                 Label("设置", systemImage: "gear")
             }
         }
-        // 这个 stack 导致返回列表的时候选中状态卡顿
-//        .navigationViewStyle(.stack)
     }
 }
 

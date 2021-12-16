@@ -30,8 +30,7 @@ struct AppSidebarNavigation: View {
                             .disableAutocorrection(true)
                     } else {
                         CCFList(searchText: $searchCCFModel)
-//                            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                            .navigationBarSearch($searchCCFModel, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
+                            .navigationBarSearch($searchCCFModel, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
                             .disableAutocorrection(true)
                     }
                 } label: {
@@ -45,8 +44,7 @@ struct AppSidebarNavigation: View {
                             .disableAutocorrection(true)
                     } else {
                         DeadLinesList(searchText: $searchDeadLine)
-//                            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                            .navigationBarSearch($searchDeadLine, placeholder: "搜索", hidesNavigationBarDuringPresentation: true, hidesSearchBarWhenScrolling: false, cancelClicked: {}, searchClicked: {})
+                            .navigationBarSearch($searchDeadLine, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
                             .disableAutocorrection(true)
                     }
                 } label: {
