@@ -45,9 +45,9 @@ struct TextinFormTap: View {
     
     var body: some View {
         HStack {
-            Text(Title)
+            Text(LocalizedStringKey(Title))
             Spacer()
-            Text(content)
+            Text(LocalizedStringKey(content))
                 .foregroundColor(.secondary)
                 .onTapGesture {
                     withAnimation(.easeOut) {

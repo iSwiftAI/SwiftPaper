@@ -31,7 +31,7 @@ struct DeadLineConfs: View {
                 Label("访问会议网站", systemImage: "safari")
             }
         } header: {
-            Text(header ?? "")
+            Text(LocalizedStringKey(header ?? "") )
         }
         .safariView(item: $url) { url in
             SafariView(

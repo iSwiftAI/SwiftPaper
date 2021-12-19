@@ -25,7 +25,7 @@ struct DeadLinesRow: View {
                 Text(deadLine.description)
                     .lineLimit(2)
                 VStack(alignment: .leading) {
-                    Text(deadLine.sub)
+                    Text(LocalizedStringKey(deadLine.sub)).lineLimit(2)
 //                        .padding([.bottom], 0.5)
                 }
                 .font(.caption)

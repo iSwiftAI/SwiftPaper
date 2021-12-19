@@ -5,3 +5,72 @@
   Created by 吕丁阳 on 2021/11/8.
   
 */
+
+"设置" = "Settings";
+"推荐列表" = "Home";
+"会议征稿信息" = "CallForPapers";
+
+"搜索" = "Search";
+"详细信息" = "Details";
+
+"期刊" = "Conference";
+"会议" = "Periodicals"; 
+
+"显示会议与期刊" = "Show conferences and periodicals";
+"仅显示期刊" = "Show periodicals only";
+"仅显示会议" = "Show conferences only";
+"显示国内外" = "Show International and Chinese";
+"仅显示国际" = "Show International only";
+"仅显示中文" = "Show Chinese only";
+"恢复默认筛选条件" = "Remove all filters";
+
+"计算机体系结构/并行与分布计算/存储系统" = "Computer Architecture/Parallel and Distributed Computer/Storage";
+"计算机网络" = "Computer Networks";
+"网络与信息安全" = "Network and Information Security";
+"软件工程/系统软件/程序设计语言" = "Software Engineering/System Software/Programming Language";
+"数据库/数据挖掘/内容检索" = "Database/Data Mining/Content Retrieval";
+"计算机科学理论" = "Computer Science Theory";
+"计算机图形学与多媒体" = "CAD & Graphics and Multimedia";
+"人工智能" = "Artificial Intelligence";
+"人机交互与普适计算" = "Human Computer Interaction and Pervasive Computing";
+"交叉/综合/新兴" = "Cross-disciplinary/Comprehensive/Emerging";
+
+"%@ 类" = "Class %@ ";
+"国际/中文" = "International/Chinese";
+"国际" = "International";
+"中文" = "Chinese";
+"领域" = "Field";
+"出版社" = "Publishing House";
+"访问 dblp 链接" = "dplp website";
+
+"会议征稿信息" = "Call for papers";
+"会议名称" = "Conference";
+"会议时间" = "Date";
+"会议地点" = "Venue";
+"截稿时间" = "Deadines";
+"访问会议网站" = "Conference website";
+"摘要截止时间" = "Abstract";
+"正文截止时间" = "Full paper";
+"备注" = "Comment";
+"无" = "TBD";
+"历届会议信息" = "All conferences";
+"历届会议" = "All conferences";
+
+"反馈问题" = "Feedback";
+"好评鼓励" = "Rate this App";
+"推荐应用给朋友" = "Share SwiftPaper";
+"查看介绍页面" = "Onboarding Screen";
+"关于作者" = "About author";
+"APP 网站" = "APP Website";
+"隐私政策" = "Privacy";
+"鸣谢" = "Acknowledgement";
+
+"开始吧～" = "Let's start!";
+"**SwiftPaper** 能够助你快速地查询、检索 CCF 计算机推荐期刊、会议列表，查看该会议、期刊的详细信息，能够快速访问查看会议期刊的网址， 并查看会议征稿信息。" = "**SwiftPaper** enables you to quickly search and retrieve CCF computer recommended journals, conference list, view the detailed information of the conference, can quickly access to view the website of the conference journal, and view the conference call for paper information.";
+
+"开源库" = "Open source packages";
+"更新时间: %@" = "Last updated: %@";
+"其它" = "Others";
+"中国计算机学会推荐国际学术会议和期刊目录" = "The List of International Academic Periodicals and Conferences Recommended by CCF";
+"中国计算机学会推荐中文科技期刊目录" = "The List of Chinese sci-tech Academic Periodicals Recommended by CCF";
+//"" = "";

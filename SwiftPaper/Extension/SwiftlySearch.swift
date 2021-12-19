@@ -46,7 +46,7 @@ struct SearchBar<ResultContent: View>: UIViewControllerRepresentable {
 
     init(text: Binding<String>, placeholder: String?, hidesNavigationBarDuringPresentation: Bool, hidesSearchBarWhenScrolling: Bool, cancelClicked: @escaping () -> Void, searchClicked: @escaping () -> Void, @ViewBuilder resultContent: @escaping (String) -> ResultContent? = { _ in nil }) {
         self._text = text
-        self.placeholder = placeholder
+        self.placeholder = NSLocalizedString(placeholder!, comment: "")
         self.hidesNavigationBarDuringPresentation = hidesNavigationBarDuringPresentation
         self.hidesSearchBarWhenScrolling = hidesSearchBarWhenScrolling
         self.cancelClicked = cancelClicked

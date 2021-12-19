@@ -23,8 +23,8 @@ struct CCFDetailView: View {
                     Spacer()
                     VStack {
                         RankView(rank: model.rank, width: 100, height: 100)
-                        Text(model.rank+" 类"+model.form)
-                            .foregroundColor(.secondary)
+                        Text(LocalizedStringKey("\(model.rank) 类")).foregroundColor(.secondary) +
+                        Text((LocalizedStringKey(model.form))).foregroundColor(.secondary)
                         if !model.abbreviation.isEmpty {
                             Text(model.abbreviation)
                                 .font(.system(.title, design: .rounded))
@@ -101,9 +101,9 @@ struct TextinForm: View {
     
     var body: some View {
         HStack {
-            Text(Title)
+            Text(LocalizedStringKey(Title))
             Spacer()
-            Text(Content).foregroundColor(.secondary)
+            Text(LocalizedStringKey(Content)).foregroundColor(.secondary)
         }
         .multilineTextAlignment(.trailing)
     }

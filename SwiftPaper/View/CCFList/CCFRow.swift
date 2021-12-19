@@ -14,7 +14,7 @@ struct CCFRow: View {
         HStack {
             VStack {
                 RankView(rank: model.rank)
-                Text(model.form)
+                Text(LocalizedStringKey(model.form))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
@@ -30,7 +30,7 @@ struct CCFRow: View {
 //                Spacer()
                 Group {
                     Text(model.press)
-                    Text(model.field).lineLimit(2)
+                    Text(LocalizedStringKey(model.field)).lineLimit(2)
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
