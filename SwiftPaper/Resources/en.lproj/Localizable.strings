@@ -41,7 +41,7 @@
 "中文" = "Chinese";
 "领域" = "Field";
 "出版社" = "Publishing House";
-"访问 dblp 链接" = "dplp website";
+"访问 dblp 链接" = "dblp website";
 
 "会议征稿信息" = "Call for papers";
 "会议名称" = "Conference";
@@ -73,4 +73,4 @@
 "其它" = "Others";
 "中国计算机学会推荐国际学术会议和期刊目录" = "The List of International Academic Periodicals and Conferences Recommended by CCF";
 "中国计算机学会推荐中文科技期刊目录" = "The List of Chinese sci-tech Academic Periodicals Recommended by CCF";
-//"" = "";
+"这里空空如也，刷新一下，或者换个关键词或筛选条件再试试吧～" = "It's empty here. Refresh it, or change a keyword or filter condition and try again ~";
