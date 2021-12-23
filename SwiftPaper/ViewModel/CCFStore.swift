@@ -32,11 +32,10 @@ class CCFStore: ObservableObject {
     
     func getCCFModel(deadLine: DeadLine) -> CCFModel? {
         for ccfModel in ccfModels {
-            if ccfModel.abbreviation == deadLine.title {
+            if ccfModel.abbreviation == deadLine.title && ccfModel.form == "会议" {
                 return ccfModel
             }
         }
-        print(deadLine.title)
         return nil
     }
     
