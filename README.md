@@ -12,6 +12,10 @@
 
 ![screenshot1](./screenshots/2.jpg)
 
+## Build
+
+使用 Xcode.app 构建即可。
+
 ##  Acknowledgments
 
 - [中国计算机学会推荐国际学术会议和期刊目录](https://www.ccf.org.cn/c/2019-04-25/663625.shtml)
