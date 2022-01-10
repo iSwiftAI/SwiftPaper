@@ -4,7 +4,7 @@
 
 ## Note
 
-**由于目前我无法完成苹果开发者的注册，暂时无法上架 App Store。**
+**由于目前我无法继续 Apple Developer Program 的验证，因此 SwiftPaper 暂时无法上架 App Store。**
 
 ## Screenshots
 
