@@ -13,8 +13,8 @@
 "搜索" = "Search";
 "详细信息" = "Details";
 
-"期刊" = "Conference";
-"会议" = "Periodicals"; 
+"期刊" = "Periodicals";
+"会议" = "Conference"; 
 
 "显示会议与期刊" = "Show conferences and periodicals";
 "仅显示期刊" = "Show periodicals only";
