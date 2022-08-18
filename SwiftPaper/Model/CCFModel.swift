@@ -23,7 +23,7 @@ struct CCFModel: Identifiable {
     // DeadLine
     var deadLine: DeadLine?
     var id: String {
-        return fullName + abbreviation
+        return fullName + abbreviation + field
     }
 }
 extension CCFModel: Codable {
