@@ -48,4 +48,4 @@ struct ActivityViewController: UIViewControllerRepresentable {
 
 }
 
-var AppURL = URL(string: "https://itunes.apple.com/app/id1594295556")!
+var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!

@@ -10,7 +10,7 @@ import Foundation
 import StoreKit
 
 func rateApp() {
-    let appID = "1594295556"
+    let appID = "1640972298"
     let urlStr = "https://itunes.apple.com/app/id\(appID)?action=write-review"
     
     guard let url = URL(string: urlStr), UIApplication.shared.canOpenURL(url) else { return }
