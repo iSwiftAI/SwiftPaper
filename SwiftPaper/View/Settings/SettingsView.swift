@@ -131,7 +131,7 @@ struct SettingsView: View {
             Section {
                 HStack {
                     Spacer()
-                    Text("\(version) (\(build)) made with ❤️ by LDY").foregroundColor(.secondary).font(.subheadline)
+                    Text("\(version) (\(build)) © iSwiftAI").foregroundColor(.secondary).font(.subheadline)
                     Spacer()
                 }.listRowBackground(Color.clear)
             }
