@@ -112,7 +112,6 @@
 				B6EED040273A97190077832F /* CCFRow.swift */,
 				B6EED043273A97190077832F /* CCFDetailView.swift */,
 				B6EED074273A9BE10077832F /* EmptyCCFView.swift */,
-				B6CA94842754703E00D09E6F /* Components */,
 			);
 			path = CCFList;
 			sourceTree = "<group>";
@@ -157,13 +156,6 @@
 				B6EED03C273A97190077832F /* SpecialThank.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		B6EB115F27537E0F00FF09CE /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		B6EB116B2753D89400FF09CE /* Navigation */ = {
@@ -252,7 +244,7 @@
 				B6CA948227546F8C00D09E6F /* CCFList */,
 				B6CA948327546FDF00D09E6F /* DeadLines */,
 				B6EB115E27537DDD00FF09CE /* Settings */,
-				B6EB115F27537E0F00FF09CE /* Components */,
+				B6CA94842754703E00D09E6F /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
