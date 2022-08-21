@@ -24,29 +24,17 @@ struct AppSidebarNavigation: View {
         NavigationView {
             List {
                 NavigationLink(tag: NavigationItem.ccflist, selection: $selection) {
-                    if #available(iOS 15.0, *) {
-                        CCFList(searchText: $searchCCFModel)
-                            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                            .disableAutocorrection(true)
-                    } else {
-                        CCFList(searchText: $searchCCFModel)
-                            .navigationBarSearch($searchCCFModel, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
-                            .disableAutocorrection(true)
-                    }
+                    CCFList(searchText: $searchCCFModel)
+                        .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                        .disableAutocorrection(true)
                 } label: {
                     Label("推荐列表", systemImage: "list.bullet")
                 }
                 
                 NavigationLink(tag: NavigationItem.deadlines, selection: $selection) {
-                    if #available(iOS 15.0, *) {
-                        DeadLinesList(searchText: $searchDeadLine)
-                            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                            .disableAutocorrection(true)
-                    } else {
-                        DeadLinesList(searchText: $searchDeadLine)
-                            .navigationBarSearch($searchDeadLine, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
-                            .disableAutocorrection(true)
-                    }
+                    DeadLinesList(searchText: $searchDeadLine)
+                        .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                        .disableAutocorrection(true)
                 } label: {
                     Label("会议征稿信息", systemImage: "newspaper")
                 }
@@ -60,7 +48,6 @@ struct AppSidebarNavigation: View {
             .navigationTitle(Text("SwiftPaper"))
             .listStyle(.sidebar)
         }
-//        .navigationViewStyle(FixDoubleColumnNavigationViewStyle(widthForLandscape:  320, widthForPortrait: 320))
     }
 }
 

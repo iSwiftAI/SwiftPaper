@@ -17,45 +17,24 @@ struct CCFList: View {
     
     var body: some View {
         
-        if #available(iOS 15.0, *) {
-            Group {
-                if ccfStore.loading {
-                    ProgressView()
+        Group {
+            if ccfStore.loading {
+                ProgressView()
+            } else {
+                if filterResult.isEmpty {
+                    EmptyCCFView()
                 } else {
-                    if filterResult.isEmpty {
-                        EmptyCCFView()
-                    } else {
-                        List(filterResult) { model in
-                            NavigationLink(destination: CCFDetailView(model: model)) {
-                                CCFRow(model: model)
-                            }
+                    List(filterResult) { model in
+                        NavigationLink(destination: CCFDetailView(model: model)) {
+                            CCFRow(model: model)
                         }
                     }
                 }
             }
-            .refreshable { await self.ccfStore.fetch(force: true) }
-            .toolbar(content: toolbarItems)
-            .navigationTitle(Text("SwiftPaper"))
-        } else {
-            Group {
-                if ccfStore.loading {
-                    ProgressView()
-                } else {
-                    if filterResult.isEmpty {
-                        EmptyCCFView()
-                    } else {
-                        List(filterResult) { model in
-                            NavigationLink(destination: CCFDetailView(model: model)) {
-                                CCFRow(model: model)
-                            }
-                        }
-                    }
-                }
-            }
-            //            .refreshable { await self.ccfStore.fetch(force: true) }
-            .toolbar(content: toolbarItems)
-            .navigationTitle(Text("SwiftPaper"))
         }
+        .refreshable { await self.ccfStore.fetch(force: true) }
+        .toolbar(content: toolbarItems)
+        .navigationTitle(Text("SwiftPaper"))
     }
     
     

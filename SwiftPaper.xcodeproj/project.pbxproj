@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
-		B640583A2768579700970740 /* SwiftlySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64058392768579700970740 /* SwiftlySearch.swift */; };
 		B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B676F7A427688B9800347E34 /* BetterSafariView */; };
 		B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9486275472B200D09E6F /* DeadLinesList.swift */; };
 		B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9488275472C800D09E6F /* DeadLinesRow.swift */; };
@@ -52,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
-		B64058392768579700970740 /* SwiftlySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftlySearch.swift; sourceTree = "<group>"; };
 		B6CA9486275472B200D09E6F /* DeadLinesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesList.swift; sourceTree = "<group>"; };
 		B6CA9488275472C800D09E6F /* DeadLinesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesRow.swift; sourceTree = "<group>"; };
 		B6CA948A27547F7E00D09E6F /* BuildNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildNumber.swift; sourceTree = "<group>"; };
@@ -192,9 +190,9 @@
 			children = (
 				B6EED01E273A96E10077832F /* SwiftPaperApp.swift */,
 				B6EB116B2753D89400FF09CE /* Navigation */,
+				B6EED03B273A97190077832F /* View */,
 				B6EED02C273A96FF0077832F /* Model */,
 				B6EED036273A97190077832F /* ViewModel */,
-				B6EED03B273A97190077832F /* View */,
 				B6CA94852754722A00D09E6F /* Functions */,
 				B6EED044273A97190077832F /* Extension */,
 				B6EED038273A97190077832F /* Resources */,
@@ -259,7 +257,6 @@
 				B6EED047273A97190077832F /* SwiftUIImage+IconStyle.swift */,
 				B6EED048273A97190077832F /* ShareSheet.swift */,
 				B6CA948A27547F7E00D09E6F /* BuildNumber.swift */,
-				B64058392768579700970740 /* SwiftlySearch.swift */,
 				B6CA949C2754B99C00D09E6F /* LocalTime.swift */,
 			);
 			path = Extension;
@@ -371,7 +368,6 @@
 				B6EED055273A97190077832F /* SettingsView.swift in Sources */,
 				B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */,
 				B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */,
-				B640583A2768579700970740 /* SwiftlySearch.swift in Sources */,
 				B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */,
 				B6EB116127539B8500FF09CE /* LoadAndDecode.swift in Sources */,
 				B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */,
@@ -451,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -539,7 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -570,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ldy.SwiftPaper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

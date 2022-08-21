@@ -13,46 +13,22 @@ struct AppTabNavigation: View {
     
     var body: some View {
         TabView {
-            if #available(iOS 15.0, *) {
-                NavigationView {
-                    CCFList(searchText: $searchCCFModel)
-                }
-                .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                .disableAutocorrection(true)
-                .tabItem {
-                    Label("推荐列表", systemImage: "list.bullet")
-                }
-            } else {
-                NavigationView {
-                    CCFList(searchText: $searchCCFModel)
-                        .navigationBarSearch($searchCCFModel, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
-                        .disableAutocorrection(true)
-                }
-                
-                .tabItem {
-                    Label("推荐列表", systemImage: "list.bullet")
-                }
+            NavigationView {
+                CCFList(searchText: $searchCCFModel)
+            }
+            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+            .disableAutocorrection(true)
+            .tabItem {
+                Label("推荐列表", systemImage: "list.bullet")
             }
             
-            if #available(iOS 15.0, *) {
-                NavigationView {
-                    DeadLinesList(searchText: $searchDeadLine)
-                }
-                .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-                .disableAutocorrection(true)
-                .tabItem {
-                    Label("会议征稿信息", systemImage: "newspaper")
-                }
-            } else {
-                NavigationView {
-                    DeadLinesList(searchText: $searchDeadLine)
-                        .navigationBarSearch($searchDeadLine, placeholder: "搜索",  hidesSearchBarWhenScrolling: false)
-                        .disableAutocorrection(true)
-                }
-                
-                .tabItem {
-                    Label("会议征稿信息", systemImage: "newspaper")
-                }
+            NavigationView {
+                DeadLinesList(searchText: $searchDeadLine)
+            }
+            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+            .disableAutocorrection(true)
+            .tabItem {
+                Label("会议征稿信息", systemImage: "newspaper")
             }
 
             NavigationView {
