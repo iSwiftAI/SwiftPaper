@@ -27,7 +27,7 @@ struct SpecialThank: View {
             }
             Section {
                 ThankSafariLink(target: "中国计算机学会推荐国际学术会议和期刊目录", urlString: "https://www.ccf.org.cn/c/2019-04-25/663625.shtml")
-                ThankSafariLink(target: "中国计算机学会推荐中文科技期刊目录", urlString: "https://www.ccf.org.cn/ccftjgjxskwml/2020-07-02/704435.shtml")
+                ThankSafariLink(target: "中国计算机学会推荐中文科技期刊目录", urlString: "https://www.ccf.org.cn/c/2019-07-31/667609.shtml")
             } header: {
                 Text("其它")
             }

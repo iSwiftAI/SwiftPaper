@@ -47,6 +47,7 @@
 		B6EED063273A97370077832F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EED062273A97370077832F /* Assets.xcassets */; };
 		B6EED070273A981C0077832F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6EED072273A981C0077832F /* Localizable.strings */; };
 		B6EED075273A9BE10077832F /* EmptyCCFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EED074273A9BE10077832F /* EmptyCCFView.swift */; };
+		B6F9DF5B28B202AE000719AC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B6F9DF5A28B202AE000719AC /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		B6EED071273A981C0077832F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B6EED073273A981E0077832F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B6EED074273A9BE10077832F /* EmptyCCFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCCFView.swift; sourceTree = "<group>"; };
+		B6F9DF5A28B202AE000719AC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		B6EED012273A96E10077832F = {
 			isa = PBXGroup;
 			children = (
+				B6F9DF5A28B202AE000719AC /* README.md */,
 				B6EED01D273A96E10077832F /* SwiftPaper */,
 				B6EED01C273A96E10077832F /* Products */,
 			);
@@ -332,6 +335,7 @@
 				B6EED026273A96E30077832F /* Preview Assets.xcassets in Resources */,
 				B6EED070273A981C0077832F /* Localizable.strings in Resources */,
 				B6EED052273A97190077832F /* ccf.json in Resources */,
+				B6F9DF5B28B202AE000719AC /* README.md in Resources */,
 				B6EED053273A97190077832F /* Privacy.md in Resources */,
 				B6EED063273A97370077832F /* Assets.xcassets in Resources */,
 				B6EB114D27537B7800FF09CE /* all.json in Resources */,
