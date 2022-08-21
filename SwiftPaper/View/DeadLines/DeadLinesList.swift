@@ -36,7 +36,10 @@ struct DeadLinesList: View {
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            HStack {
+            
+            if self.deadlineStore.refreshing {
+                ProgressView()
+            } else {
                 Button {
                     Task {
                         await self.deadlineStore.fetch(force: true)
@@ -45,6 +48,7 @@ struct DeadLinesList: View {
                     Label("刷新", systemImage: "arrow.clockwise")
                 }
             }
+            
         }
     }
     

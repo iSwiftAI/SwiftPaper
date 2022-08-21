@@ -15,18 +15,21 @@ class CCFStore: ObservableObject {
     
     @Published var ccfModels: [CCFModel] = []
     @Published var loading: Bool = true
+    @Published var refreshing: Bool = false
     
     
     func fetch(force: Bool = false) async {
         if ccfModels.isEmpty {
             self.loading = true
-            do {
-                self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
-            } catch {
-                print(error)
-            }
-            self.loading = false
         }
+        self.refreshing = true
+        do {
+            self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
+        } catch {
+            print(error)
+        }
+        self.loading = false
+        self.refreshing = false
         
     }
     

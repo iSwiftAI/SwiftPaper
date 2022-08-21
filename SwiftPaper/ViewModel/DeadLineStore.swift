@@ -14,12 +14,14 @@ class DeadLineStore: ObservableObject {
     
     @Published var deadLines: [DeadLine] = []
     @Published var loading: Bool = true
+    @Published var refreshing: Bool = false
     
     
     func fetch(force: Bool = false) async {
         if deadLines.isEmpty {
             self.loading = true
         }
+        self.refreshing = true
         do {
             self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
             sort()
@@ -27,6 +29,7 @@ class DeadLineStore: ObservableObject {
             print(error)
         }
         self.loading = false
+        self.refreshing = false
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

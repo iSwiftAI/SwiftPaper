@@ -41,13 +41,18 @@ struct CCFList: View {
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             HStack {
-                Button {
-                    Task {
-                        await self.ccfStore.fetch(force: true)
+                if self.ccfStore.refreshing {
+                    ProgressView()
+                } else {
+                    Button {
+                        Task {
+                            await self.ccfStore.fetch(force: true)
+                        }
+                    } label: {
+                        Label("刷新", systemImage: "arrow.clockwise")
                     }
-                } label: {
-                    Label("刷新", systemImage: "arrow.clockwise")
                 }
+                
                 Menu {
                     Picker(selection: $conferenceOrJournal) {
                         Text("显示会议与期刊").tag(0)
