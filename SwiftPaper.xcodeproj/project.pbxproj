@@ -10,6 +10,8 @@
 		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
+		B630FF9F28C104A300E1F066 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */; };
+		B630FFA128C105DB00E1F066 /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630FFA028C105DB00E1F066 /* NetworkStatusView.swift */; };
 		B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B676F7A427688B9800347E34 /* BetterSafariView */; };
 		B6CA9487275472B200D09E6F /* DeadLinesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9486275472B200D09E6F /* DeadLinesList.swift */; };
 		B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CA9488275472C800D09E6F /* DeadLinesRow.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
+		B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		B630FFA028C105DB00E1F066 /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
 		B6CA9486275472B200D09E6F /* DeadLinesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesList.swift; sourceTree = "<group>"; };
 		B6CA9488275472C800D09E6F /* DeadLinesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLinesRow.swift; sourceTree = "<group>"; };
 		B6CA948A27547F7E00D09E6F /* BuildNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildNumber.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				B6EB11622753B47900FF09CE /* DeadLineTimeLine.swift */,
 				B6EB11672753D14600FF09CE /* DeadLineConfs.swift */,
 				B6EB11692753D38B00FF09CE /* AllDeadLines.swift */,
+				B630FFA028C105DB00E1F066 /* NetworkStatusView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				B60462B2275611150021DFA4 /* LoadUpdateTime.swift */,
 				B6EED046273A97190077832F /* RateApp.swift */,
 				B6CA948C27547FA700D09E6F /* getHPrimaryIcon.swift */,
+				B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6CA9489275472C800D09E6F /* DeadLinesRow.swift in Sources */,
+				B630FF9F28C104A300E1F066 /* NetworkMonitor.swift in Sources */,
 				B6CA948D27547FA700D09E6F /* getHPrimaryIcon.swift in Sources */,
 				B6EED057273A97190077832F /* RankView.swift in Sources */,
 				B6EED056273A97190077832F /* PrivacyView.swift in Sources */,
@@ -358,6 +365,7 @@
 				B6EB11682753D14600FF09CE /* DeadLineConfs.swift in Sources */,
 				B6EED054273A97190077832F /* SpecialThank.swift in Sources */,
 				B6EED05D273A971A0077832F /* RateApp.swift in Sources */,
+				B630FFA128C105DB00E1F066 /* NetworkStatusView.swift in Sources */,
 				B6EB114927537A7300FF09CE /* DeadLine.swift in Sources */,
 				B6EED05A273A97190077832F /* CCFList.swift in Sources */,
 				B6EED05C273A971A0077832F /* SendEmailToMe.swift in Sources */,

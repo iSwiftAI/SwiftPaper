@@ -122,6 +122,8 @@ struct SettingsView: View {
                 }
             }
             
+            NetworkStatusView()
+            
             // Build number
             Section {
                 HStack {
