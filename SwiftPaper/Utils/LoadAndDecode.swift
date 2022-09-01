@@ -45,10 +45,11 @@ func loadjsonfromFile<T: Decodable>(_ filename: String) -> [T] {
 }
 
 func retrying<T>(attempts: Int = 3, delay: TimeInterval = 1, closure:@escaping () async throws -> T) async rethrows -> T {
-    for _ in 0 ..< attempts - 1 {
+    for i in 0 ..< attempts - 1 {
         do {
             return try await closure()
         } catch {
+            print("第\(i)次尝试，错误为\n\(error)\naaaaaaaaaa")
             let delay = UInt64(delay * TimeInterval(1_000_000_000))
             try await Task.sleep(nanoseconds: delay)
         }
