@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SPIndicator
 
 struct DeadLinesList: View {
     @EnvironmentObject var deadlineStore: DeadLineStore
     @EnvironmentObject var ccfStore: CCFStore
     
     @Binding var searchText: String
+    
+    @State var showIndicator = false
     
     var body: some View {
         Group {
@@ -29,7 +32,8 @@ struct DeadLinesList: View {
                 }
             }
         }
-        .refreshable { await self.deadlineStore.fetch(force: true) }
+        .SPIndicator(isPresent: $showIndicator, title: "更新成功", preset: .done, haptic: .success)
+        .refreshable { await self.deadlineStore.fetch(force: true); showIndicator = true }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("Call For Papers"))
     }
@@ -43,6 +47,7 @@ struct DeadLinesList: View {
                 Button {
                     Task {
                         await self.deadlineStore.fetch(force: true)
+                        showIndicator = true
                     }
                 } label: {
                     Label("刷新", systemImage: "arrow.clockwise")

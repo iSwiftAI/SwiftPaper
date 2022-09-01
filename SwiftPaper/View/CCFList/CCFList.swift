@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SPIndicator
 
 struct CCFList: View {
     @EnvironmentObject var ccfStore: CCFStore
@@ -14,6 +15,8 @@ struct CCFList: View {
     
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
+    
+    @State var showIndicator = false
     
     var body: some View {
         
@@ -32,7 +35,8 @@ struct CCFList: View {
                 }
             }
         }
-        .refreshable { await self.ccfStore.fetch(force: true) }
+        .SPIndicator(isPresent: $showIndicator, title: "更新成功", preset: .done, haptic: .success)
+        .refreshable { await self.ccfStore.fetch(force: true); showIndicator = true }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("SwiftPaper"))
     }
@@ -47,6 +51,7 @@ struct CCFList: View {
                     Button {
                         Task {
                             await self.ccfStore.fetch(force: true)
+                            showIndicator = true
                         }
                     } label: {
                         Label("刷新", systemImage: "arrow.clockwise")

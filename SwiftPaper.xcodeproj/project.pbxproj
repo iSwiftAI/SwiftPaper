@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
 		B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = B676F7A427688B9800347E34 /* BetterSafariView */; };
@@ -99,6 +100,7 @@
 			files = (
 				B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */,
 				B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */,
+				6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +283,7 @@
 			packageProductDependencies = (
 				B60462B527563CB80021DFA4 /* SwiftyMarkdown */,
 				B676F7A427688B9800347E34 /* BetterSafariView */,
+				6A5CBDA128C0D32400712CD0 /* SPIndicator */,
 			);
 			productName = SwiftPaper;
 			productReference = B6EED01B273A96E10077832F /* SwiftPaper.app */;
@@ -314,6 +317,7 @@
 			packageReferences = (
 				B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 				B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = B6EED01C273A96E10077832F /* Products */;
 			projectDirPath = "";
@@ -599,6 +603,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown";
@@ -618,6 +630,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6A5CBDA128C0D32400712CD0 /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
+		};
 		B60462B527563CB80021DFA4 /* SwiftyMarkdown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
