@@ -119,8 +119,6 @@
 				B6EED042273A97190077832F /* CCFList.swift */,
 				B6EED040273A97190077832F /* CCFRow.swift */,
 				B6EED043273A97190077832F /* CCFDetailView.swift */,
-				B6EED074273A9BE10077832F /* EmptyCCFView.swift */,
-				6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */,
 			);
 			path = CCFList;
 			sourceTree = "<group>";
@@ -137,6 +135,8 @@
 		B6CA94842754703E00D09E6F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */,
+				B6EED074273A9BE10077832F /* EmptyCCFView.swift */,
 				B6EED03F273A97190077832F /* RankView.swift */,
 				B6EB11622753B47900FF09CE /* DeadLineTimeLine.swift */,
 				B6EB11672753D14600FF09CE /* DeadLineConfs.swift */,
