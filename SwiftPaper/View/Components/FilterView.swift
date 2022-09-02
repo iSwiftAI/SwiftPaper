@@ -57,7 +57,7 @@ struct FilterView: View {
                }
                if !hideConferenceSelection {
                    Section {
-                       Picker("显示期刊或会议", selection: $conferenceOrJournal) {
+                       Picker("选择会议或期刊", selection: $conferenceOrJournal) {
                            Text("显示会议与期刊").tag(0)
                            Text("仅显示会议").tag(1)
                            Text("仅显示期刊").tag(2)
@@ -65,20 +65,20 @@ struct FilterView: View {
                        .labelsHidden()
                        .pickerStyle(.inline)
                    } header: {
-                       Text("显示期刊或会议")
+                       Text("选择会议或期刊")
                    }
                }
                
                Section {
-                   Picker("显示国内或国外", selection: $englishOrChinese) {
-                       Text("显示国内外").tag(0)
+                   Picker("选择国际或中文", selection: $englishOrChinese) {
+                       Text("显示国际与中文").tag(0)
                        Text("仅显示国际").tag(1)
                        Text("仅显示中文").tag(2)
                    }
                    .labelsHidden()
                    .pickerStyle(.inline)
                } header: {
-                   Text("显示国内或国外")
+                   Text("选择国际或中文")
                }
                
                Button(action: {

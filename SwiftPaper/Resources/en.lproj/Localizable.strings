@@ -13,16 +13,28 @@
 "搜索" = "Search";
 "详细信息" = "Details";
 
-"期刊" = "Periodicals";
-"会议" = "Conference"; 
+"更新成功" = "Update successfully";
+"更新失败" = "Update failed";
 
-"显示会议与期刊" = "Show conferences and periodicals";
-"仅显示期刊" = "Show periodicals only";
+"期刊" = "Journals";
+"会议" = "Conference";
+
+
+"筛选" = "Filter";
+"选择领域" = "Fields";
+"选择会议或期刊" = "Conferences & Journals";
+"选择国际或中文" = "International & Chinese";
+
+"显示会议与期刊" = "Show conferences and journals";
+"仅显示期刊" = "Show journals only";
 "仅显示会议" = "Show conferences only";
-"显示国内外" = "Show International and Chinese";
+"显示国际与中文" = "Show International and Chinese";
 "仅显示国际" = "Show International only";
 "仅显示中文" = "Show Chinese only";
-"恢复默认筛选条件" = "Remove all filters";
+"恢复默认筛选条件" = "Reset Filter";
+"全选" = "Select All";
+"完成" = "Done";
+
 
 "计算机体系结构/并行与分布计算/存储系统" = "Computer Architecture/Parallel and Distributed Computer/Storage";
 "计算机网络" = "Computer Networks";

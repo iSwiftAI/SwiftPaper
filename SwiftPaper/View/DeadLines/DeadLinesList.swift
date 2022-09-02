@@ -40,7 +40,7 @@ struct DeadLinesList: View {
             }
         }
         .SPIndicator(isPresent: $deadlineStore.showIndicator,
-                     title: ccfStore.successfullyLoaded ? "更新成功" : "更新失败",
+                     title: ccfStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
                      message: ccfStore.errorDescription,
                      preset: ccfStore.successfullyLoaded ? .done : .error,
                      haptic: ccfStore.successfullyLoaded ? .success : .error)
