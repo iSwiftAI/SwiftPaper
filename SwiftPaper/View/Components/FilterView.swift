@@ -86,7 +86,7 @@ struct FilterView: View {
                    self.conferenceOrJournal = 0
                    self.selectedFields = allFields
                }, label: {
-                   Text("恢复默认筛选条件")
+                   Text("重置筛选")
                })
                
            }
@@ -104,7 +104,7 @@ struct FilterView: View {
                        self.conferenceOrJournal = 0
                        self.selectedFields = allFields
                    }, label: {
-                       Text("恢复默认筛选条件")
+                       Text("重置筛选")
                    })
                }
            }
