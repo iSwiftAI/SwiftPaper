@@ -16,12 +16,15 @@ struct CCFList: View {
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
     
-    @State var showIndicator = false
     
     var body: some View {
         
         Group {
-            if ccfStore.loading {
+            if !ccfStore.successfullyLoaded && filterResult.isEmpty && !ccfStore.loading {
+                NetworkErrorView {
+                    await ccfStore.fetch(force: true)
+                }
+            } else if ccfStore.loading {
                 ProgressView()
             } else {
                 if filterResult.isEmpty {
@@ -35,8 +38,13 @@ struct CCFList: View {
                 }
             }
         }
-        .SPIndicator(isPresent: $showIndicator, title: "更新成功", preset: .done, haptic: .success)
-        .refreshable { await self.ccfStore.fetch(force: true); showIndicator = true }
+        .SPIndicator(isPresent: $ccfStore.showIndicator,
+                     title: ccfStore.successfullyLoaded ? "更新成功" : "更新失败",
+                     message: ccfStore.errorDescription,
+                     preset: ccfStore.successfullyLoaded ? .done : .error,
+                     haptic: ccfStore.successfullyLoaded ? .success : .error)
+
+        .refreshable { await ccfStore.fetch(force: true) }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("SwiftPaper"))
     }
@@ -49,10 +57,7 @@ struct CCFList: View {
                     ProgressView()
                 } else {
                     Button {
-                        Task {
-                            await self.ccfStore.fetch(force: true)
-                            showIndicator = true
-                        }
+                        Task { await ccfStore.fetch(force: true) }
                     } label: {
                         Label("刷新", systemImage: "arrow.clockwise")
                     }

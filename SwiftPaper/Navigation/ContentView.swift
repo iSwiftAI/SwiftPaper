@@ -29,14 +29,11 @@ struct ContentView: View {
                 AppSidebarNavigation()
             #endif
         }
-        .sheet(isPresented: $showWelcome, onDismiss: {}) {
+        .sheet(isPresented: $showWelcome, onDismiss: { Task {
+            await self.ccfStore.fetch(force: true)
+            await self.deadLineStore.fetch(force: true)
+        } }) {
             WelcomeView()
-        }
-        .onAppear {
-            Task {
-                await self.ccfStore.fetch()
-                await self.deadLineStore.fetch()
-            }
         }
         .environmentObject(ccfStore)
         .environmentObject(deadLineStore)

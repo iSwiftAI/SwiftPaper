@@ -18,7 +18,11 @@ struct DeadLinesList: View {
     
     var body: some View {
         Group {
-            if deadlineStore.loading {
+            if !deadlineStore.successfullyLoaded && filterResult.isEmpty && !deadlineStore.loading {
+                NetworkErrorView {
+                    await deadlineStore.fetch(force: true)
+                }
+            } else if deadlineStore.loading {
                 ProgressView()
             } else {
                 if filterResult.isEmpty {
@@ -32,8 +36,12 @@ struct DeadLinesList: View {
                 }
             }
         }
-        .SPIndicator(isPresent: $showIndicator, title: "更新成功", preset: .done, haptic: .success)
-        .refreshable { await self.deadlineStore.fetch(force: true); showIndicator = true }
+        .SPIndicator(isPresent: $ccfStore.showIndicator,
+                     title: ccfStore.successfullyLoaded ? "更新成功" : "更新失败",
+                     message: ccfStore.errorDescription,
+                     preset: ccfStore.successfullyLoaded ? .done : .error,
+                     haptic: ccfStore.successfullyLoaded ? .success : .error)
+        .refreshable { await self.deadlineStore.fetch(force: true)}
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("Call For Papers"))
     }
@@ -45,10 +53,7 @@ struct DeadLinesList: View {
                 ProgressView()
             } else {
                 Button {
-                    Task {
-                        await self.deadlineStore.fetch(force: true)
-                        showIndicator = true
-                    }
+                    Task { await self.deadlineStore.fetch(force: true) }
                 } label: {
                     Label("刷新", systemImage: "arrow.clockwise")
                 }

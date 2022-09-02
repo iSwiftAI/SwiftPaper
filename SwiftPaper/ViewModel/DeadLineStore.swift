@@ -16,8 +16,20 @@ class DeadLineStore: ObservableObject {
     @Published var loading: Bool = true
     @Published var refreshing: Bool = false
     
+    @Published var successfullyLoaded: Bool = true
+    @Published var errorDescription: String?
+    @Published var showIndicator = false
+    
+    
+    init() {
+        Task {
+            await fetch(force: false)
+        }
+    }
+
     
     func fetch(force: Bool = false) async {
+        
         if deadLines.isEmpty {
             self.loading = true
         }
@@ -25,11 +37,16 @@ class DeadLineStore: ObservableObject {
         do {
             self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
             sort()
+            successfullyLoaded = true
+            errorDescription = nil
         } catch {
-            print(error)
+            successfullyLoaded = false
+            errorDescription = error.localizedDescription
         }
         self.loading = false
         self.refreshing = false
+        
+        showIndicator = true
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

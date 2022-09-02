@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
+		6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */; };
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
 		B630FF9F28C104A300E1F066 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
 		B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B630FFA028C105DB00E1F066 /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				B6EED040273A97190077832F /* CCFRow.swift */,
 				B6EED043273A97190077832F /* CCFDetailView.swift */,
 				B6EED074273A9BE10077832F /* EmptyCCFView.swift */,
+				6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */,
 			);
 			path = CCFList;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				B6EED054273A97190077832F /* SpecialThank.swift in Sources */,
 				B6EED05D273A971A0077832F /* RateApp.swift in Sources */,
 				B630FFA128C105DB00E1F066 /* NetworkStatusView.swift in Sources */,
+				6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */,
 				B6EB114927537A7300FF09CE /* DeadLine.swift in Sources */,
 				B6EED05A273A97190077832F /* CCFList.swift in Sources */,
 				B6EED05C273A971A0077832F /* SendEmailToMe.swift in Sources */,

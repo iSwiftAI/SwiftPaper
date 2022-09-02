@@ -15,8 +15,8 @@ struct EmptyCCFView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 
-            Text("这里空空如也，刷新一下，或者换个关键词或筛选条件再试试吧～")
-                .font(.title2)
+            Text("这里空空如也，换个关键词或筛选条件再试试吧～")
+//                .font(.title2)
                 .padding()
         }
         .padding()

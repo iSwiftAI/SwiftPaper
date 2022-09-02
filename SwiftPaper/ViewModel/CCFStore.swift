@@ -17,20 +17,35 @@ class CCFStore: ObservableObject {
     @Published var loading: Bool = true
     @Published var refreshing: Bool = false
     
+    @Published var successfullyLoaded: Bool = true
+    @Published var errorDescription: String?
+    @Published var showIndicator = false
+    
+    init() {
+        Task {
+            await fetch(force: false)
+        }
+    }
+    
     
     func fetch(force: Bool = false) async {
+        
         if ccfModels.isEmpty {
             self.loading = true
         }
         self.refreshing = true
         do {
             self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
+            successfullyLoaded = true
+            errorDescription = nil
         } catch {
-            print(error)
+            successfullyLoaded = false
+            errorDescription = error.localizedDescription
         }
         self.loading = false
         self.refreshing = false
         
+        showIndicator = true
     }
     
     func getCCFModel(deadLine: DeadLine) -> CCFModel? {
