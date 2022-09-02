@@ -25,7 +25,7 @@ struct FilterView: View {
                Section {
                    ForEach(allFields, id: \.self) { field in
                        Button {
-                           withAnimation(.easeInOut) {
+                           withAnimation(.easeInOut(duration: 0.1)) {
                                if self.selectedFields.contains(field) {
                                    self.selectedFields.removeAll(where: { $0 == field })
                                } else {

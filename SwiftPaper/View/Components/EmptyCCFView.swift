@@ -14,6 +14,7 @@ struct EmptyCCFView: View {
             Image("empty")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: 500)
                 
             Text("这里空空如也，换个关键词或筛选条件再试试吧～")
 //                .font(.title2)
