@@ -10,7 +10,7 @@ import SwiftUI
 struct AppearanceView: View {
     
     @AppStorage("isDarkMode") var isDarkMode: Int = 2
-    @AppStorage("appTintColor") var appTintColor: Color = .red
+    @AppStorage("appTintColor") var appTintColor: Color = .indigo
     @AppStorage("appIcon") var appIcon: String = "Default"
     
     var body: some View {
@@ -83,7 +83,7 @@ struct AppearanceView: View {
             
             Button {
                 self.isDarkMode = 2
-                self.appTintColor = .red
+                self.appTintColor = .indigo
                 self.appIcon = "Default"
             } label: {
                 Label("恢复默认", systemImage: "arrow.counterclockwise")

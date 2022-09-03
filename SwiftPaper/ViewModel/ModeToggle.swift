@@ -12,7 +12,7 @@ import UIKit
 class AppThemeViewModel: ObservableObject {
     
     @AppStorage("isDarkMode") var isDarkMode: Int = 2
-    @AppStorage("appTintColor") var appTintColor: Color = .red
+    @AppStorage("appTintColor") var appTintColor: Color = .indigo
     
 }
 
