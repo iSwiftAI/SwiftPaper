@@ -35,7 +35,7 @@ struct SpecialThank: View {
         .onAppear() { //.task
             Task {
                 do {
-                    updateTime = try await loadUpdateTime(from: URL(string: "https://niallapi.top/app/ccf/update.log")!, force: true)
+                    updateTime = try await loadUpdateTime(from: URL(string: "https://api.swiftpaper.top/update.log")!, force: true)
                 } catch {
                     print(error)
                 }

@@ -10,7 +10,7 @@ import Combine
 @MainActor
 class DeadLineStore: ObservableObject {
     
-    private static var loadDataURL = "https://niallapi.top/app/ccf/conference/all.json"
+    private static var loadDataURL = "https://api.swiftpaper.top/conference.json"
     
     @Published var deadLines: [DeadLine] = []
     @Published var loading: Bool = true
