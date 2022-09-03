@@ -122,7 +122,7 @@ struct SettingsView: View {
                 }
             }
             
-            NetworkStatusView()
+//            NetworkStatusView()
             
             // Build number
             Section {
