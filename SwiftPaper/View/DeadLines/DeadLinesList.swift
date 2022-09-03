@@ -40,10 +40,10 @@ struct DeadLinesList: View {
             }
         }
         .SPIndicator(isPresent: $deadlineStore.showIndicator,
-                     title: ccfStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
-                     message: ccfStore.errorDescription,
-                     preset: ccfStore.successfullyLoaded ? .done : .error,
-                     haptic: ccfStore.successfullyLoaded ? .success : .error)
+                     title: deadlineStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
+                     message: deadlineStore.errorDescription,
+                     preset: deadlineStore.successfullyLoaded ? .done : .error,
+                     haptic: deadlineStore.successfullyLoaded ? .success : .error)
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
