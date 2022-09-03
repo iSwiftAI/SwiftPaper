@@ -25,6 +25,9 @@ struct SettingsView: View {
     // welcome view
     @AppStorage("showWelcome") var showWelcome: Bool = false
     
+    // AppIcon
+    @AppStorage("appIcon") var appIcon: String = "Default"
+    
     
     var body: some View {
         
@@ -34,8 +37,9 @@ struct SettingsView: View {
                 HStack {
                     Spacer()
                     VStack(alignment: .center) {
-                        Image(uiImage: UIImage(named: getHPrimaryIconName()!) ?? UIImage())
-                            .renderingMode(.original)
+//                        Image(uiImage: UIImage(named: getHPrimaryIconName()!) ?? UIImage())
+                        Image(appIcon+"Image")
+//                            .renderingMode(.original)
                             .IconImageStyle(width: 90)
                         Text(appName)
                             .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -47,6 +51,16 @@ struct SettingsView: View {
             
             // Report & share
             Section {
+                NavigationLink {
+                    AppearanceView()
+                } label: {
+                    Label {
+                        Text("外观")
+                    } icon: {
+                        Image(systemName: "paintbrush.fill")
+                            .foregroundColor(.indigo)
+                    }
+                }
                 Button(action: { self.isShowingMailView.toggle() }, label: {
                     Label(title: { Text("反馈问题").foregroundColor(.primary) }) {
                         Image(systemName: "envelope")

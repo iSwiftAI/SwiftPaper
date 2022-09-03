@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct SwiftPaperApp: App {
+    @StateObject var appThemeViewModel = AppThemeViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    UIApplication.shared.keyWindow?.tintColor = UIColor(appThemeViewModel.appTintColor)
+                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = appThemeViewModel.isDarkMode == 1 ? .dark : appThemeViewModel.isDarkMode == 0 ? .light : .unspecified
+                }
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A29591028C32028001E9A97 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29590F28C32028001E9A97 /* AppearanceView.swift */; };
+		6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29591128C321D9001E9A97 /* ModeToggle.swift */; };
 		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
 		6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */; };
 		6A97233A28C1F813007BFBD4 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97233928C1F813007BFBD4 /* FilterView.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A29590F28C32028001E9A97 /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
+		6A29591128C321D9001E9A97 /* ModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeToggle.swift; sourceTree = "<group>"; };
 		6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		6A97233928C1F813007BFBD4 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B6EED03D273A97190077832F /* SettingsView.swift */,
+				6A29590F28C32028001E9A97 /* AppearanceView.swift */,
 				B6EED03E273A97190077832F /* PrivacyView.swift */,
 				B6EED041273A97190077832F /* WelcomeView.swift */,
 				B6EED03C273A97190077832F /* SpecialThank.swift */,
@@ -237,6 +242,7 @@
 			children = (
 				B6EED037273A97190077832F /* CCFStore.swift */,
 				B6EB114A27537AD600FF09CE /* DeadLineStore.swift */,
+				6A29591128C321D9001E9A97 /* ModeToggle.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -381,9 +387,11 @@
 				B6EB11632753B47900FF09CE /* DeadLineTimeLine.swift in Sources */,
 				B6CA948B27547F7E00D09E6F /* BuildNumber.swift in Sources */,
 				B6EED05E273A971A0077832F /* SwiftUIImage+IconStyle.swift in Sources */,
+				6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */,
 				B6EED058273A97190077832F /* CCFRow.swift in Sources */,
 				B6EED051273A97190077832F /* CCFStore.swift in Sources */,
 				B6EED05B273A97190077832F /* CCFDetailView.swift in Sources */,
+				6A29591028C32028001E9A97 /* AppearanceView.swift in Sources */,
 				B6EED055273A97190077832F /* SettingsView.swift in Sources */,
 				B6EB116E2753D8AB00FF09CE /* AppTabNavigation.swift in Sources */,
 				B6EB116F2753D8AB00FF09CE /* AppSidebarNavigation.swift in Sources */,
@@ -536,8 +544,10 @@
 		B6EED02A273A96E30077832F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Gradient Yello Red Green Old";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 192;
@@ -567,8 +577,10 @@
 		B6EED02B273A96E30077832F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Gradient Yello Red Green Old";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 192;

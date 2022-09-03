@@ -68,6 +68,16 @@
 "历届会议信息" = "All conferences";
 "历届会议" = "All conferences";
 
+
+"外观" = "Appearance";
+"主题" = "Theme";
+"跟随系统" = "System";
+"浅色模式" = "Light Mode";
+"深色模式" = "Dark Mode";
+"APP 图标" = "APP Icon";
+"强调色" = "Interface Accent Color";
+"选择应用的强调色" = "Choose Accent Color";
+"恢复默认" = "Reset Appearance";
 "反馈问题" = "Feedback";
 "好评鼓励" = "Rate this App";
 "推荐应用给朋友" = "Share SwiftPaper";
