@@ -47,6 +47,8 @@ class DeadLineStore: ObservableObject {
         self.refreshing = false
         
         showIndicator = true
+        try? await Task.sleep(nanoseconds: 10)
+        showIndicator = false
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

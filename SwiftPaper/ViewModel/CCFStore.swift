@@ -46,6 +46,8 @@ class CCFStore: ObservableObject {
         self.refreshing = false
         
         showIndicator = true
+        try? await Task.sleep(nanoseconds: 10)
+        showIndicator = false
     }
     
     func getCCFModel(deadLine: DeadLine) -> CCFModel? {

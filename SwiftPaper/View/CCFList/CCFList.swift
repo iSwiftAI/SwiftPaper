@@ -88,7 +88,7 @@ struct CCFList: View {
     var filterResult: [CCFModel] {
         
         return searchResult.filter { model in
-            let check1 = self.selectedFields.contains(model.field)
+            let check1 = self.selectedFields.contains(model.field) || model.region == "中文"
             let check2 = self.englishOrChinese == 0 || model.region == (self.englishOrChinese == 1 ? "国际" : "中文")
             let check3 = self.conferenceOrJournal == 0 || model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊")
             return check1 && check2 && check3
