@@ -11,7 +11,7 @@ import Combine
 @MainActor
 class CCFStore: ObservableObject {
     
-    private static var loadDataURL = "https://api.swiftpaper.top/ccf.json"
+    private static var loadDataURL = "https://api.swiftpaper.top/ccf_new.json"
     
     @Published var ccfModels: [CCFModel] = []
     @Published var loading: Bool = true

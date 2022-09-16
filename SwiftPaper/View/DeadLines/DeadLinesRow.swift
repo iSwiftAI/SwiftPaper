@@ -34,7 +34,7 @@ struct DeadLinesRow: View {
                 HStack {
                     Image(systemName: "calendar.badge.clock").renderingMode(.original)
                     Text(countDown).bold()
-                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
                 }
                 .font(.system(.title3, design: .rounded))
             }

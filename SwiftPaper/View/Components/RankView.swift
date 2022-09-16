@@ -17,7 +17,7 @@ struct RankView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(LinearGradientColors[rank]!)
+                .fill((LinearGradientColors[rank] ?? LinearGradientColors["Non-CCF"])!)
                 .frame(width: width, height: width)
                 .clipShape(RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous))
                 .overlay(
@@ -25,7 +25,7 @@ struct RankView: View {
                         .stroke(Color(UIColor.systemGray4), lineWidth: 0.5)
                 )
             Text(rank)
-                .font(.system(size: width / 7 * 4, weight: .bold, design: .rounded))
+                .font(rank.count > 1 ? .system(size: width / 5, weight: .bold, design: .rounded) : .system(size: width / 7 * 4, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
                 .shadow(color: .secondary, radius: 3, x: 1, y: 1)
         }
@@ -37,6 +37,7 @@ struct RankView_Previews: PreviewProvider {
         RankView(rank: "A")
         RankView(rank: "B")
         RankView(rank: "C")
+        RankView(rank: "Non-CCF")
     }
 }
 
@@ -48,6 +49,8 @@ var LinearGradientColors: [String: LinearGradient] {
         "B": LinearGradient(gradient: .init(colors: [.green, .blue]),
                             startPoint:  .leading, endPoint:  .trailing),
         "C": LinearGradient(gradient: .init(colors: [.indigo, .pink]),
+                            startPoint:  .leading, endPoint:  .trailing),
+        "Non-CCF": LinearGradient(gradient: .init(colors: [.yellow, .orange]),
                             startPoint:  .leading, endPoint:  .trailing)
     ]
 }
