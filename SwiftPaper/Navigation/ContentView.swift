@@ -30,8 +30,12 @@ struct ContentView: View {
             #endif
         }
         .sheet(isPresented: $showWelcome, onDismiss: { Task {
-            await self.ccfStore.fetch(force: true)
-            await self.deadLineStore.fetch(force: true)
+            if self.ccfStore.ccfModels.isEmpty {
+                await self.ccfStore.fetch(force: true)
+            }
+            if self.deadLineStore.deadLines.isEmpty {
+                await self.deadLineStore.fetch(force: true)
+            }
         } }) {
             WelcomeView()
         }

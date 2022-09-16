@@ -31,11 +31,23 @@ struct DeadLinesList: View {
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    List(filterResult) { deadLine in
-                        NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
-                            DeadLinesRow(deadLine: deadLine)
+                    if #available(iOS 16, *) {
+                        List(filterResult) { deadLine in
+                            NavigationLink(value: deadLine) {
+                                DeadLinesRow(deadLine: deadLine)
+                            }
+                        }
+                        .navigationDestination(for: DeadLine.self) { deadLine in
+                            CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
+                        }
+                    } else {
+                        List(filterResult) { deadLine in
+                            NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
+                                DeadLinesRow(deadLine: deadLine)
+                            }
                         }
                     }
+
                 }
             }
         }

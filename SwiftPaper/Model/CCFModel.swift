@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct CCFModel: Identifiable {
+struct CCFModel: Identifiable, Hashable {
+    static func == (lhs: CCFModel, rhs: CCFModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     var region: String
     var form: String
     var field: String

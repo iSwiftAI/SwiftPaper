@@ -33,11 +33,23 @@ struct CCFList: View {
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    List(filterResult) { model in
-                        NavigationLink(destination: CCFDetailView(model: model)) {
-                            CCFRow(model: model)
+                    if #available(iOS 16, *) {
+                        List(filterResult) { model in
+                            NavigationLink(value: model) {
+                                CCFRow(model: model)
+                            }
+                        }
+                        .navigationDestination(for: CCFModel.self) { model in
+                            CCFDetailView(model: model)
+                        }
+                    } else {
+                        List(filterResult) { model in
+                            NavigationLink(destination: CCFDetailView(model: model)) {
+                                CCFRow(model: model)
+                            }
                         }
                     }
+                    
                 }
             }
         }

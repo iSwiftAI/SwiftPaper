@@ -13,29 +13,56 @@ struct AppTabNavigation: View {
     
     var body: some View {
         TabView {
-            NavigationView {
-                CCFList(searchText: $searchCCFModel)
-            }
-            .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-            .disableAutocorrection(true)
-            .tabItem {
-                Label("推荐列表", systemImage: "list.bullet")
-            }
-            
-            NavigationView {
-                DeadLinesList(searchText: $searchDeadLine)
-            }
-            .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
-            .disableAutocorrection(true)
-            .tabItem {
-                Label("会议征稿信息", systemImage: "newspaper")
-            }
-
-            NavigationView {
-                SettingsView()
-            }
-            .tabItem {
-                Label("设置", systemImage: "gear")
+            if #available(iOS 16, *) {
+                NavigationStack {
+                    CCFList(searchText: $searchCCFModel)
+                }
+                .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                .disableAutocorrection(true)
+                .tabItem {
+                    Label("推荐列表", systemImage: "list.bullet")
+                }
+                
+                NavigationStack {
+                    DeadLinesList(searchText: $searchDeadLine)
+                }
+                .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                .disableAutocorrection(true)
+                .tabItem {
+                    Label("会议征稿信息", systemImage: "newspaper")
+                }
+                
+                NavigationStack {
+                    SettingsView()
+                }
+                .tabItem {
+                    Label("设置", systemImage: "gear")
+                }
+            } else {
+                NavigationView {
+                    CCFList(searchText: $searchCCFModel)
+                }
+                .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                .disableAutocorrection(true)
+                .tabItem {
+                    Label("推荐列表", systemImage: "list.bullet")
+                }
+                
+                NavigationView {
+                    DeadLinesList(searchText: $searchDeadLine)
+                }
+                .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                .disableAutocorrection(true)
+                .tabItem {
+                    Label("会议征稿信息", systemImage: "newspaper")
+                }
+                
+                NavigationView {
+                    SettingsView()
+                }
+                .tabItem {
+                    Label("设置", systemImage: "gear")
+                }
             }
         }
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DeadLine: Identifiable {
+struct DeadLine: Identifiable, Hashable {
     struct Conf: Codable, Hashable {
         struct Timeline: Codable, Hashable {
             let abstractDeadline: String?
