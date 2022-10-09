@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 import SwiftUI
 
+// For iOS 15
+
 // For iPhone
+@available(iOS, deprecated: 16.0, message: "Use the built-in API instead")
 func ShareAppSheet() {
     // UIActivityViewController
     let controller = UIActivityViewController(activityItems: [AppURL], applicationActivities: nil)
@@ -30,6 +33,7 @@ extension UIApplication {
 
 
 // For iPad
+@available(iOS, deprecated: 16.0, message: "Use the built-in API instead")
 struct ActivityViewController: UIViewControllerRepresentable {
 
     var activityItems: [Any]
@@ -44,4 +48,4 @@ struct ActivityViewController: UIViewControllerRepresentable {
 
 }
 
-var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!
+public var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!

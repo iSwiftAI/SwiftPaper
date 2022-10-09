@@ -77,21 +77,35 @@ struct SettingsView: View {
                             .foregroundColor(Color.yellow)
                     }
                 })
-                Button {
-                    if horizontalSizeClass == .compact {
-                        ShareAppSheet()
-                    } else {
-                        showPopover = true
+                if #available(iOS 16, *) {
+                    ShareLink(item: AppURL) {
+                        Label {
+                            Text("推荐应用给朋友").foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(Color.blue)
+                        }
+
                     }
-                } label: {
-                    Label(title: { Text("推荐应用给朋友").foregroundColor(.primary) }) {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(Color.blue)
+                } else {
+                    Button {
+                        if horizontalSizeClass == .compact {
+                            ShareAppSheet()
+                        } else {
+                            showPopover = true
+                        }
+                    } label: {
+                        Label(title: { Text("推荐应用给朋友").foregroundColor(.primary) }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(Color.blue)
+                        }
                     }
+                    .popover(isPresented: $showPopover, content: {
+                        ActivityViewController(activityItems: [AppURL])
+                    })
                 }
-                .popover(isPresented: $showPopover, content: {
-                    ActivityViewController(activityItems: [AppURL])
-                })
+                
+                
             }
             
             // About
