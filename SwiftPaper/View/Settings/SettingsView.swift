@@ -85,7 +85,6 @@ struct SettingsView: View {
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundColor(Color.blue)
                         }
-
                     }
                 } else {
                     Button {

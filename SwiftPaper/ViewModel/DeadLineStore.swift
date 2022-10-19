@@ -63,12 +63,11 @@ class DeadLineStore: ObservableObject {
     func sort() {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSSS"
-        print(formatter.string(from: Date()))
+        
         let nowDate = Date()
         var times = 0
         self.deadLines = deadLines.sorted {
             times += 1
-//            print("times: \(times), \(formatter.string(from: Date()))")
             let date1 = $0.latestConf.nearestDeadLineDate
             let date2 = $1.latestConf.nearestDeadLineDate
             if date1 > nowDate && date2 <= nowDate { return true }
@@ -76,7 +75,6 @@ class DeadLineStore: ObservableObject {
             else if date1 <= nowDate && date2 <= nowDate && date1 > date2 { return true }
             else { return false }
         }
-        print(formatter.string(from: Date()))
     }
     
     static var placeholderCCF: [DeadLine] {

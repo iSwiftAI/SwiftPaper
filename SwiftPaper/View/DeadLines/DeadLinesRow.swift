@@ -25,21 +25,21 @@ struct DeadLinesRow: View {
                 Text(deadLine.description)
                     .lineLimit(2)
                 VStack(alignment: .leading) {
-                    Text(LocalizedStringKey(deadLine.sub)).lineLimit(2)
-//                        .padding([.bottom], 0.5)
+                    Text(LocalizedStringKey(deadLine.sub))
                 }
                 .font(.caption)
                 .foregroundColor(.secondary)
-                Spacer(minLength: 5)
                 HStack {
                     Image(systemName: "calendar.badge.clock").renderingMode(.original)
                     Text(countDown).bold()
                         .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
                 }
+                .padding(.top, 0.5)
                 .font(.system(.title3, design: .rounded))
+                .animation(.default, value: countDown)
             }
         }
-        .onAppear() { //.task
+        .task {
             self.futureDate = self.deadLine.latestConf.nearestDeadLineDate
             if futureDate < Date() {
                 self.timer.upstream.connect().cancel()

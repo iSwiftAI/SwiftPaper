@@ -49,7 +49,6 @@ struct CCFList: View {
                             }
                         }
                     }
-                    
                 }
             }
         }
@@ -98,40 +97,12 @@ struct CCFList: View {
         }
     }
     var filterResult: [CCFModel] {
-        
         return searchResult.filter { model in
             let check1 = self.selectedFields.contains(model.field) || model.region == "中文"
             let check2 = self.englishOrChinese == 0 || model.region == (self.englishOrChinese == 1 ? "国际" : "中文")
             let check3 = self.conferenceOrJournal == 0 || model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊")
             return check1 && check2 && check3
         }
-        
-        
-        
-//        if conferenceOrJournal == 0 && englishOrChinese == 0 {
-//            return searchResult
-//        } else if conferenceOrJournal == 0 {
-//            return searchResult.filter { model in
-//                if model.region == (self.englishOrChinese == 1 ? "国际" : "中文") {
-//                    return true
-//                }
-//                return false
-//            }
-//        } else if englishOrChinese == 0 {
-//            return searchResult.filter { model in
-//                if model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊") {
-//                    return true
-//                }
-//                return false
-//            }
-//        } else {
-//            return searchResult.filter { model in
-//                if model.region == (self.englishOrChinese == 1 ? "国际" : "中文") && model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊") {
-//                    return true
-//                }
-//                return false
-//            }
-//        }
     }
     private func searchFilter() -> [CCFModel] {
         let filterResult = ccfStore.ccfModels.filter { model in

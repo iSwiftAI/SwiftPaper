@@ -22,6 +22,8 @@ struct DeadLineTimeLine: View {
                     if (timeLine.comment != nil) {
                         TextinForm(Title: "备注", Content: timeLine.comment!)
                     }
+                } footer: {
+                    Text("轻点时间可查看原始时间/本地时间")
                 }
             }
         }
