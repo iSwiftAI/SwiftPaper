@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(BetterSafariView)
 import BetterSafariView
+#endif
 
 struct DeadLineConfs: View {
     @State var conf: DeadLine.Conf
@@ -33,6 +35,7 @@ struct DeadLineConfs: View {
         } header: {
             Text(LocalizedStringKey(header ?? "") )
         }
+#if os(iOS)
         .safariView(item: $url) { url in
             SafariView(
                 url: url,
@@ -42,6 +45,7 @@ struct DeadLineConfs: View {
                 )
             )
         }
+#endif
     }
 }
 

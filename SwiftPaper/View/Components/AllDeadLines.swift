@@ -18,7 +18,9 @@ struct AllDeadLines: View {
         .onAppear {
             self.confs = confs.sorted {$0.year > $1.year}
         }
+#if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
         .navigationTitle(Text("历届会议"))
     }
 }

@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(SPIndicator)
 import SPIndicator
+#endif
 
 struct DeadLinesList: View {
     @EnvironmentObject var deadlineStore: DeadLineStore
@@ -50,11 +52,13 @@ struct DeadLinesList: View {
                 }
             }
         }
+#if os(iOS)
         .SPIndicator(isPresent: $deadlineStore.showIndicator,
                      title: deadlineStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
                      message: deadlineStore.errorDescription,
                      preset: deadlineStore.successfullyLoaded ? .done : .error,
                      haptic: deadlineStore.successfullyLoaded ? .success : .error)
+#endif
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
@@ -64,7 +68,12 @@ struct DeadLinesList: View {
     }
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
+#if os(iOS)
+        let toolbarPlacement = ToolbarItemPlacement.navigationBarTrailing
+#else
+        let toolbarPlacement = ToolbarItemPlacement.automatic
+#endif
+        ToolbarItem(placement: toolbarPlacement) {
             
             if self.deadlineStore.refreshing {
                 ProgressView()
@@ -76,7 +85,7 @@ struct DeadLinesList: View {
                 }
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: toolbarPlacement) {
             Button {
                 self.showFilterView = true
             } label: {

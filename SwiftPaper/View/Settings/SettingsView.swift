@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+#if canImport(MessageUI)
 import MessageUI
+#endif
 
 struct SettingsView: View {
     // App version
     let version = Bundle.main.appVersionShort
     let build = Bundle.main.appVersionLong
     let appName = Bundle.main.appName
-    
+#if os(iOS)
     // mail
     @State var result: Result<MFMailComposeResult, Error>? = nil
     @State var isShowingMailView = false
@@ -21,7 +23,7 @@ struct SettingsView: View {
     // share
     @State var showPopover = false
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    
+#endif
     // welcome view
     @AppStorage("showWelcome") var showWelcome: Bool = false
     
@@ -37,9 +39,9 @@ struct SettingsView: View {
                 HStack {
                     Spacer()
                     VStack(alignment: .center) {
-//                        Image(uiImage: UIImage(named: getHPrimaryIconName()!) ?? UIImage())
+                        //                        Image(uiImage: UIImage(named: getHPrimaryIconName()!) ?? UIImage())
                         Image(appIcon+"Image")
-//                            .renderingMode(.original)
+                        //                            .renderingMode(.original)
                             .IconImageStyle(width: 90)
                         Text(appName)
                             .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -51,6 +53,7 @@ struct SettingsView: View {
             
             // Report & share
             Section {
+#if os(iOS)
                 NavigationLink {
                     AppearanceView()
                 } label: {
@@ -61,23 +64,25 @@ struct SettingsView: View {
                             .foregroundColor(.indigo)
                     }
                 }
+                
                 Button(action: { self.isShowingMailView.toggle() }, label: {
                     Label(title: { Text("反馈问题").foregroundColor(.primary) }) {
                         Image(systemName: "envelope")
                             .foregroundColor(Color.orange)
                     }
                 })
-                    .disabled(!MFMailComposeViewController.canSendMail())
-                    .sheet(isPresented: $isShowingMailView) {
-                        MailView(result: self.$result).ignoresSafeArea()
-                    }
+                .disabled(!MFMailComposeViewController.canSendMail())
+                .sheet(isPresented: $isShowingMailView) {
+                    MailView(result: self.$result).ignoresSafeArea()
+                }
                 Button(action: { rateApp() }, label: {
                     Label(title: { Text("好评鼓励").foregroundColor(.primary) }) {
                         Image(systemName: "star")
                             .foregroundColor(Color.yellow)
                     }
                 })
-                if #available(iOS 16, *) {
+#endif
+                if #available(iOS 16, macOS 13, *) {
                     ShareLink(item: AppURL) {
                         Label {
                             Text("推荐应用给朋友").foregroundColor(.primary)
@@ -87,6 +92,7 @@ struct SettingsView: View {
                         }
                     }
                 } else {
+#if os(iOS)
                     Button {
                         if horizontalSizeClass == .compact {
                             ShareAppSheet()
@@ -102,6 +108,7 @@ struct SettingsView: View {
                     .popover(isPresented: $showPopover, content: {
                         ActivityViewController(activityItems: [AppURL])
                     })
+#endif
                 }
                 
                 
@@ -115,9 +122,9 @@ struct SettingsView: View {
                             .foregroundColor(Color.green)
                     }
                 })
-                    .sheet(isPresented: $showWelcome, onDismiss: {}) {
-                        WelcomeView()
-                    }
+                .sheet(isPresented: $showWelcome, onDismiss: {}) {
+                    WelcomeView()
+                }
                 Link(destination: URL(string: "https://github.com/NiallLDY")!) {
                     Label(title: { Text("关于作者").foregroundColor(.primary) }) {
                         Image(systemName: "person")
@@ -149,7 +156,7 @@ struct SettingsView: View {
                 }
             }
             
-//            NetworkStatusView()
+            //            NetworkStatusView()
             
             // Build number
             Section {

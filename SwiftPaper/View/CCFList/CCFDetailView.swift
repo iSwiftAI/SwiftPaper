@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(BetterSafariView)
 import BetterSafariView
+#endif
 
 struct CCFDetailView: View {
     @EnvironmentObject var deadlineStore: DeadLineStore
@@ -17,7 +19,7 @@ struct CCFDetailView: View {
     @State var url: URL? = nil
     
     var body: some View {
-        Form {
+        List {
             Section {
                 HStack {
                     Spacer()
@@ -44,11 +46,13 @@ struct CCFDetailView: View {
                 TextinForm(Title: "领域", Content: model.field)
                     .multilineTextAlignment(.trailing)
                 TextinForm(Title: "出版社", Content: model.press)
+#if os(iOS)
                 Button(action: {
                     self.url = URL(string: model.site)!
                 }) {
                     Label("访问 dblp 链接", systemImage: "safari")
                 }
+                
                 .safariView(item: $url) { url in
                     SafariView(
                         url: url,
@@ -58,9 +62,14 @@ struct CCFDetailView: View {
                         )
                     )
                 }
+                #else
+                Link(destination: URL(string: model.site)!) {
+                    Label("访问 dblp 链接", systemImage: "safari")
+                }
+#endif
             }
             .onAppear() { // .task
-//                await self.deadlineStore.fetch()
+                //                await self.deadlineStore.fetch()
                 if self.deadline == nil {
                     self.deadline = deadlineStore.getDeadLine(ccfModel: self.model)
                 }
@@ -76,7 +85,9 @@ struct CCFDetailView: View {
             }
         }
         .navigationTitle(Text("详细信息"))
+#if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
     }
 }
 

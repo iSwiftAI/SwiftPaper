@@ -90,7 +90,9 @@ struct AppearanceView: View {
             }
         }
         .navigationTitle(Text("外观"))
+#if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
     }
 }
 

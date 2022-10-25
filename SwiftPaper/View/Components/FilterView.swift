@@ -21,95 +21,97 @@ struct FilterView: View {
     
     var body: some View {
         NavigationView {
-           List {
-               Section {
-                   ForEach(allFields, id: \.self) { field in
-                       Button {
-                           withAnimation(.easeInOut(duration: 0.1)) {
-                               if self.selectedFields.contains(field) {
-                                   self.selectedFields.removeAll(where: { $0 == field })
-                               } else {
-                                   self.selectedFields.append(field)
-                               }
-                           }
-                       } label: {
-                           HStack {
-                               Text(LocalizedStringKey(field)).foregroundColor(.primary)
-                               Spacer()
-                               Image(systemName: "checkmark")
-                                   .font(.system(size: 17.5, weight: .semibold, design: .default))
-                                   .opacity(self.selectedFields.contains(field) ? 1.0 : 0.0)
-                           }
-                           
-                       }
-                   }
-               } header: {
-                   HStack {
-                       Text("选择领域")
-                       Spacer()
-                       Button {
-                           if selectedFields.count == allFields.count { self.selectedFields = [] }
-                           else { self.selectedFields = allFields }
-                       } label: {
-                           Text("全选")
-                       }
-                   }
-               }
-               if !hideConferenceSelection {
-                   Section {
-                       Picker("选择会议或期刊", selection: $conferenceOrJournal) {
-                           Text("显示会议与期刊").tag(0)
-                           Text("仅显示会议").tag(1)
-                           Text("仅显示期刊").tag(2)
-                       }
-                       .labelsHidden()
-                       .pickerStyle(.inline)
-                   } header: {
-                       Text("选择会议或期刊")
-                   }
-               }
-               
-               Section {
-                   Picker("选择国际或中文", selection: $englishOrChinese) {
-                       Text("显示国际与中文").tag(0)
-                       Text("仅显示国际").tag(1)
-                       Text("仅显示中文").tag(2)
-                   }
-                   .labelsHidden()
-                   .pickerStyle(.inline)
-               } header: {
-                   Text("选择国际或中文")
-               }
-               
-               Button(action: {
-                   self.englishOrChinese = 0
-                   self.conferenceOrJournal = 0
-                   self.selectedFields = allFields
-               }, label: {
-                   Text("重置筛选")
-               })
-               
-           }
-           .toolbar {
-               ToolbarItem(placement: .confirmationAction) {
-                   Button {
-                       showFilterView = false
-                   } label: {
-                       Text("完成")
-                   }
-               }
-               ToolbarItem(placement: .cancellationAction) {
-                   Button(action: {
-                       self.englishOrChinese = 0
-                       self.conferenceOrJournal = 0
-                       self.selectedFields = allFields
-                   }, label: {
-                       Text("重置筛选")
-                   })
-               }
-           }
-           .navigationBarTitle(Text("筛选"))
-           .navigationBarTitleDisplayMode(.inline)
+            List {
+                Section {
+                    ForEach(allFields, id: \.self) { field in
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.1)) {
+                                if self.selectedFields.contains(field) {
+                                    self.selectedFields.removeAll(where: { $0 == field })
+                                } else {
+                                    self.selectedFields.append(field)
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Text(LocalizedStringKey(field)).foregroundColor(.primary)
+                                Spacer()
+                                Image(systemName: "checkmark")
+                                    .font(.system(size: 17.5, weight: .semibold, design: .default))
+                                    .opacity(self.selectedFields.contains(field) ? 1.0 : 0.0)
+                            }
+                            
+                        }
+                    }
+                } header: {
+                    HStack {
+                        Text("选择领域")
+                        Spacer()
+                        Button {
+                            if selectedFields.count == allFields.count { self.selectedFields = [] }
+                            else { self.selectedFields = allFields }
+                        } label: {
+                            Text("全选")
+                        }
+                    }
+                }
+                if !hideConferenceSelection {
+                    Section {
+                        Picker("选择会议或期刊", selection: $conferenceOrJournal) {
+                            Text("显示会议与期刊").tag(0)
+                            Text("仅显示会议").tag(1)
+                            Text("仅显示期刊").tag(2)
+                        }
+                        .labelsHidden()
+                        .pickerStyle(.inline)
+                    } header: {
+                        Text("选择会议或期刊")
+                    }
+                }
+                
+                Section {
+                    Picker("选择国际或中文", selection: $englishOrChinese) {
+                        Text("显示国际与中文").tag(0)
+                        Text("仅显示国际").tag(1)
+                        Text("仅显示中文").tag(2)
+                    }
+                    .labelsHidden()
+                    .pickerStyle(.inline)
+                } header: {
+                    Text("选择国际或中文")
+                }
+                
+                Button(action: {
+                    self.englishOrChinese = 0
+                    self.conferenceOrJournal = 0
+                    self.selectedFields = allFields
+                }, label: {
+                    Text("重置筛选")
+                })
+                
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        showFilterView = false
+                    } label: {
+                        Text("完成")
+                    }
+                }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(action: {
+                        self.englishOrChinese = 0
+                        self.conferenceOrJournal = 0
+                        self.selectedFields = allFields
+                    }, label: {
+                        Text("重置筛选")
+                    })
+                }
+            }
+            .navigationTitle(Text("筛选"))
+#if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+#endif
         }
     }
 }

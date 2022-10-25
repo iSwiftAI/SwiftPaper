@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(SPIndicator)
 import SPIndicator
+#endif
 
 struct CCFList: View {
     @EnvironmentObject var ccfStore: CCFStore
@@ -33,7 +35,7 @@ struct CCFList: View {
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    if #available(iOS 16, *) {
+                    if #available(iOS 16, macOS 13, *) {
                         List(filterResult) { model in
                             NavigationLink(value: model) {
                                 CCFRow(model: model)
@@ -52,12 +54,13 @@ struct CCFList: View {
                 }
             }
         }
+#if os(iOS)
         .SPIndicator(isPresent: $ccfStore.showIndicator,
                      title: ccfStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
                      message: ccfStore.errorDescription,
                      preset: ccfStore.successfullyLoaded ? .done : .error,
                      haptic: ccfStore.successfullyLoaded ? .success : .error)
-        
+#endif
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese)
@@ -68,7 +71,12 @@ struct CCFList: View {
     
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
+#if os(iOS)
+        let toolbarPlacement = ToolbarItemPlacement.navigationBarTrailing
+#else
+        let toolbarPlacement = ToolbarItemPlacement.automatic
+#endif
+        ToolbarItem(placement: toolbarPlacement) {
             if self.ccfStore.refreshing {
                 ProgressView()
             } else {
@@ -79,7 +87,7 @@ struct CCFList: View {
                 }
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: toolbarPlacement) {
             Button {
                 self.showFilterView = true
             } label: {

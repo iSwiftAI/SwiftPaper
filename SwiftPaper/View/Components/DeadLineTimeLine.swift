@@ -27,8 +27,10 @@ struct DeadLineTimeLine: View {
                 }
             }
         }
-        .navigationBarTitle(Text("截稿时间"))
+        .navigationTitle(Text("截稿时间"))
+#if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+#endif
     }
 }
 

@@ -10,16 +10,19 @@ import SwiftUI
 struct AppSidebarNavigation: View {
     
     var body: some View {
+#if os(iOS)
         if #available(iOS 16, *) {
             AppSidebarNavigation16()
         } else {
             AppSidebarNavigation15()
         }
+#else
+        AppSidebarNavigation16()
+#endif
     }
 }
 
-
-@available(iOS 16, *)
+@available(iOS 16.0, *)
 struct AppSidebarNavigation16: View {
     
     @State var searchCCFModel: String = ""
@@ -37,28 +40,46 @@ struct AppSidebarNavigation16: View {
                 Label("设置", systemImage: "gear").tag(NavigationItem.settings)
             }
             .navigationTitle(Text("SwiftPaper"))
+#if os(macOS)
+            .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 300)
+#endif
         } detail: {
             NavigationStack {
+                
                 switch selection {
                 case .none, .ccflist:
                     CCFList(searchText: $searchCCFModel)
+#if os(iOS)
                         .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+#else
+                        .searchable(text: $searchCCFModel, placement: .automatic, prompt: "搜索")
+#endif
                         .disableAutocorrection(true)
+                    
                 case .deadlines:
                     DeadLinesList(searchText: $searchDeadLine)
+#if os(iOS)
                         .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+#else
+                        .searchable(text: $searchDeadLine, placement: .automatic, prompt: "搜索")
+#endif
                         .disableAutocorrection(true)
                 case .settings:
                     SettingsView()
                 }
+                
             }
+            
         }
+#if os(macOS)
+        .frame(minWidth: 600, minHeight: 450)
+#endif
         .navigationSplitViewStyle(.automatic)
         
     }
 }
 
-
+#if os(iOS)
 struct AppSidebarNavigation15: View {
     
     @State var searchCCFModel: String = ""
@@ -97,7 +118,7 @@ struct AppSidebarNavigation15: View {
         }
     }
 }
-
+#endif
 
 enum NavigationItem {
     case ccflist

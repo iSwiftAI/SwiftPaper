@@ -22,7 +22,7 @@ extension Image {
             .clipShape(RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous)
-                    .stroke(Color(UIColor.systemGray4), lineWidth: 0.5)
+                    .stroke(Color(.lightGray), lineWidth: 0.5)
             )
         
     }
