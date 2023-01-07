@@ -167,6 +167,9 @@ struct SettingsView: View {
                 }.listRowBackground(Color.clear)
             }
         }
+#if os(macOS)
+        .formStyle(.grouped)
+#endif
         .navigationTitle(Text("设置"))
     }
 }

@@ -19,7 +19,7 @@ struct CCFDetailView: View {
     @State var url: URL? = nil
     
     var body: some View {
-        List {
+        Form {
             Section {
                 HStack {
                     Spacer()
@@ -84,6 +84,9 @@ struct CCFDetailView: View {
                 
             }
         }
+#if os(macOS)
+        .formStyle(.grouped)
+#endif
         .navigationTitle(Text("详细信息"))
 #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)

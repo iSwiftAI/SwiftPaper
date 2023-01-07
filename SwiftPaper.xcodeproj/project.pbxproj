@@ -117,6 +117,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AC21FDF29696DBF001E7C2C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
 		B6CA948227546F8C00D09E6F /* CCFList */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				B6EED01E273A96E10077832F /* SwiftPaperApp.swift */,
+				6AC21FDF29696DBF001E7C2C /* macOS */,
 				B6EB116B2753D89400FF09CE /* Navigation */,
 				B6EED03B273A97190077832F /* View */,
 				B6EED02C273A96FF0077832F /* Model */,
@@ -560,6 +568,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -596,6 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";

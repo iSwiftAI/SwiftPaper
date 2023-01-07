@@ -40,6 +40,7 @@ struct CCFList: View {
                             NavigationLink(value: model) {
                                 CCFRow(model: model)
                             }
+                            .listRowSeparator(.visible)
                         }
                         .navigationDestination(for: CCFModel.self) { model in
                             CCFDetailView(model: model)
