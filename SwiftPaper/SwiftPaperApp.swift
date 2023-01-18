@@ -11,20 +11,23 @@ import SwiftUI
 struct SwiftPaperApp: App {
 #if os(iOS)
     @StateObject var appThemeViewModel = AppThemeViewModel()
-#endif
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-#if os(iOS)
                 .task {
                     UIApplication.shared.keyWindow?.tintColor = UIColor(appThemeViewModel.appTintColor)
                     UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = appThemeViewModel.isDarkMode == 1 ? .dark : appThemeViewModel.isDarkMode == 0 ? .light : .unspecified
                 }
-#endif
         }
-#if os(macOS)
-                .defaultSize(width: 1000, height: 650)
-#endif
     }
+#elseif os(macOS)
+    var body: some Scene {
+        WindowGroup {
+            ContentView_macOS()
+        }
+        .defaultSize(width: 1000, height: 650)
+    }
+#endif
 }
 public var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!

@@ -12,6 +12,9 @@
 		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
 		6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */; };
 		6A97233A28C1F813007BFBD4 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97233928C1F813007BFBD4 /* FilterView.swift */; };
+		6AC21FE12969700F001E7C2C /* ContentView-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC21FE02969700F001E7C2C /* ContentView-macOS.swift */; };
+		6AC21FE32969718B001E7C2C /* AppSideBarNavigation-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC21FE22969718B001E7C2C /* AppSideBarNavigation-macOS.swift */; };
+		6AC21FE52969871A001E7C2C /* CCFList-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC21FE42969871A001E7C2C /* CCFList-macOS.swift */; };
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
 		B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = B60462B527563CB80021DFA4 /* SwiftyMarkdown */; };
 		B630FF9F28C104A300E1F066 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */; };
@@ -60,6 +63,9 @@
 		6A29591128C321D9001E9A97 /* ModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeToggle.swift; sourceTree = "<group>"; };
 		6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		6A97233928C1F813007BFBD4 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		6AC21FE02969700F001E7C2C /* ContentView-macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-macOS.swift"; sourceTree = "<group>"; };
+		6AC21FE22969718B001E7C2C /* AppSideBarNavigation-macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSideBarNavigation-macOS.swift"; sourceTree = "<group>"; };
+		6AC21FE42969871A001E7C2C /* CCFList-macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CCFList-macOS.swift"; sourceTree = "<group>"; };
 		B60462B2275611150021DFA4 /* LoadUpdateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadUpdateTime.swift; sourceTree = "<group>"; };
 		B630FF9E28C104A300E1F066 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B630FFA028C105DB00E1F066 /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,9 @@
 		6AC21FDF29696DBF001E7C2C /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				6AC21FE02969700F001E7C2C /* ContentView-macOS.swift */,
+				6AC21FE22969718B001E7C2C /* AppSideBarNavigation-macOS.swift */,
+				6AC21FE42969871A001E7C2C /* CCFList-macOS.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 				B6CA948B27547F7E00D09E6F /* BuildNumber.swift in Sources */,
 				B6EED05E273A971A0077832F /* SwiftUIImage+IconStyle.swift in Sources */,
 				6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */,
+				6AC21FE12969700F001E7C2C /* ContentView-macOS.swift in Sources */,
 				B6EED058273A97190077832F /* CCFRow.swift in Sources */,
 				B6EED051273A97190077832F /* CCFStore.swift in Sources */,
 				B6EED05B273A97190077832F /* CCFDetailView.swift in Sources */,
@@ -405,7 +415,9 @@
 				6A97233A28C1F813007BFBD4 /* FilterView.swift in Sources */,
 				B6EB114B27537AD600FF09CE /* DeadLineStore.swift in Sources */,
 				B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */,
+				6AC21FE52969871A001E7C2C /* CCFList-macOS.swift in Sources */,
 				B6CA949D2754B99C00D09E6F /* LocalTime.swift in Sources */,
+				6AC21FE32969718B001E7C2C /* AppSideBarNavigation-macOS.swift in Sources */,
 				B6EED021273A96E10077832F /* ContentView.swift in Sources */,
 				B6EED01F273A96E10077832F /* SwiftPaperApp.swift in Sources */,
 				B6EED05F273A971A0077832F /* ShareSheet.swift in Sources */,

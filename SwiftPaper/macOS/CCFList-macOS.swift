@@ -1,16 +1,13 @@
 //
-//  CCFList.swift
+//  CCFList-macOS.swift
 //  SwiftPaper
 //
-//  Created by 吕丁阳 on 2021/10/12.
+//  Created by Niall Lv on 2023/1/7.
 //
 
 import SwiftUI
-#if canImport(SPIndicator)
-import SPIndicator
-#endif
 
-struct CCFList: View {
+struct CCFList_macOS: View {
     @EnvironmentObject var ccfStore: CCFStore
     
     @Binding var searchText: String
@@ -20,7 +17,6 @@ struct CCFList: View {
     @State var selectedFields: [String] = ["计算机体系结构/并行与分布计算/存储系统", "计算机网络", "网络与信息安全", "软件工程/系统软件/程序设计语言", "数据库/数据挖掘/内容检索", "计算机科学理论", "计算机图形学与多媒体", "人工智能", "人机交互与普适计算", "交叉/综合/新兴"]
     
     @State var showFilterView = false
-    
     
     var body: some View {
         
@@ -35,11 +31,12 @@ struct CCFList: View {
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    if #available(iOS 16, *) {
+                    if #available(iOS 16, macOS 13, *) {
                         List(filterResult) { model in
                             NavigationLink(value: model) {
                                 CCFRow(model: model)
                             }
+                            .listRowSeparator(.visible)
                         }
                         .navigationDestination(for: CCFModel.self) { model in
                             CCFDetailView(model: model)
@@ -54,11 +51,6 @@ struct CCFList: View {
                 }
             }
         }
-        .SPIndicator(isPresent: $ccfStore.showIndicator,
-                     title: ccfStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
-                     message: ccfStore.errorDescription,
-                     preset: ccfStore.successfullyLoaded ? .done : .error,
-                     haptic: ccfStore.successfullyLoaded ? .success : .error)
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese)
@@ -69,7 +61,7 @@ struct CCFList: View {
     
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        let toolbarPlacement = ToolbarItemPlacement.navigationBarTrailing
+        let toolbarPlacement = ToolbarItemPlacement.automatic
         ToolbarItem(placement: toolbarPlacement) {
             if self.ccfStore.refreshing {
                 ProgressView()
@@ -124,10 +116,10 @@ struct CCFList: View {
     }
 }
 
-struct CCFList_Previews: PreviewProvider {
+struct CCFList_macOS_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CCFList(searchText: .constant(""))
+            CCFList_macOS(searchText: .constant(""))
                 .environmentObject(CCFStore())
         }
     }
