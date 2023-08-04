@@ -6,6 +6,9 @@
 //
 import Foundation
 import Combine
+#if canImport(AlertKit)
+import AlertKit
+#endif
 
 @MainActor
 class DeadLineStore: ObservableObject {
@@ -15,14 +18,12 @@ class DeadLineStore: ObservableObject {
     @Published var deadLines: [DeadLine] = []
 
     @Published var errorDescription: String?
-    @Published var showIndicator = false
-    
     @Published var status: loadStatus = .loading
     
     
     init() {
         Task {
-            await fetch(force: false)
+            await fetch(force: true)
         }
     }
 
@@ -43,10 +44,14 @@ class DeadLineStore: ObservableObject {
             self.status = .fail
             errorDescription = error.localizedDescription
         }
-        
-        showIndicator = true
-        try? await Task.sleep(nanoseconds: 10)
-        showIndicator = false
+#if canImport(AlertKit) && os(iOS)
+        AlertKitAPI.present(
+            title: self.status == .success ? String(localized: "更新成功") : String(localized: "更新失败"),
+            icon: self.status == .success ? .done : .error,
+            style: .iOS17AppleMusic,
+            haptic: self.status == .success ? .success : .error
+        )
+#endif
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

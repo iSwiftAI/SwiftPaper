@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NetworkErrorView: View {
+    @State var errorString: String?
     var action: () async -> Void = {}
     
     var body: some View {
@@ -19,6 +20,7 @@ struct NetworkErrorView: View {
                 
             Text("似乎网络发生了错误，检查网络设置，并刷新试试吧～")
                 .padding()
+            Text(errorString ?? "")
             Button {
                 Task { await action() }
             } label: {
@@ -27,7 +29,7 @@ struct NetworkErrorView: View {
             .tint(.indigo)
             .buttonStyle(.bordered)
             .controlSize(.large)
-            .padding(.bottom)
+            .padding(.horizontal)
         }
         .padding()
         

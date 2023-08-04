@@ -43,11 +43,6 @@ struct DeadLinesList: View {
                 }
             }
         }
-        .SPIndicator(isPresent: $deadlineStore.showIndicator,
-                     title: deadlineStore.status == .success ? String(localized: "更新成功") : String(localized: "更新失败"),
-                     message: deadlineStore.errorDescription,
-                     preset: deadlineStore.status == .success ? .done : .error,
-                     haptic: deadlineStore.status == .success ? .success : .error)
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)

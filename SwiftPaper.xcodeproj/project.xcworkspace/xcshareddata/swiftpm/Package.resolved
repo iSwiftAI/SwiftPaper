@@ -1,21 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "alertkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/AlertKit.git",
+      "state" : {
+        "revision" : "1da133b6f630f4e11d141ce5c05d09b68200278e",
+        "version" : "5.0.1"
+      }
+    },
+    {
       "identity" : "bettersafariview",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/stleamist/BetterSafariView",
       "state" : {
-        "revision" : "be7248720af18c57c7a1348b20f6212379b28c6b",
-        "version" : "2.4.0"
-      }
-    },
-    {
-      "identity" : "spindicator",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ivanvorobei/SPIndicator",
-      "state" : {
-        "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
-        "version" : "1.6.4"
+        "revision" : "dffd42bc70287e761979bc81dd278db5c80f0deb",
+        "version" : "2.4.1"
       }
     },
     {

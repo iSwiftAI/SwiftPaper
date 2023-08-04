@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0376CE2A7CE66600BE4EC2 /* DeadLineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0376CD2A7CE66600BE4EC2 /* DeadLineDetailView.swift */; };
+		6A0376D12A7CE87900BE4EC2 /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0376D02A7CE87900BE4EC2 /* AlertKit */; };
 		6A29591028C32028001E9A97 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29590F28C32028001E9A97 /* AppearanceView.swift */; };
 		6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29591128C321D9001E9A97 /* ModeToggle.swift */; };
-		6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 6A5CBDA128C0D32400712CD0 /* SPIndicator */; };
 		6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */; };
 		6A97233A28C1F813007BFBD4 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97233928C1F813007BFBD4 /* FilterView.swift */; };
 		B60462B3275611150021DFA4 /* LoadUpdateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60462B2275611150021DFA4 /* LoadUpdateTime.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A0376CD2A7CE66600BE4EC2 /* DeadLineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineDetailView.swift; sourceTree = "<group>"; };
 		6A29590F28C32028001E9A97 /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		6A29591128C321D9001E9A97 /* ModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeToggle.swift; sourceTree = "<group>"; };
 		6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
@@ -108,9 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0376D12A7CE87900BE4EC2 /* AlertKit in Frameworks */,
 				B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */,
 				B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */,
-				6A5CBDA228C0D32400712CD0 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +134,7 @@
 			children = (
 				B6CA9486275472B200D09E6F /* DeadLinesList.swift */,
 				B6CA9488275472C800D09E6F /* DeadLinesRow.swift */,
+				6A0376CD2A7CE66600BE4EC2 /* DeadLineDetailView.swift */,
 			);
 			path = DeadLines;
 			sourceTree = "<group>";
@@ -298,7 +301,7 @@
 			packageProductDependencies = (
 				B60462B527563CB80021DFA4 /* SwiftyMarkdown */,
 				B676F7A427688B9800347E34 /* BetterSafariView */,
-				6A5CBDA128C0D32400712CD0 /* SPIndicator */,
+				6A0376D02A7CE87900BE4EC2 /* AlertKit */,
 			);
 			productName = SwiftPaper;
 			productReference = B6EED01B273A96E10077832F /* SwiftPaper.app */;
@@ -332,7 +335,7 @@
 			packageReferences = (
 				B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 				B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
-				6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */,
 			);
 			productRefGroup = B6EED01C273A96E10077832F /* Products */;
 			projectDirPath = "";
@@ -382,6 +385,7 @@
 				B6EED02E273A96FF0077832F /* CCFModel.swift in Sources */,
 				B6EB11632753B47900FF09CE /* DeadLineTimeLine.swift in Sources */,
 				B6CA948B27547F7E00D09E6F /* BuildNumber.swift in Sources */,
+				6A0376CE2A7CE66600BE4EC2 /* DeadLineDetailView.swift in Sources */,
 				B6EED05E273A971A0077832F /* SwiftUIImage+IconStyle.swift in Sources */,
 				6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */,
 				B6EED058273A97190077832F /* CCFRow.swift in Sources */,
@@ -637,12 +641,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+		6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
+			repositoryURL = "https://github.com/sparrowcode/AlertKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 5.0.0;
 			};
 		};
 		B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
@@ -664,10 +668,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A5CBDA128C0D32400712CD0 /* SPIndicator */ = {
+		6A0376D02A7CE87900BE4EC2 /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6A5CBDA028C0D32400712CD0 /* XCRemoteSwiftPackageReference "SPIndicator" */;
-			productName = SPIndicator;
+			package = 6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */;
+			productName = AlertKit;
 		};
 		B60462B527563CB80021DFA4 /* SwiftyMarkdown */ = {
 			isa = XCSwiftPackageProductDependency;

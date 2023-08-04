@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SPIndicator
 
 struct CCFList: View {
     @EnvironmentObject var ccfStore: CCFStore
@@ -25,7 +24,7 @@ struct CCFList: View {
         VStack {
             switch ccfStore.status {
             case .fail:
-                NetworkErrorView {
+                NetworkErrorView(errorString: ccfStore.errorDescription) {
                     await ccfStore.fetch(force: true)
                 }
             case .loading:
@@ -45,11 +44,6 @@ struct CCFList: View {
                 }
             }
         }
-        .SPIndicator(isPresent: $ccfStore.showIndicator,
-                     title: ccfStore.status == .success ? String(localized: "更新成功") : String(localized: "更新失败"),
-                     message: ccfStore.errorDescription,
-                     preset: ccfStore.status == .success ? .done : .error,
-                     haptic: ccfStore.status == .success ? .success : .error)
         
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
