@@ -15,6 +15,7 @@ struct CCFList: View {
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
     @State var selectedFields: [String] = ["计算机体系结构/并行与分布计算/存储系统", "计算机网络", "网络与信息安全", "软件工程/系统软件/程序设计语言", "数据库/数据挖掘/内容检索", "计算机科学理论", "计算机图形学与多媒体", "人工智能", "人机交互与普适计算", "交叉/综合/新兴"]
+    @State var selectedClasses: [String] = ["A 类", "B 类", "C 类", "非 CCF 推荐列表"]
     
     @State var showFilterView = false
     
@@ -47,7 +48,7 @@ struct CCFList: View {
         
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
-            FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese)
+            FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, selectedClasses: $selectedClasses, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese)
         }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("SwiftPaper"))
@@ -85,10 +86,17 @@ struct CCFList: View {
     }
     var filterResult: [CCFModel] {
         return searchResult.filter { model in
-            let check1 = self.selectedFields.contains(model.field) || model.region == "中文"
-            let check2 = self.englishOrChinese == 0 || model.region == (self.englishOrChinese == 1 ? "国际" : "中文")
-            let check3 = self.conferenceOrJournal == 0 || model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊")
-            return check1 && check2 && check3
+            var model_rank = ""
+            if model.rank.count == 1 {
+                model_rank = model.rank + " 类"
+            } else {
+                model_rank = "非 CCF 推荐列表"
+            }
+            let check1 = self.selectedClasses.contains(model_rank)
+            let check2 = self.selectedFields.contains(model.field) || model.region == "中文"
+            let check3 = self.englishOrChinese == 0 || model.region == (self.englishOrChinese == 1 ? "国际" : "中文")
+            let check4 = self.conferenceOrJournal == 0 || model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊")
+            return check1 && check2 && check3 && check4
         }
     }
     private func searchFilter() -> [CCFModel] {

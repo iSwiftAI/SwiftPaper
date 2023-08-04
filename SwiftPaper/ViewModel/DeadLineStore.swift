@@ -52,7 +52,6 @@ class DeadLineStore: ObservableObject {
             haptic: self.status == .success ? .success : .error
         )
 #endif
-        print(self.deadLines.count)
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

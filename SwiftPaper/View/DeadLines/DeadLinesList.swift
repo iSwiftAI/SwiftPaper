@@ -17,6 +17,7 @@ struct DeadLinesList: View {
     @State var conferenceOrJournal: Int = 0
     @State var englishOrChinese: Int = 0
     @State var selectedFields: [String] = ["计算机体系结构/并行与分布计算/存储系统", "计算机网络", "网络与信息安全", "软件工程/系统软件/程序设计语言", "数据库/数据挖掘/内容检索", "计算机科学理论", "计算机图形学与多媒体", "人工智能", "人机交互与普适计算", "交叉/综合/新兴"]
+    @State var selectedClasses: [String] = ["A 类", "B 类", "C 类", "非 CCF 推荐列表"]
     @State var showFilterView = false
     
     var body: some View {
@@ -46,7 +47,7 @@ struct DeadLinesList: View {
         }
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
-            FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
+            FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, selectedClasses: $selectedClasses, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
         }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("Call For Papers"))
@@ -83,7 +84,13 @@ struct DeadLinesList: View {
     }
     var filterResult: [DeadLine] {
         return searchResult.filter { model in
-            return self.selectedFields.contains(model.sub)
+            var model_rank = ""
+            if model.rank.count == 1 {
+                model_rank = model.rank + " 类"
+            } else {
+                model_rank = "非 CCF 推荐列表"
+            }
+            return self.selectedClasses.contains(model_rank) && self.selectedFields.contains(model.sub)
         }
     }
     private func searchFilter() -> [DeadLine] {
