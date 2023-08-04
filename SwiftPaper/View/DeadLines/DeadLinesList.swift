@@ -38,7 +38,8 @@ struct DeadLinesList: View {
                         }
                     }
                     .navigationDestination(for: DeadLine.self) { deadLine in
-                        CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
+                        DeadLineDetailView(model: ccfStore.getCCFModel(deadLine: deadLine), deadLine: deadLine)
+//                        CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
                     }
                 }
             }
@@ -82,11 +83,7 @@ struct DeadLinesList: View {
     }
     var filterResult: [DeadLine] {
         return searchResult.filter { model in
-            let model = ccfStore.getCCFModel(deadLine: model)!
-            let check1 = self.selectedFields.contains(model.field)
-            let check2 = self.englishOrChinese == 0 || model.region == (self.englishOrChinese == 1 ? "国际" : "中文")
-            let check3 = self.conferenceOrJournal == 0 || model.form == (self.conferenceOrJournal == 1 ? "会议" : "期刊")
-            return check1 && check2 && check3
+            return self.selectedFields.contains(model.sub)
         }
     }
     private func searchFilter() -> [DeadLine] {

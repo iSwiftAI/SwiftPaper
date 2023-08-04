@@ -13,7 +13,7 @@ import AlertKit
 @MainActor
 class DeadLineStore: ObservableObject {
     
-    private static var loadDataURL = "https://api.swiftpaper.top/conference_new.json"
+    private static var loadDataURL = "https://api.swiftpaper.top/conference_new2.json"
     
     @Published var deadLines: [DeadLine] = []
 
@@ -52,6 +52,7 @@ class DeadLineStore: ObservableObject {
             haptic: self.status == .success ? .success : .error
         )
 #endif
+        print(self.deadLines.count)
     }
     
     func getDeadLine(ccfModel: CCFModel) -> DeadLine? {

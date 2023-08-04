@@ -51,7 +51,7 @@ struct FilterView: View {
                            if selectedFields.count == allFields.count { self.selectedFields = [] }
                            else { self.selectedFields = allFields }
                        } label: {
-                           Text("全选")
+                           Text("全选").font(.caption)
                        }
                    }
                }
