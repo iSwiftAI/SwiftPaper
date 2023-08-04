@@ -20,41 +20,34 @@ struct DeadLinesList: View {
     @State var showFilterView = false
     
     var body: some View {
-        Group {
-            if !deadlineStore.successfullyLoaded && filterResult.isEmpty && !deadlineStore.loading {
+        VStack {
+            switch ccfStore.status {
+            case .fail:
                 NetworkErrorView {
                     await deadlineStore.fetch(force: true)
                 }
-            } else if deadlineStore.loading {
+            case .loading:
                 ProgressView()
-            } else {
+            case .success, .refreshing:
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    if #available(iOS 16, *) {
-                        List(filterResult) { deadLine in
-                            NavigationLink(value: deadLine) {
-                                DeadLinesRow(deadLine: deadLine)
-                            }
+                    List(filterResult) { deadLine in
+                        NavigationLink(value: deadLine) {
+                            DeadLinesRow(deadLine: deadLine)
                         }
-                        .navigationDestination(for: DeadLine.self) { deadLine in
-                            CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
-                        }
-                    } else {
-                        List(filterResult) { deadLine in
-                            NavigationLink(destination: CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)) {
-                                DeadLinesRow(deadLine: deadLine)
-                            }
-                        }
+                    }
+                    .navigationDestination(for: DeadLine.self) { deadLine in
+                        CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
                     }
                 }
             }
         }
         .SPIndicator(isPresent: $deadlineStore.showIndicator,
-                     title: deadlineStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
+                     title: deadlineStore.status == .success ? String(localized: "更新成功") : String(localized: "更新失败"),
                      message: deadlineStore.errorDescription,
-                     preset: deadlineStore.successfullyLoaded ? .done : .error,
-                     haptic: deadlineStore.successfullyLoaded ? .success : .error)
+                     preset: deadlineStore.status == .success ? .done : .error,
+                     haptic: deadlineStore.status == .success ? .success : .error)
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
@@ -66,7 +59,7 @@ struct DeadLinesList: View {
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             
-            if self.deadlineStore.refreshing {
+            if self.deadlineStore.status == .refreshing {
                 ProgressView()
             } else {
                 Button {

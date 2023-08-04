@@ -13,12 +13,11 @@ class DeadLineStore: ObservableObject {
     private static var loadDataURL = "https://api.swiftpaper.top/conference_new.json"
     
     @Published var deadLines: [DeadLine] = []
-    @Published var loading: Bool = true
-    @Published var refreshing: Bool = false
-    
-    @Published var successfullyLoaded: Bool = true
+
     @Published var errorDescription: String?
     @Published var showIndicator = false
+    
+    @Published var status: loadStatus = .loading
     
     
     init() {
@@ -31,20 +30,19 @@ class DeadLineStore: ObservableObject {
     func fetch(force: Bool = false) async {
         
         if deadLines.isEmpty {
-            self.loading = true
+            self.status = .loading
+        } else {
+            self.status = .refreshing
         }
-        self.refreshing = true
         do {
             self.deadLines = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
             sort()
-            successfullyLoaded = true
+            self.status = .success
             errorDescription = nil
         } catch {
-            successfullyLoaded = false
+            self.status = .fail
             errorDescription = error.localizedDescription
         }
-        self.loading = false
-        self.refreshing = false
         
         showIndicator = true
         try? await Task.sleep(nanoseconds: 10)

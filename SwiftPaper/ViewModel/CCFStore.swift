@@ -14,12 +14,11 @@ class CCFStore: ObservableObject {
     private static var loadDataURL = "https://api.swiftpaper.top/ccf_new.json"
     
     @Published var ccfModels: [CCFModel] = []
-    @Published var loading: Bool = true
-    @Published var refreshing: Bool = false
-    
-    @Published var successfullyLoaded: Bool = true
+
     @Published var errorDescription: String?
     @Published var showIndicator = false
+    
+    @Published var status: loadStatus = .loading
     
     init() {
         Task {
@@ -31,19 +30,19 @@ class CCFStore: ObservableObject {
     func fetch(force: Bool = false) async {
         
         if ccfModels.isEmpty {
-            self.loading = true
+            self.status = .loading
+        } else {
+            self.status = .refreshing
         }
-        self.refreshing = true
+        
         do {
             self.ccfModels = try await loadjsonfromWeb(from: URL(string: Self.loadDataURL)!, force: force)
-            successfullyLoaded = true
+            self.status = .success
             errorDescription = nil
         } catch {
-            successfullyLoaded = false
+            self.status = .fail
             errorDescription = error.localizedDescription
         }
-        self.loading = false
-        self.refreshing = false
         
         showIndicator = true
         try? await Task.sleep(nanoseconds: 10)
@@ -63,4 +62,12 @@ class CCFStore: ObservableObject {
     static var placeholderCCF: [CCFModel] {
         return loadjsonfromFile("ccf.json")
     }
+}
+
+
+enum loadStatus {
+    case success
+    case fail
+    case loading
+    case refreshing
 }

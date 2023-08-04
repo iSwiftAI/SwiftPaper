@@ -22,41 +22,34 @@ struct CCFList: View {
     
     var body: some View {
         
-        Group {
-            if !ccfStore.successfullyLoaded && filterResult.isEmpty && !ccfStore.loading {
+        VStack {
+            switch ccfStore.status {
+            case .fail:
                 NetworkErrorView {
                     await ccfStore.fetch(force: true)
                 }
-            } else if ccfStore.loading {
+            case .loading:
                 ProgressView()
-            } else {
+            case .success, .refreshing:
                 if filterResult.isEmpty {
                     EmptyCCFView()
                 } else {
-                    if #available(iOS 16, *) {
-                        List(filterResult) { model in
-                            NavigationLink(value: model) {
-                                CCFRow(model: model)
-                            }
+                    List(filterResult) { model in
+                        NavigationLink(value: model) {
+                            CCFRow(model: model)
                         }
-                        .navigationDestination(for: CCFModel.self) { model in
-                            CCFDetailView(model: model)
-                        }
-                    } else {
-                        List(filterResult) { model in
-                            NavigationLink(destination: CCFDetailView(model: model)) {
-                                CCFRow(model: model)
-                            }
-                        }
+                    }
+                    .navigationDestination(for: CCFModel.self) { model in
+                        CCFDetailView(model: model)
                     }
                 }
             }
         }
         .SPIndicator(isPresent: $ccfStore.showIndicator,
-                     title: ccfStore.successfullyLoaded ? String(localized: "更新成功") : String(localized: "更新失败"),
+                     title: ccfStore.status == .success ? String(localized: "更新成功") : String(localized: "更新失败"),
                      message: ccfStore.errorDescription,
-                     preset: ccfStore.successfullyLoaded ? .done : .error,
-                     haptic: ccfStore.successfullyLoaded ? .success : .error)
+                     preset: ccfStore.status == .success ? .done : .error,
+                     haptic: ccfStore.status == .success ? .success : .error)
         
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
@@ -69,7 +62,7 @@ struct CCFList: View {
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            if self.ccfStore.refreshing {
+            if self.ccfStore.status == .refreshing {
                 ProgressView()
             } else {
                 Button {
