@@ -6,7 +6,7 @@
 //
 import Foundation
 import Combine
-#if canImport(AlertKit)
+#if os(iOS)
 import AlertKit
 #endif
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct NetworkErrorView: View {
     @State var errorString: String?
     var action: () async -> Void = {}
+    @StateObject var networkMonitor = NetworkMonitor()
     
     var body: some View {
         VStack {
@@ -20,7 +21,8 @@ struct NetworkErrorView: View {
                 
             Text("似乎网络发生了错误，检查网络设置，并刷新试试吧～")
                 .padding()
-            Text(errorString ?? "")
+            Text("错误描述：").font(.caption) + Text(errorString ?? "").font(.caption)
+            Text("网络状态：").font(.caption) + Text(networkMonitor.isConnected ? "正常" : "断开").font(.caption)
             Button {
                 Task { await action() }
             } label: {
@@ -30,6 +32,7 @@ struct NetworkErrorView: View {
             .buttonStyle(.bordered)
             .controlSize(.large)
             .padding(.horizontal)
+            
         }
         .padding()
         

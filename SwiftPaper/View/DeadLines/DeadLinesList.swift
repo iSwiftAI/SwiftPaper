@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SPIndicator
 
 struct DeadLinesList: View {
     @EnvironmentObject var deadlineStore: DeadLineStore
@@ -22,9 +21,9 @@ struct DeadLinesList: View {
     
     var body: some View {
         VStack {
-            switch ccfStore.status {
+            switch deadlineStore.status {
             case .fail:
-                NetworkErrorView {
+                NetworkErrorView(errorString: deadlineStore.errorDescription) {
                     await deadlineStore.fetch(force: true)
                 }
             case .loading:
@@ -85,7 +84,7 @@ struct DeadLinesList: View {
     var filterResult: [DeadLine] {
         return searchResult.filter { model in
             var model_rank = ""
-            if model.rank.count == 1 {
+            if model.rank != "N" {
                 model_rank = model.rank + " 类"
             } else {
                 model_rank = "非 CCF 推荐列表"

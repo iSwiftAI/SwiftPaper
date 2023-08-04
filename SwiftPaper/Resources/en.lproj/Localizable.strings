@@ -21,6 +21,7 @@
 
 
 "筛选" = "Filter";
+"选择类别" = "Rank";
 "选择领域" = "Fields";
 "选择会议或期刊" = "Conferences & Journals";
 "选择国际或中文" = "International & Chinese";
@@ -34,6 +35,11 @@
 "重置筛选" = "Reset Filter";
 "全选" = "Select All";
 "完成" = "Done";
+
+"A 类" = "A";
+"B 类" = "B";
+"C 类" = "C";
+"非 CCF 推荐列表" = "Not in CCF list";
 
 
 "计算机体系结构/并行与分布计算/存储系统" = "Computer Architecture/Parallel and Distributed Computer/Storage";
@@ -98,3 +104,7 @@
 "中国计算机学会推荐中文科技期刊目录" = "The List of Chinese sci-tech Academic Periodicals Recommended by CCF";
 "这里空空如也，换个关键词或筛选条件再试试吧～" = "It's empty here. Change a keyword or the filter condition and try again ~";
 "似乎网络发生了错误，检查网络设置，并刷新试试吧～" = "It seems that there is an error in the network, check the network settings and try refreshing it ~";
+"错误描述：" = "Error: ";
+"网络状态：" = "Network connection: ";
+"断开" = "Disconnected";
+"正常" = "Connected";

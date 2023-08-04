@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A0376CE2A7CE66600BE4EC2 /* DeadLineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0376CD2A7CE66600BE4EC2 /* DeadLineDetailView.swift */; };
-		6A0376D12A7CE87900BE4EC2 /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0376D02A7CE87900BE4EC2 /* AlertKit */; };
+		6A0376D62A7D34FF00BE4EC2 /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A0376D52A7D34FF00BE4EC2 /* AlertKit */; };
 		6A29591028C32028001E9A97 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29590F28C32028001E9A97 /* AppearanceView.swift */; };
 		6A29591228C321D9001E9A97 /* ModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29591128C321D9001E9A97 /* ModeToggle.swift */; };
 		6A5CBDA428C1E8F600712CD0 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CBDA328C1E8F600712CD0 /* NetworkErrorView.swift */; };
@@ -110,15 +110,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0376D12A7CE87900BE4EC2 /* AlertKit in Frameworks */,
 				B60462B627563CB80021DFA4 /* SwiftyMarkdown in Frameworks */,
 				B676F7A527688B9800347E34 /* BetterSafariView in Frameworks */,
+				6A0376D62A7D34FF00BE4EC2 /* AlertKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A0376D22A7D2F4900BE4EC2 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		B6CA948227546F8C00D09E6F /* CCFList */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +224,7 @@
 				B6EED044273A97190077832F /* Extension */,
 				B6EED038273A97190077832F /* Resources */,
 				B6EED024273A96E30077832F /* Preview Content */,
+				6A0376D22A7D2F4900BE4EC2 /* Packages */,
 			);
 			path = SwiftPaper;
 			sourceTree = "<group>";
@@ -301,7 +310,7 @@
 			packageProductDependencies = (
 				B60462B527563CB80021DFA4 /* SwiftyMarkdown */,
 				B676F7A427688B9800347E34 /* BetterSafariView */,
-				6A0376D02A7CE87900BE4EC2 /* AlertKit */,
+				6A0376D52A7D34FF00BE4EC2 /* AlertKit */,
 			);
 			productName = SwiftPaper;
 			productReference = B6EED01B273A96E10077832F /* SwiftPaper.app */;
@@ -335,7 +344,7 @@
 			packageReferences = (
 				B60462B427563CB80021DFA4 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 				B676F7A327688B9800347E34 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
-				6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */,
+				6A0376D42A7D34FF00BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */,
 			);
 			productRefGroup = B6EED01C273A96E10077832F /* Products */;
 			projectDirPath = "";
@@ -570,7 +579,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -608,7 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -641,7 +650,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */ = {
+		6A0376D42A7D34FF00BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparrowcode/AlertKit.git";
 			requirement = {
@@ -668,9 +677,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A0376D02A7CE87900BE4EC2 /* AlertKit */ = {
+		6A0376D52A7D34FF00BE4EC2 /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6A0376CF2A7CE87900BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */;
+			package = 6A0376D42A7D34FF00BE4EC2 /* XCRemoteSwiftPackageReference "AlertKit" */;
 			productName = AlertKit;
 		};
 		B60462B527563CB80021DFA4 /* SwiftyMarkdown */ = {
