@@ -16,7 +16,7 @@ struct DeadLinesRow: View {
     
     var body: some View {
         HStack {
-            RankView(rank: deadLine.rank)
+            RankView(rank: deadLine.rank.ccf)
             VStack(alignment: .leading) {
                 Text(deadLine.title + " \(deadLine.latestConf.year)")
                     .font(.system(.title, design: .rounded))
@@ -32,7 +32,7 @@ struct DeadLinesRow: View {
                 HStack {
                     Image(systemName: "calendar.badge.clock").renderingMode(.original)
                     Text(countDown).bold()
-                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                        .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank.ccf] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
                 }
                 .padding(.top, 0.5)
                 .font(.system(.title3, design: .rounded))

@@ -141,6 +141,7 @@ struct FilterView: View {
                        self.englishOrChinese = 0
                        self.conferenceOrJournal = 0
                        self.selectedFields = allFields
+                       self.selectedClasses = allClasses
                    }, label: {
                        Text("重置筛选")
                    })

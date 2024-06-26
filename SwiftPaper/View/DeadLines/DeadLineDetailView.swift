@@ -25,8 +25,8 @@ struct DeadLineDetailView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        RankView(rank: deadLine.rank, width: 100, height: 100)
-                        Text(LocalizedStringKey("\(deadLine.rank) 类")).foregroundColor(.secondary)
+                        RankView(rank: deadLine.rank.ccf, width: 100, height: 100)
+                        Text(LocalizedStringKey("\(deadLine.rank.ccf) 类")).foregroundColor(.secondary)
                         Text(deadLine.title + " \(deadLine.latestConf.year)")
                             .font(.system(.title, design: .rounded))
                             .bold()
@@ -36,7 +36,7 @@ struct DeadLineDetailView: View {
                             .fixedSize(horizontal: false, vertical: true).font(.title2)
                         Text(countDown)
                             .font(.system(.title, design: .rounded))
-                            .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
+                            .foregroundStyle(self.futureDate > Date() ? LinearGradientColors[deadLine.rank.ccf] ?? LinearGradientColors["Non-CCF"]! : .linearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing))
                             .padding(4)
                     }
                     Spacer()
@@ -66,6 +66,13 @@ struct DeadLineDetailView: View {
                         )
                     }
                 }
+            }
+            
+            Section {
+                TextinForm(Title: "CORE", Content: deadLine.rank.core)
+                TextinForm(Title: "THCPL", Content: deadLine.rank.thcpl)
+            } header: {
+                Text("其它评级")
             }
             
             NavigationLink(destination: AllDeadLines(confs: deadLine.confs, abbreviation: deadLine.title)) {

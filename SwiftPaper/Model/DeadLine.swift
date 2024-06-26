@@ -77,12 +77,26 @@ struct DeadLine: Identifiable, Hashable {
         var nearestDeadLineDate: Date
     }
     
+    struct Rank: Codable, Hashable {
+        let ccf: String
+        let core: String
+        let thcpl: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case ccf = "ccf"
+            case core = "core"
+            case thcpl = "thcpl"
+        }
+    }
+    
     let title: String
     let description: String
     let sub: String
-    let rank: String
+    let rank: Rank
     let dblp: String
     let confs: [Conf]
+    
+    
     
     var id: String {
         return title + description

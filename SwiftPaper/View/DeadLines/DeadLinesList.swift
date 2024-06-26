@@ -84,8 +84,8 @@ struct DeadLinesList: View {
     var filterResult: [DeadLine] {
         return searchResult.filter { model in
             var model_rank = ""
-            if model.rank != "N" {
-                model_rank = model.rank + " 类"
+            if model.rank.ccf != "N" {
+                model_rank = model.rank.ccf + " 类"
             } else {
                 model_rank = "非 CCF 推荐列表"
             }
@@ -97,7 +97,7 @@ struct DeadLinesList: View {
             if (deadLine.title.lowercased().contains(searchText.lowercased()) ||
                 deadLine.description.lowercased().contains(searchText.lowercased()) ||
                 deadLine.sub.lowercased().contains(searchText.lowercased()) ||
-                deadLine.rank.lowercased().contains(searchText.lowercased())) {
+                deadLine.rank.ccf.lowercased().contains(searchText.lowercased())) {
                 return true
             }
             return false
