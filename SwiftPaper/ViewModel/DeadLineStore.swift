@@ -40,12 +40,9 @@ class DeadLineStore: ObservableObject {
             sort()
             self.status = .success
             errorDescription = nil
-            print("Success")
         } catch {
             self.status = .fail
-            print(error)
             errorDescription = error.localizedDescription
-            print(self.errorDescription ?? "无错误")
         }
 #if canImport(AlertKit) && os(iOS)
         AlertKitAPI.present(

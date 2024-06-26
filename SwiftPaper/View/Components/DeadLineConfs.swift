@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BetterSafariView
 
 struct DeadLineConfs: View {
     @State var conf: DeadLine.Conf
@@ -25,22 +24,11 @@ struct DeadLineConfs: View {
             NavigationLink(destination: DeadLineTimeLine(timeLines: conf.timeline, timeZone: timeZone)) {
                 TextinForm(Title: "截稿时间", Content: conf.nearestDeadLine.deadline.localTimeString(timeZone: timeZone))
             }
-            Button(action: {
-                self.url = conf.link
-            }) {
+            Link(destination: conf.link) {
                 Label("访问会议网站", systemImage: "safari")
             }
         } header: {
             Text(LocalizedStringKey(header ?? "") )
-        }
-        .safariView(item: $url) { url in
-            SafariView(
-                url: url,
-                configuration: SafariView.Configuration(
-                    entersReaderIfAvailable: false,
-                    barCollapsingEnabled: true
-                )
-            )
         }
     }
 }

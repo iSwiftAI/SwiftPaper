@@ -6,21 +6,12 @@
 //
 
 import SwiftUI
-import MessageUI
 
 struct SettingsView: View {
     // App version
     let version = Bundle.main.appVersionShort
     let build = Bundle.main.appVersionLong
     let appName = Bundle.main.appName
-    
-    // mail
-    @State var result: Result<MFMailComposeResult, Error>? = nil
-    @State var isShowingMailView = false
-    
-    // share
-    @State var showPopover = false
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     // welcome view
     @AppStorage("showWelcome") var showWelcome: Bool = false
@@ -37,9 +28,7 @@ struct SettingsView: View {
                 HStack {
                     Spacer()
                     VStack(alignment: .center) {
-//                        Image(uiImage: UIImage(named: getHPrimaryIconName()!) ?? UIImage())
                         Image(appIcon+"Image")
-//                            .renderingMode(.original)
                             .IconImageStyle(width: 90)
                         Text(appName)
                             .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -51,59 +40,27 @@ struct SettingsView: View {
             
             // Report & share
             Section {
-                NavigationLink {
-                    AppearanceView()
-                } label: {
-                    Label {
-                        Text("外观")
-                    } icon: {
-                        Image(systemName: "paintbrush.fill")
-                            .foregroundColor(.indigo)
-                    }
-                }
-                Button(action: { self.isShowingMailView.toggle() }, label: {
+                Link(destination: EmailURL()) {
                     Label(title: { Text("反馈问题").foregroundColor(.primary) }) {
                         Image(systemName: "envelope")
                             .foregroundColor(Color.orange)
                     }
-                })
-                    .disabled(!MFMailComposeViewController.canSendMail())
-                    .sheet(isPresented: $isShowingMailView) {
-                        MailView(result: self.$result).ignoresSafeArea()
-                    }
-                Button(action: { rateApp() }, label: {
+                }
+                Link(destination: URL(string: "https://itunes.apple.com/app/id1640972298?action=write-review")!) {
                     Label(title: { Text("好评鼓励").foregroundColor(.primary) }) {
                         Image(systemName: "star")
                             .foregroundColor(Color.yellow)
                     }
-                })
-                if #available(iOS 16, *) {
-                    ShareLink(item: AppURL) {
-                        Label {
-                            Text("推荐应用给朋友").foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(Color.blue)
-                        }
-                    }
-                } else {
-                    Button {
-                        if horizontalSizeClass == .compact {
-                            ShareAppSheet()
-                        } else {
-                            showPopover = true
-                        }
-                    } label: {
-                        Label(title: { Text("推荐应用给朋友").foregroundColor(.primary) }) {
-                            Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(Color.blue)
-                        }
-                    }
-                    .popover(isPresented: $showPopover, content: {
-                        ActivityViewController(activityItems: [AppURL])
-                    })
                 }
-                
+                ShareLink(item: AppURL) {
+                    Label {
+                        Text("推荐应用给朋友").foregroundColor(.primary)
+                    } icon: {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(Color.blue)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle())
                 
             }
             
@@ -115,9 +72,10 @@ struct SettingsView: View {
                             .foregroundColor(Color.green)
                     }
                 })
-                    .sheet(isPresented: $showWelcome, onDismiss: {}) {
-                        WelcomeView()
-                    }
+                .buttonStyle(PlainButtonStyle())
+                .sheet(isPresented: $showWelcome, onDismiss: {}) {
+                    WelcomeView()
+                }
                 Link(destination: URL(string: "https://github.com/NiallLDY")!) {
                     Label(title: { Text("关于作者").foregroundColor(.primary) }) {
                         Image(systemName: "person")
@@ -149,8 +107,7 @@ struct SettingsView: View {
                 }
             }
             
-//            NetworkStatusView()
-            
+            //            NetworkStatusView()
             // Build number
             Section {
                 HStack {
@@ -160,7 +117,16 @@ struct SettingsView: View {
                 }.listRowBackground(Color.clear)
             }
         }
+        .formStyle(.grouped)
         .navigationTitle(Text("设置"))
+    }
+    
+    func EmailURL() -> URL {
+        let email = "support@iswiftai.com"
+        let subject = "SwiftPaper Feedback \(version) (\(build))"
+        let body = "\n\n\n App Version: \(version) (\(build)) "
+        guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return URL(string: "mailto:supprot@iswiftai.com")! }
+        return url
     }
 }
 
@@ -169,3 +135,5 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+
+public var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!

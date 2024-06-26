@@ -9,11 +9,17 @@ import SwiftUI
 
 extension Image {
     
-    /// Image with iOS icon style.
+    /// Image with macOS/iOS icon style.
     /// - Parameter width: Image width and height.
-    /// - Returns: An image icon with iOS icon style.
+    /// - Returns: An image icon with macOS/iOS icon style.
     func IconImageStyle(width: CGFloat) -> some View {
         let cornerRadiusRate: CGFloat = 0.2237
+        
+        #if os(iOS)
+        let borderColor = Color(UIColor.systemGray4)
+        #else
+        let borderColor = Color(NSColor.separatorColor)
+        #endif
         
         return self
             .resizable()
@@ -22,8 +28,7 @@ extension Image {
             .clipShape(RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous)
-                    .stroke(Color(UIColor.systemGray4), lineWidth: 0.5)
+                    .stroke(borderColor, lineWidth: 0.5)
             )
-        
     }
 }

@@ -11,7 +11,6 @@ struct WelcomeView: View {
     @AppStorage("showWelcome") var showWelcome: Bool = true
     
     var body: some View {
-        NavigationView {
             VStack {
                 Image("welcome")
                     .resizable()
@@ -33,8 +32,10 @@ struct WelcomeView: View {
                 .controlSize(.large)
                 .padding(.bottom)
             }
+        #if os(macOS)
+            .frame(minWidth: 400, idealWidth: 500, minHeight: 400, idealHeight: 400)
+        #endif
             
-        }
     }
 }
 

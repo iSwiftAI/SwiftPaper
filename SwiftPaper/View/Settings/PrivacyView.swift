@@ -6,33 +6,38 @@
 //
 
 import SwiftUI
-import SwiftyMarkdown
 
 struct PrivacyView: View {
     let filepath = Bundle.main.url(forResource: "Privacy", withExtension: "md")
+    @State private var fileContent: String = ""
+    
     var body: some View {
-        UIKTextView(text: .constant(SwiftyMarkdown(url: filepath!)!.attributedString()))
+        ScrollView {
+            Text(try! AttributedString(markdown: fileContent, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)))
+                .padding()
+        }
         .navigationTitle(Text("Privacy"))
-        
+        .task {
+            loadFileContent()
+        }
+    }
+    
+    private func loadFileContent() {
+        guard let filepath = filepath else {
+            print("File not found")
+            return
+        }
+        do {
+            let content = try String(contentsOf: filepath)
+            fileContent = content
+        } catch {
+            print("Failed to load file content: \(error.localizedDescription)")
+        }
     }
 }
 
 struct PrivacyView_Previews: PreviewProvider {
     static var previews: some View {
         PrivacyView()
-    }
-}
-
-struct UIKTextView: UIViewRepresentable {
-    @Binding var text: NSAttributedString
-
-    func makeUIView(context: Context) -> UITextView {
-        UITextView()
-    }
-
-    func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.attributedText = text
-        uiView.isEditable = false
-        uiView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }

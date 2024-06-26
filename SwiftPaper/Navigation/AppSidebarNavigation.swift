@@ -23,22 +23,32 @@ struct AppSidebarNavigation: View {
                 Label("会议征稿信息", systemImage: "newspaper").tag(NavigationItem.deadlines)
                 Label("设置", systemImage: "gear").tag(NavigationItem.settings)
             }
+            .frame(minWidth: 200)
             .navigationTitle(Text("SwiftPaper"))
         } detail: {
             NavigationStack {
                 switch selection {
                 case .none, .ccflist:
                     CCFList(searchText: $searchCCFModel)
+                    #if os(iOS)
                         .searchable(text: $searchCCFModel, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                    #else
+                        .searchable(text: $searchCCFModel, prompt: "搜索")
+                    #endif
                         .disableAutocorrection(true)
                 case .deadlines:
                     DeadLinesList(searchText: $searchDeadLine)
+                    #if os(iOS)
                         .searchable(text: $searchDeadLine, placement: .navigationBarDrawer(displayMode: .always), prompt: "搜索")
+                    #else
+                        .searchable(text: $searchDeadLine, prompt: "搜索")
+                    #endif
                         .disableAutocorrection(true)
                 case .settings:
                     SettingsView()
                 }
             }
+            .frame(minWidth: 450, minHeight: 300)
         }
         .navigationSplitViewStyle(.automatic)
     }

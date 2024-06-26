@@ -22,7 +22,7 @@ struct RankView: View {
                 .clipShape(RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: width * cornerRadiusRate, style: .continuous)
-                        .stroke(Color(UIColor.systemGray4), lineWidth: 0.5)
+                        .stroke(Color(.lightGray), lineWidth: 0.5)
                 )
             Text(rank)
                 .font(rank.count > 1 ? .system(size: width / 5, weight: .bold, design: .rounded) : .system(size: width / 7 * 4, weight: .bold, design: .rounded))

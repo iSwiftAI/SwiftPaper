@@ -12,13 +12,15 @@ struct AllDeadLines: View {
     var abbreviation = ""
     
     var body: some View {
-        List(confs, id: \.self) { conf in
-            DeadLineConfs(conf: conf, abbreviation: abbreviation)
+        Form {
+            ForEach(confs, id: \.self) { conf in
+                DeadLineConfs(conf: conf, abbreviation: abbreviation)
+            }
+            .onAppear {
+                self.confs = confs.sorted {$0.year > $1.year}
+            }
         }
-        .onAppear {
-            self.confs = confs.sorted {$0.year > $1.year}
-        }
-        .navigationBarTitleDisplayMode(.inline)
+        .formStyle(.grouped)
         .navigationTitle(Text("历届会议"))
     }
 }

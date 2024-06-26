@@ -39,7 +39,6 @@ struct DeadLinesList: View {
                     }
                     .navigationDestination(for: DeadLine.self) { deadLine in
                         DeadLineDetailView(model: ccfStore.getCCFModel(deadLine: deadLine), deadLine: deadLine)
-//                        CCFDetailView(model: ccfStore.getCCFModel(deadLine: deadLine)!, deadline: deadLine)
                     }
                 }
             }
@@ -47,14 +46,16 @@ struct DeadLinesList: View {
         .refreshable { await self.deadlineStore.fetch(force: true)}
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, selectedClasses: $selectedClasses, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese, hideConferenceSelection: true)
+#if os(macOS)
+                .frame(minWidth: 300, maxWidth: 500, minHeight: 350, maxHeight: 550)
+#endif
         }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("Call For Papers"))
     }
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            
+        ToolbarItem(placement: .primaryAction) {
             if self.deadlineStore.status == .refreshing {
                 ProgressView()
             } else {
@@ -65,7 +66,7 @@ struct DeadLinesList: View {
                 }
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .primaryAction) {
             Button {
                 self.showFilterView = true
             } label: {

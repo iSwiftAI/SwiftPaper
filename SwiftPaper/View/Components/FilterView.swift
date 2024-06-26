@@ -24,7 +24,7 @@ struct FilterView: View {
     
     var body: some View {
         NavigationStack {
-           List {
+           Form {
                Section {
                    ForEach(allClasses, id: \.self) { field in
                        Button {
@@ -43,8 +43,8 @@ struct FilterView: View {
                                    .font(.system(size: 17.5, weight: .semibold, design: .default))
                                    .opacity(self.selectedClasses.contains(field) ? 1.0 : 0.0)
                            }
-                           
                        }
+                       .buttonStyle(PlainButtonStyle())
                    }
                } header: {
                    HStack {
@@ -77,8 +77,8 @@ struct FilterView: View {
                                    .font(.system(size: 17.5, weight: .semibold, design: .default))
                                    .opacity(self.selectedFields.contains(field) ? 1.0 : 0.0)
                            }
-                           
                        }
+                       .buttonStyle(PlainButtonStyle())
                    }
                } header: {
                    HStack {
@@ -123,10 +123,8 @@ struct FilterView: View {
                    }, label: {
                        Text("重置筛选")
                    })
+                   .buttonStyle(PlainButtonStyle())
                }
-               
-               
-               
            }
            .toolbar {
                ToolbarItem(placement: .confirmationAction) {
@@ -147,8 +145,8 @@ struct FilterView: View {
                    })
                }
            }
-           .navigationBarTitle(Text("筛选"))
-           .navigationBarTitleDisplayMode(.inline)
+           .formStyle(.grouped)
+           .navigationTitle(Text("筛选"))
         }
     }
 }

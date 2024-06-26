@@ -1,32 +1,15 @@
 {
+  "originHash" : "0cbe30e4e4ea46002172a4e11f9ef60bc00382ecbad82ca24d937904bf50b30b",
   "pins" : [
     {
       "identity" : "alertkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparrowcode/AlertKit.git",
       "state" : {
-        "revision" : "1da133b6f630f4e11d141ce5c05d09b68200278e",
-        "version" : "5.0.1"
-      }
-    },
-    {
-      "identity" : "bettersafariview",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/stleamist/BetterSafariView",
-      "state" : {
-        "revision" : "dffd42bc70287e761979bc81dd278db5c80f0deb",
-        "version" : "2.4.1"
-      }
-    },
-    {
-      "identity" : "swiftymarkdown",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SimonFairbairn/SwiftyMarkdown",
-      "state" : {
-        "revision" : "dde451ab4ed9b77b328e21baa471fdfa0cf61369",
-        "version" : "1.2.4"
+        "revision" : "3b73be8db5a7e7efaf474c6ed919f5a437d843c9",
+        "version" : "5.1.9"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

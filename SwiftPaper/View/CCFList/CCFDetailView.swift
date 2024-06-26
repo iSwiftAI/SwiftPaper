@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BetterSafariView
 
 struct CCFDetailView: View {
     @EnvironmentObject var deadlineStore: DeadLineStore
@@ -44,19 +43,8 @@ struct CCFDetailView: View {
                 TextinForm(Title: "领域", Content: model.field)
                     .multilineTextAlignment(.trailing)
                 TextinForm(Title: "出版社", Content: model.press)
-                Button(action: {
-                    self.url = URL(string: model.site)!
-                }) {
+                Link(destination: URL(string: model.site)!) {
                     Label("访问 dblp 链接", systemImage: "safari")
-                }
-                .safariView(item: $url) { url in
-                    SafariView(
-                        url: url,
-                        configuration: SafariView.Configuration(
-                            entersReaderIfAvailable: false,
-                            barCollapsingEnabled: true
-                        )
-                    )
                 }
             }
             .onAppear() { // .task
@@ -75,8 +63,11 @@ struct CCFDetailView: View {
                 
             }
         }
+        .formStyle(.grouped)
         .navigationTitle(Text("详细信息"))
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 

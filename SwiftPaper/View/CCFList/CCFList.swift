@@ -49,6 +49,9 @@ struct CCFList: View {
         .refreshable { await ccfStore.fetch(force: true) }
         .sheet(isPresented: $showFilterView) {
             FilterView(showFilterView: $showFilterView, selectedFields: $selectedFields, selectedClasses: $selectedClasses, conferenceOrJournal: $conferenceOrJournal, englishOrChinese: $englishOrChinese)
+            #if os(macOS)
+                .frame(minWidth: 200, maxWidth: 500, minHeight: 250, maxHeight: 550)
+            #endif
         }
         .toolbar(content: toolbarItems)
         .navigationTitle(Text("SwiftPaper"))
@@ -56,9 +59,15 @@ struct CCFList: View {
     
     
     @ToolbarContentBuilder func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .primaryAction) {
             if self.ccfStore.status == .refreshing {
-                ProgressView()
+                Button {
+                    Task { await ccfStore.fetch(force: true) }
+                } label: {
+                    ProgressView()
+                }
+                .disabled(true)
+
             } else {
                 Button {
                     Task { await ccfStore.fetch(force: true) }
@@ -67,7 +76,7 @@ struct CCFList: View {
                 }
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .primaryAction) {
             Button {
                 self.showFilterView = true
             } label: {

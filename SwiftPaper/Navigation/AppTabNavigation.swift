@@ -4,7 +4,7 @@
 //
 //  Created by 吕丁阳 on 2021/7/14.
 //
-
+#if os(iOS)
 import SwiftUI
 
 struct AppTabNavigation: View {
@@ -46,3 +46,4 @@ struct AppTabNavigation_Previews: PreviewProvider {
         AppTabNavigation()
     }
 }
+#endif

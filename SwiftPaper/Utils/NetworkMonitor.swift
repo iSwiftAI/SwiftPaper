@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-@MainActor
+//@MainActor
 class NetworkMonitor: ObservableObject {
     let monitor = NWPathMonitor()
     let queue = DispatchQueue(label: "Monitor")
