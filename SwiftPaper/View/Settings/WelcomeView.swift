@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @AppStorage("showWelcome") var showWelcome: Bool = true
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
             VStack {
@@ -23,7 +23,7 @@ struct WelcomeView: View {
                     .padding()
                 Spacer()
                 Button {
-                    showWelcome = false
+                    dismiss()
                 } label: {
                     Label("开始吧～", systemImage: "bolt")
                 }

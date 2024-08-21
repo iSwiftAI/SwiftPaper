@@ -14,7 +14,7 @@ import AlertKit
 @MainActor
 class CCFStore: ObservableObject {
     
-    private static var loadDataURL = "https://api.swiftpaper.top/ccf_new.json"
+    private static var loadDataURL = "https://api.iswiftai.com/swiftpaper/ccf_new.json"
     
     @Published var ccfModels: [CCFModel] = []
 

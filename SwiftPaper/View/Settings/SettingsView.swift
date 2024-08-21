@@ -14,7 +14,7 @@ struct SettingsView: View {
     let appName = Bundle.main.appName
     
     // welcome view
-    @AppStorage("showWelcome") var showWelcome: Bool = false
+    @State private var showWelcome: Bool = false
     
     // AppIcon
     @AppStorage("appIcon") var appIcon: String = "Default"
@@ -40,7 +40,7 @@ struct SettingsView: View {
             
             // Report & share
             Section {
-                Link(destination: EmailURL()) {
+                Link(destination: EmailURL) {
                     Label(title: { Text("反馈问题").foregroundColor(.primary) }) {
                         Image(systemName: "envelope")
                             .foregroundColor(Color.orange)
@@ -66,23 +66,20 @@ struct SettingsView: View {
             
             // About
             Section {
-                Button(action: { self.showWelcome = true }, label: {
+                Button(action: { showWelcome.toggle() }, label: {
                     Label(title: { Text("查看介绍页面").foregroundColor(.primary) }) {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(Color.green)
                     }
                 })
                 .buttonStyle(PlainButtonStyle())
-                .sheet(isPresented: $showWelcome, onDismiss: {}) {
-                    WelcomeView()
-                }
                 Link(destination: URL(string: "https://github.com/NiallLDY")!) {
                     Label(title: { Text("关于作者").foregroundColor(.primary) }) {
                         Image(systemName: "person")
                             .foregroundColor(Color.indigo)
                     }
                 }
-                Link(destination: URL(string: "https://swiftpaper.top")!) {
+                Link(destination: URL(string: "https://app.iswiftai.com/swiftpaper")!) {
                     Label(title: { Text("APP 网站").foregroundColor(.primary) }) {
                         Image(systemName: "safari")
                             .foregroundColor(Color.blue)
@@ -112,21 +109,24 @@ struct SettingsView: View {
             Section {
                 HStack {
                     Spacer()
-                    Text("\(version) (\(build)) © iSwiftAI").foregroundColor(.secondary).font(.subheadline)
+                    VStack {
+                        Text("\(version) (\(build)) © iSwiftAI").font(.subheadline)
+                            .padding(.bottom, 5)
+                        Link("ICP 备案号：苏ICP备2024111749号-1A", destination: URL(string: "https://beian.miit.gov.cn")!)
+                            .font(.caption)
+                    }
+                    .foregroundColor(.secondary)
+                    
                     Spacer()
-                }.listRowBackground(Color.clear)
+                }
+                .listRowBackground(Color.clear)
             }
+        }
+        .sheet(isPresented: $showWelcome) {
+            WelcomeView()
         }
         .formStyle(.grouped)
         .navigationTitle(Text("设置"))
-    }
-    
-    func EmailURL() -> URL {
-        let email = "support@iswiftai.com"
-        let subject = "SwiftPaper Feedback \(version) (\(build))"
-        let body = "\n\n\n App Version: \(version) (\(build)) "
-        guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return URL(string: "mailto:supprot@iswiftai.com")! }
-        return url
     }
 }
 
@@ -137,3 +137,12 @@ struct SettingsView_Previews: PreviewProvider {
 }
 
 public var AppURL = URL(string: "https://itunes.apple.com/app/id1640972298")!
+public var EmailURL: URL {
+    let version = Bundle.main.appVersionShort
+    let build = Bundle.main.appVersionLong
+    let email = "support@iswiftai.com"
+    let subject = "SwiftPaper Feedback \(version) (\(build))"
+    let body = "\n\n\n App Version: \(version) (\(build)) "
+    guard let url = URL(string: "mailto:\(email)?subject=\(subject.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")&body=\(body.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? "")") else { return URL(string: "mailto:supprot@iswiftai.com")! }
+    return url
+}

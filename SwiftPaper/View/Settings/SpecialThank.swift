@@ -43,7 +43,7 @@ struct SpecialThank: View {
         }
         .task {
             do {
-                updateTime = try await loadUpdateTime(from: URL(string: "https://api.swiftpaper.top/update.log")!, force: true)
+                updateTime = try await loadUpdateTime(from: URL(string: "https://api.iswiftai.com/swiftpaper/update.log")!, force: true)
             } catch {
                 print(error)
             }

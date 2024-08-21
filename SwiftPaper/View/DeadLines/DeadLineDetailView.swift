@@ -50,7 +50,7 @@ struct DeadLineDetailView: View {
                     TextinForm(Title: "领域", Content: model.field)
                         .multilineTextAlignment(.trailing)
                     TextinForm(Title: "出版社", Content: model.press)
-                    Link(destination: URL(string: model.site)!) {
+                    Link(destination: URL(string: model.site) ?? URL(string: "https://dblp.org/")!) {
                         Label("访问 dblp 链接", systemImage: "safari")
                     }
                 }

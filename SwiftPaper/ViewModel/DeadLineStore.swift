@@ -13,7 +13,7 @@ import AlertKit
 @MainActor
 class DeadLineStore: ObservableObject {
     
-    private static var loadDataURL = "https://api.swiftpaper.top/conference_new2.json"
+    private static var loadDataURL = "https://api.iswiftai.com/swiftpaper/conference_new2.json"
     
     @Published var deadLines: [DeadLine] = []
 

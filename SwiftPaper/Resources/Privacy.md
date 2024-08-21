@@ -1,6 +1,6 @@
 ## Privacy Policy
 
-[Privacy Policy](https://swiftpaper.top/privacypolicy/)
+[Privacy Policy](https://app.iswiftai.com/swiftpaper/privacypolicy/)
 
 iSwiftAI built the SwiftPaper app as a Commercial app. This SERVICE is provided by iSwiftAI and is intended for use as is.
 
