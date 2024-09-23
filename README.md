@@ -4,8 +4,10 @@
 
 ## App Store
 
-<a href="https://apps.apple.com/us/app/swiftpaper-ccf-%E6%8E%A8%E8%8D%90%E6%9C%9F%E5%88%8A%E4%BC%9A%E8%AE%AE/id1640972298?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1661040000&h=74e55c945f670fb97c31d0f4537b3333" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
-
+<a href="https://apps.apple.com/us/app/swiftpaper/id1640972298?itscg=30200&itsct=apps_box_badge&mttnsubad=1640972298" style="display: inline-block;">
+<img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1661040000" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" />
+</a>
+    
 
 ## Screenshots
 
