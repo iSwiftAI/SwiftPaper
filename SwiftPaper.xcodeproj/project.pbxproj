@@ -540,7 +540,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftPaper/SwiftPaper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 335;
+				CURRENT_PROJECT_VERSION = 336;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -557,7 +557,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 3.1.1;
+				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -581,7 +581,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwiftPaper/SwiftPaper.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 335;
+				CURRENT_PROJECT_VERSION = 336;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 7R4A6F33C8;
 				ENABLE_PREVIEWS = YES;
@@ -598,7 +598,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 3.1.1;
+				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iswiftai.SwiftPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
