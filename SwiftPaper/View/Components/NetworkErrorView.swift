@@ -13,34 +13,38 @@ struct NetworkErrorView: View {
     @StateObject var networkMonitor = NetworkMonitor()
     
     var body: some View {
-        VStack {
-            Image("network")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 500)
-                
-            Text("似乎网络发生了错误，检查网络设置，并刷新试试吧～")
-                .padding()
-            Text("错误描述：").font(.caption) + Text(errorString ?? "").font(.caption)
-            Text("网络状态：").font(.caption) + Text(networkMonitor.isConnected ? "正常" : "断开").font(.caption)
-            Button {
-                Task { await action() }
-            } label: {
-                Label("刷新", systemImage: "arrow.clockwise")
+        Form {
+            Section {
+                Image("network")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 500)
+                Text("数据加载发生了错误，检查网络设置，将 SwiftPaper 更新到最新版。")
             }
-            .tint(.indigo)
-            .buttonStyle(.bordered)
-            .controlSize(.large)
-            .padding(.horizontal)
+            
+            
+            Section("Detail") {
+                Text("错误描述：") + Text(errorString ?? "")
+                Text("网络状态：") + Text(networkMonitor.isConnected ? "正常" : "断开")
+            }
+            Section {
+                Button {
+                    Task { await action() }
+                } label: {
+                    Text("刷新")
+                }
+                Link("App 检查更新", destination: URL(string: "https://itunes.apple.com/app/id1640972298")!)
+            }
             
         }
-        .padding()
         
     }
 }
 
 struct NetworkErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        NetworkErrorView()
+        NavigationView {
+            NetworkErrorView()
+        }
     }
 }
