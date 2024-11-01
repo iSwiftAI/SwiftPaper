@@ -79,8 +79,8 @@ struct DeadLine: Identifiable, Hashable {
     
     struct Rank: Codable, Hashable {
         let ccf: String
-        let core: String
-        let thcpl: String
+        let core: String?
+        let thcpl: String?
         
         private enum CodingKeys: String, CodingKey {
             case ccf = "ccf"

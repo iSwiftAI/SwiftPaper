@@ -57,8 +57,8 @@ struct DeadLineDetailView: View {
             }
             
             Section {
-                TextinForm(Title: "CORE", Content: deadLine.rank.core)
-                TextinForm(Title: "THCPL", Content: deadLine.rank.thcpl)
+                TextinForm(Title: "CORE", Content: deadLine.rank.core ?? "N/A")
+                TextinForm(Title: "THCPL", Content: deadLine.rank.thcpl ?? "N/A")
             } header: {
                 Text("其它评级")
             }
